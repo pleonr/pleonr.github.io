@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pablo Leon Rodrigues</title>
+        <link>https://leon.dev.br/en/</link>
+        <description>Recent content on Pablo Leon Rodrigues</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leon.dev.br/en/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Why</title>
+        <link>https://leon.dev.br/en/p/why/</link>
+        <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://leon.dev.br/en/p/why/</guid>
+        <description>&lt;img src="https://leon.dev.br/en/p/why/blog.jpg" alt="Featured image of post Why" /&gt;&lt;p&gt;I started studying neovim and needed a project to practice,
+I thought about starting a blog several times but never had content to post,
+I believe I don&amp;rsquo;t have it yet.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s why I created this blog&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class=&#34;link&#34; href=&#34;https://pixabay.com/photos/blog-internet-web-technology-media-2355684&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pixabay&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>https://leon.dev.br/en/archives/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://leon.dev.br/en/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Links</title>
+        <link>https://leon.dev.br/en/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://leon.dev.br/en/links/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>https://leon.dev.br/en/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://leon.dev.br/en/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
