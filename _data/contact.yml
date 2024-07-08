@@ -26,6 +26,11 @@
 - type: instagram
   icon: "fab fa-instagram"
   url: "https://www.instagram.com/pablo.leonrodrigues"
+
+- type: steam
+  icon: "fab fa-steam"
+  url:  "https://steamcommunity.com/id/leonpf"
+
 #
 # - type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
