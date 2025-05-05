@@ -1,1 +1,1 @@
-# blog
+# Blog to share content with my students.
