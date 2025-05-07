@@ -507,7 +507,7 @@ Elas permitem que o fluxo de execução do programa seja alterado de acordo com 
 
 <br/>
 
-<img align="right" width="200" src="/assets/python/if.svg" alt="if"/>
+<img align="right" width="200" src="../assets/python/if.svg" alt="if"/>
 
 ### if
 
@@ -541,7 +541,7 @@ print(bool([1, 2]))    # True
 
 <br/>
 
-<img align="right" width="330" src="/assets/python/else.svg" alt="else"/>
+<img align="right" width="330" src="../assets/python/else.svg" alt="else"/>
 
 ### else
 
@@ -562,7 +562,7 @@ Também podemos testar mais casos que apenas um `if` e um `else`, usando o opera
 
 <br/>
 
-<img align="left" width="450" src="/assets/python/elif.svg" alt="elif"/>
+<img align="left" width="450" src="../assets/python/elif.svg" alt="elif"/>
 
 ### elif
 

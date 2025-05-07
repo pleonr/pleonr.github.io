@@ -1,1 +1,1 @@
-![](/assets/reading.png)
+![Prof.](assets/reading.png)

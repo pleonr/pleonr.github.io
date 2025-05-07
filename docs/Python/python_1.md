@@ -47,11 +47,11 @@ Python é uma linguagem de programação de alto nível, interpretada, de propó
     <p>Entretanto, em julho de 2018, ele anunciou que estaria se afastando desta função devido a desentendimentos com a equipe de desenvolvimento da linguagem Python.</p>
     <p>Guido Van Rossum publicou a primeira versão do código Python (versão 0.9.0) em 1991. Versão 2.0 em 2000 e 3.0 em 2008.</p>
   </div>
-  <img src="/assets/public/Guido_van_Rossum_2006.jpg" alt="Descrição" style="width: 500px; margin-right: 10px;">
+  <img src="../assets/public/Guido_van_Rossum_2006.jpg" alt="Descrição" style="width: 500px; margin-right: 10px;">
 </div>
 
 > [Zen of Python](https://peps.python.org/pep-0020/)
 
 
-[![Guido van Rossum](/assets/public/Guido_van_Rossum_2006.jpg "Guido Van Rossum")](https://gvanrossum.github.io/){:target="_blank"}
+[![Guido van Rossum](../assets/public/Guido_van_Rossum_2006.jpg "Guido Van Rossum")](https://gvanrossum.github.io/){:target="_blank"}
 -->

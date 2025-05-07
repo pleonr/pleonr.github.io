@@ -1,6 +1,6 @@
 # Instrumentalização
 
-<img align="right" width="400" src="/assets/python/Python-Symbol.png" alt="python logo"/>
+<img align="right" width="400" src="../assets/python/Python-Symbol.png" alt="python logo"/>
 
 O Python pode ser utilizado com diversos sistemas operacionais e arquiteturas. Faça o download em [Python.org](https://www.python.org/downloads/){:target="_blank"} e siga o passo a passo de acordo com o seu sistema operacional.
 
@@ -33,7 +33,7 @@ Você pode usar o comando `exit` para sair do REPL.
 
 ## Visual Studio Code
 
-<img align="right" width="300" src="/assets/python/vscode.png" alt="vscode logo"/>
+<img align="right" width="300" src="../assets/python/vscode.png" alt="vscode logo"/>
 
 O [Visual Studio Code](https://code.visualstudio.com/) é um Ambiente de Desenvolvimento Integrado(*Integrated Development Environment - IDE*) da Micrsoft que em partes é open source.
 
@@ -44,7 +44,7 @@ Com o VScode instalado, adicione a extensão do Python no VS Code
 - Vá em Extensões (Ctrl+Shift+X).
 - Busque por Python (desenvolvida pela Microsoft) e instale.
 
-![Python extension](/assets/python/python-extension.png)
+![Python extension](../assets/python/python-extension.png)
 
 ## VENV
 
@@ -79,6 +79,6 @@ No VScode você precisa selecionar o interpretador Python. Pressione `Ctrl+Shift
 
 Depois digite `"Python: Select Interpreter".`
 
-![python interpreter](/assets/python/python-interpreter.png)
+![python interpreter](../assets/python/python-interpreter.png)
 
 (deve mostrar `./venv/bin/python` ou `.\venv\Scripts\python.exe`)
