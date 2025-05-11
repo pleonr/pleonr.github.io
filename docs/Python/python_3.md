@@ -507,7 +507,7 @@ Elas permitem que o fluxo de execução do programa seja alterado de acordo com 
 
 <br/>
 
-<img align="right" width="200" src="../assets/python/if.svg" alt="if"/>
+<img align="right" width="200" src="../../assets/python/if.svg" alt="if"/>
 
 ### if
 
@@ -541,7 +541,7 @@ print(bool([1, 2]))    # True
 
 <br/>
 
-<img align="right" width="330" src="../assets/python/else.svg" alt="else"/>
+<img align="right" width="330" src="../../assets/python/else.svg" alt="else"/>
 
 ### else
 
@@ -562,7 +562,7 @@ Também podemos testar mais casos que apenas um `if` e um `else`, usando o opera
 
 <br/>
 
-<img align="left" width="450" src="../assets/python/elif.svg" alt="elif"/>
+<img align="left" width="450" src="../../assets/python/elif.svg" alt="elif"/>
 
 ### elif
 
@@ -654,12 +654,14 @@ Os conjuntos são coleções não ordenadas que não permitem elementos duplicad
 
 Cada tipo de coleção possui características específicas que se adaptam a diferentes necessidades. O uso adequado dessas estruturas melhora o desempenho do código e facilita a manipulação de informações em diversas aplicações.
 
+
 | Estrutura     | Definição | Características Principais | Exemplo |
 |---------------|-----------|----------------------------|---------|
 | Lista         | ordenada e mutável  | Permite duplicatas, indexada, mutável  | `[1, 2, 3, 4]` |
 | Tupla         | ordenada e imutável | Permite duplicatas, indexada, imutável | `(1, 2, 3, 4)` |
 | Conjunto(set) | não ordenada | Não permite duplicatas, não indexado, mutável | `{1, 2, 3, 4}` |
 | Dicionário    | não ordenada | Chaves únicas, valores mutáveis | `{"a": 1, "b": 2}`|
+
 
 ### Listas
 
@@ -1036,6 +1038,19 @@ Uma função é um bloco de código reutilizável que realiza uma tarefa especí
 
 Toda função deve ser **declarada** para então ser utilizada em outras partes do código. A declaração da função compreende definir seu nome, uma lista de parâmetros (ou deixar em branco) e um corpo que contém as instruções a serem executadas. Em Python, isso é feito usando a palavra reservada `def`.
 
+```python
+def saudacao():
+    print("Olá, seja bem-vindo!")
+```
+
+Depois de uma função ser declarada ela pode ser usada ou "chamada" em outro lugar no código.
+
+```python
+saudacao()
+```
+
+### Parâmetros
+
 Os parâmetros funcionam como variáveis locais, tendo visibilidade apenas no escopo das instruções que pertencem ao bloco da função. Definimos parâmetros sempre que precisamos receber do contexto externo à função valores necessários ao seu processamento. Isso oferece maior amplitude de uso da função, tornando-a mais genérica (e este é o objetivo!).
 
 Funções também podem retornar valores a quem as chamou. A palavra reservada `return` aplicada nestes casos. Nossa funcão de exemplo utiliza tal recurso, pois retorna a soma dos valores informados por parâmetro.
@@ -1065,6 +1080,34 @@ Uma vez definida, a função pode ser chamada (invocada) em qualquer parte do pr
         Corresponde ao bloco de código que define as operações realizadas pela função. Esse bloco é executado quando a função é chamada. É sua implementação.
     === "**Valor de retorno**"
         O resultado que a função devolve ao ponto onde foi chamada, usando a palavra-chave `return`. Uma função pode não retornar nenhum valor. Neste caso, em Python, o valor `None` é implicitamente retornado. Outras linguagens chamam de `void`.
+
+O `return` pode finalizar uma função, mesmo que existam linhas abaixo.
+
+```python
+def teste():
+    print("Antes do return")
+    return "Saindo da função"
+    print("Depois do return")  # Nunca será executado
+```
+
+O `return` pode retornar múltiplos valores também.
+
+```python
+def operacoes(a, b):
+    return a + b, a - b, a * b
+
+soma, sub, mult = operacoes(5, 3)
+print(soma, sub, mult)  # 8 2 15
+```
+O pde não retornar nada (retornar `None`), se você não usar return, ou usar return sozinho, a função retorna None por padrão.
+
+```python
+def sem_retorno():
+    print("Executando...")
+
+resultado = sem_retorno()
+print(resultado)  # None
+```
 
 ### Funções com número de argumentos variáveis
 
@@ -1135,6 +1178,122 @@ O **escopo global**, por sua vez, compreende as variáveis definidas fora de qua
    ```
 
 Para certas situações, é necessário utilizar as palavras reservadas [`global`](https://www.w3schools.com/python/ref_keyword_global.asp) e [`nonlocal`](https://www.w3schools.com/python/ref_keyword_nonlocal.asp) para resolver questões associadas com escopo de variáveis no Python.
+
+## Imports e Módulos
+
+O `import` serve para carregar módulos (bibliotecas) em Python. Um módulo pode ser um arquivo .py com funções, ou uma biblioteca mais complexa (como o `math`, `random`, ou bibliotecas externas como `pandas`, `requests`).
+
+```python
+import math
+print(math.sqrt(16))  # 4.0
+```
+
+Podemos importar uma única função se necessário:
+
+```python
+from math import sqrt
+print(sqrt(25))  # 5.0
+```
+
+Ou adicionar um apelid para um import, mas saiba que isso pode deixar o código mais "sujo" se não utilizado de forma adequada.
+
+```python
+import math as m
+print(m.pi)  # 3.14159...
+```
+
+O módulo `math` faz parte da biblioteca padrão do Python (não precisa instalar), já outros módulos externos precisam de uma instalação para funcionar.
+
+### PIP
+
+`pip` é o gerenciador de pacotes do Python, ele serve para instalar bibliotecas externas que não vêm com o Python.
+
+
+```python
+pip install requests
+```
+
+Isso instala a biblioteca requests (para fazer requisições HTTP), depois de instalar, você pode importar no seu normalmente.
+
+### Requirements
+
+O `requirements.txt` é um arquivo de texto usado para listar as bibliotecas que seu projeto precisa.
+
+Ele permite que outras pessoas (ou servidores) instalem todas as dependências de um projeto de uma vez só, facilitando a instalação de pacotes.
+
+```
+requests==2.31.0
+flask>=2.0
+pandas
+```
+
+Após instalar todas as dependências de um projeto você pode gerar um requirements.txt de forma automática:
+
+```
+pip freeze > requirements.txt
+```
+
+E para instalar as dependências de um projeto com requirements você pode usar o comando `pip install -r requirements.txt`
+
+## Criando um módulo
+
+Podemos transformar nossos arquivos python em módulos, isso é feito para reaproveitamento de código e para organizar grandes projetos.
+
+Crie o arquivo chamado `exemplo.py`.
+
+```python
+def saudacao(nome):
+    return f"Olá, {nome}!"
+
+def soma(a, b):
+    return a + b
+```
+
+Em outro arquivo use o módulo `exemplo.py`
+
+```python
+# main.py
+
+import exemplo
+
+print(exemplo.saudacao("Maria"))
+print(exemplo.soma(3, 4))
+```
+
+Você pode importar apenas algumas partes do módulo
+
+```python
+from exemplo import saudacao
+
+print(saudacao("João"))
+```
+
+Você pode transformar uma pasta em um pacote, um pacote pode ter vários arquivos que funcionam como módulos.
+
+```
+projeto/
+├── main.py
+└── utils/
+    ├── __init__.py
+    └── operacoes.py
+```
+
+Sendo que o arquivo __init__.py pode ser um arquivo vazio indicando que a pasta `utils` é um pacote.
+
+Dentro de `operacoes.py` temos
+
+```python
+def dobro(x):
+    return x * 2
+```
+
+E então usar o `from` e `import`
+
+```python
+from utils.operacoes import dobro
+
+print(dobro(6))  # 12
+```
 
 ## Captura e tratamento de exceções
 
