@@ -120,29 +120,55 @@ Podemos utilizar o javascript para manipular o DOM(*Document Object Model*) da p
 
 ```js
 document.getElementById("demo").style.fontSize = "35px";
-```
-
-```js
 document.getElementById("demo").style.display = "none";
+document.getElementById("meuId");          // Seleciona pelo ID
+document.getElementsByClassName("classe"); // Retorna HTMLCollection
+document.getElementsByTagName("p");        // Retorna todos os <p>
+document.querySelector(".classe");         // Primeiro que combina
+document.querySelectorAll("div > p");      // Todos que combinam
 ```
 
+Sempre que setamos um id em um elementos o javascript automáticamente cria uma variável com esse elemento. Também podemos adicionamos elementos a variáveis, como por exemplo a função getElementsByClassName retorna uma coleção com todos os elementos que implementão a classe `example`
+
 ```js
-document.getElementsByClassName("example");
+demo = document.getElementById("demo").style.display = "none";
+examples = document.getElementsByClassName("example");
 ```
 
 ```js
 function myFunction() {
   document.getElementById("demo").innerHTML = "Paragraph changed.";
 }
+
+elemento.innerHTML = "Novo <b>conteúdo</b>"; // Aceita HTML
+elemento.textContent = "Apenas texto";       // Texto puro
 ```
 
-## Display
+## Alterando atributos de elementos
 
-- Escreve em um elemento HTML, usando innerHTML.
-- Escreve em na saída de um elemento HTML document.write(). Chamando esse método depois da página ter sido carregada,
-vai apagar todo o HTML. CUIDADO!
-- Escreve em um alert box, usando window.alert() ou alert.
-- Escreve no browser console, usando console.log().
+Podemos alterar os atributos de um elemento...
+
+```js
+elemento.setAttribute("src", "imagem.png");
+elemento.getAttribute("href");
+elemento.removeAttribute("disabled");
+```
+
+ou seu estilo...
+
+```js
+elemento.style.color = "red";
+elemento.style.backgroundColor = "yellow";
+
+elemento.classList.add("destaque");
+elemento.classList.remove("oculto");
+elemento.classList.toggle("ativo");
+```
+
+
+## Document.write
+
+Você pode escrever em um elemento HTML, usando innerHTML. Ao escrever na saída de um elemento HTML usando `document.write()` depois da página ter sido carregada, vai apagar todo o HTML. CUIDADO!
 
 ```html
 <!DOCTYPE html>
