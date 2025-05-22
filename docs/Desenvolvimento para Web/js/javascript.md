@@ -19,6 +19,13 @@ JavaScript is also unable to access the local file system, which also makes it l
 to delete files on the local machine that are private to any user.
 -->
 
+O nome verdadeiro não é Javascript e sim ECMAScript, mas é popularmente chamado de Javascript.
+
+Foi criado em 1995 e foi escrito em apenas 10 dias por Brendan Eich baseado em outras linguagens como Java, Perl, Scheme, HyperTalk, Self, and AWK.
+
+Foi criado para interagir de forma rápida com os elementos DOM do HTML.
+
+
 ## Engines
 
 Quando uma página da web é carregada, o código JavaScript é baixado no navegador do usuário. O motor(*engine*)
@@ -35,10 +42,6 @@ por isso com cada mecanismo o Javascript funciona quase da mesma maneira.
 <figure markdown="span">
   ![](../../assets/js/javascript-engines.jpeg){width=50%}
 </figure>
-
-
-
-
 
 
 - **Parsing**: Se alguma página da web contém o código JavaScript, uma vez carregado, o analisador lê e converte o código
@@ -116,8 +119,6 @@ Podemos utilizar o javascript para manipular o DOM(*Document Object Model*) da p
 
 ![](../../assets/js/javascript1.png)
 
-
-
 ```js
 document.getElementById("demo").style.fontSize = "35px";
 document.getElementById("demo").style.display = "none";
@@ -192,6 +193,49 @@ function docwrite() {
 </body>
 </html>
 ```
+
+## Curiosidades
+
+Seguem algumas curiosidades sobre o javascript.
+
+### Nome
+
+O nome "JavaScript" pode gerar confusão, mas é importante saber que não tem relação direta com a linguagem Java. Originalmente, foi criado com o nome Mocha, depois mudou de nome para LiveScript, finalmente, foi batizado de JavaScript em 1995, como uma estratégia de marketing da Netscape, para aproveitar a popularidade de Java na época.
+
+### NaN é Estranho
+
+`NaN`, abreviação de "Not a Number" (Não é um Número) é utilizado para representar um valor que não é um número válido. Mas aqui está o problema, `NaN` não é igual a si mesmo!
+
+```js
+console.log(NaN === NaN); // false
+```
+
+Este comportamento aparentemente sem sentido pode levar a resultados inesperados se você não tomar cuidado.
+
+### Falso-Verdadeiro
+
+As regras de igualdade flexíveis do JavaScript podem levar a alguns resultados inesperados, especialmente ao lidar com valores falsos e verdadeiros. Por exemplo:
+
+```js
+console.log(1 == true); // true
+console.log(2 == true); // false
+console.log(0 == false); // true
+console.log("" == false); // true
+console.log("" == 0); // true
+```
+
+### lei de Atwood
+
+Segundo a lei de [Atwood](https://blog.codinghorror.com/the-principle-of-least-power)
+
+<figure markdown="span">
+  ![Virtualização](../assets/js/atwoodslaw.jpg)
+</figure>
+
+
+> Jeff Atwood - Programador, co-fundador do stack-overflow, soltou essa frase em 2007
+
+
 
 ## Sobre a linguagem
 
