@@ -655,13 +655,23 @@ Os conjuntos são coleções não ordenadas que não permitem elementos duplicad
 Cada tipo de coleção possui características específicas que se adaptam a diferentes necessidades. O uso adequado dessas estruturas melhora o desempenho do código e facilita a manipulação de informações em diversas aplicações.
 
 
-| Estrutura     | Definição | Características Principais | Exemplo |
-|---------------|-----------|----------------------------|---------|
-| Lista         | ordenada e mutável  | Permite duplicatas, indexada, mutável  | `[1, 2, 3, 4]` |
-| Tupla         | ordenada e imutável | Permite duplicatas, indexada, imutável | `(1, 2, 3, 4)` |
-| Conjunto(set) | não ordenada | Não permite duplicatas, não indexado, mutável | `{1, 2, 3, 4}` |
-| Dicionário    | não ordenada | Chaves únicas, valores mutáveis | `{"a": 1, "b": 2}`|
+| Coleção        | Descrição                                                                     | Características principais                                                 | Exemplo                                                                      |
+| -------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **list**       | Coleção ordenada e mutável de elementos                                       | - Ordenada<br>- Mutável<br>- Permite elementos duplicados                  | `lista = [1, 2, 3, 4, 2]`                                                    |
+| **tuple**      | Coleção ordenada e imutável de elementos                                      | - Ordenada<br>- Imutável<br>- Permite elementos duplicados                 | `tupla = (1, 2, 3, 4, 2)`                                                    |
+| **set**        | Coleção não ordenada, mutável e não permite elementos duplicados              | - Não ordenada<br>- Mutável<br>- Não permite duplicados                    | `conjunto = {1, 2, 3, 4}`                                                    |
+| **dict**       | Coleção de pares chave-valor, mutável e ordenada                              | - Chaves únicas<br>- Mutável<br>- Permite busca rápida por chave           | `dicionario = {'a': 1, 'b': 2}`                                              |
 
+
+Segue o resumo visual abaixo
+
+
+| Coleção | Acesso por índice | Mutável | Duplicados        | Ordenado             |
+| ------- | ----------------- | ------- | ----------------- | -------------------- |
+| tuple   | ✅                 | ❌       | ✅                 | ✅                    |
+| list    | ✅                 | ✅       | ✅                 | ✅                    |
+| set     | ❌                 | ✅       | ❌                 | ❌                    |
+| dict    | ✅      | ✅       | ❌ | ✅  |
 
 ### Listas
 
@@ -710,9 +720,15 @@ minha_lista.pop(0)      # remove o primeiro valor
 minha_lista.pop()       # remove o último valor
 ```
 
-**Ordenação**: `sort()` <br/>
-**Reversão**: `reverse()` <br/>
-**Concatenação**: `+` <br/>
+Resumo
+
+- **Adicionar elemento ao final**: `lista.append(5)`
+- **Inserir em posição específica**: `lista.insert(1, 15)`
+- **Remover por valor**: `lista.remove(3)`
+- **Remover por índice**: `lista.pop(2)`
+- **Ordenar**: `lista.sort()`
+- **Reverter**: `lista.reverse()`
+- **Comprimento**: `len(lista)`
 
 Já em termos de funções, relacionam-se às listas as funções:
 
@@ -822,13 +838,51 @@ print(minha_tupla[2])  # Saída: 3
 
 for e in minha_tupla:
     print(e)
-
 ```
+
+```python
+tupla = (1, 2, 3, 4)
+```
+
+- **Acesso por índice**: `tupla[0]` → `1`
+- **Fatiamento**: `tupla[1:3]` → `(2, 3)`
+- **Desempacotamento**:
+
+```python
+a, b, c, d = tupla
+```
+
+- **Contagem de elementos**: `tupla.count(2)` → `1`
+- **Índice de elemento**: `tupla.index(3)` → `2`
+- **Comprimento**: `len(tupla)` → `4`
 
 ### Dicionários
 
 Um dicionário é uma estrutura de dados que armazena pares chave-valor. É uma das estruturas de dados mais utilizadas devido à sua eficiência e flexibilidade. Os dicionários são **mutáveis**, o que significa que você pode adicionar, modificar e remover itens conforme necessário. Cada chave em um dicionário deve ser única e associada a um único valor. As chaves podem ser de qualquer tipo, como strings, números, tuplas, listas, outros dicionários, etc.
 
+Dicionários são sempre construídos na premissa de `chave` e `valor`
+
+> `key` e `value`
+
+Com dicionários podemos criar estruturas mais complexas de dados.
+
+
+```python
+dicionario = {'a': 1, 'b': 2, 'c': 3}
+```
+
+- **Acesso por chave**: `dicionario['a']`
+- **Modificação**:
+
+```python
+dicionario['a'] = 10
+
+for key in dicionario.keys():
+  print(key)
+
+for key, value in dicionario.items():
+  print(f"{key}: {value}")
+```
 
 Para criar um dicionário, devemos utilizar a sintaxe de chaves `{}` e especificar os pares chave-valor separados por vírgulas. O acesso aos valores armazenados é feito por meio da chave informada entre `[]`.
 
@@ -852,6 +906,17 @@ Os principais métodos disponíveis em objetos de dicionário são:
 - `values()`: Retorna uma lista contendo todos os valores do dicionário.
 - `items()`: Retorna uma lista de tuplas contendo todos os pares chave-valor do dicionário.
 - `update()`: Atualiza o dicionário com os pares chave-valor de outro dicionário ou de uma sequência de pares chave-valor.
+
+- **Adicionar novo par**: `dicionario['d'] = 4 ou dicionario.update({"d": 4})`
+- **Remover chave**: `del dicionario['b']` ou `dicionario.pop('a')`
+- **Atualizar o valor de uma chave**: `dicionario.update({"a": 10})`
+- **Obter todas as chaves**: `dicionario.keys()`
+- **Obter todos os valores**: `dicionario.values()`
+- **Obter todos os itens**: `dicionario.items()`
+- **Verificar chave**: `'a' in dicionario`
+- **Comprimento**: `len(dicionario)`
+- **Limpar dicionario**: `dicionario.clear()`
+
 
 ### Conjuntos
 
@@ -930,6 +995,14 @@ print("Conjunto B:", conjunto_b)
         ```python
         conjunto_a <= conjunto_b
         ```
+
+- **Adicionar elemento**: `conjunto.add(5)`
+- **Remover elemento**: `conjunto.remove(3)`
+- **Verificar existência**: `2 in conjunto`
+- **União**: `conjunto | {6, 7}`
+- **Interseção**: `conjunto & {2, 4, 6}`
+- **Diferença**: `conjunto - {2, 4}`
+- **Comprimento**: `len(conjunto)`
 
 ## Estruturas de repetição
 Laços de repetição são estruturas de controle que permitem criar iterações, ou seja, repetição de uma ou mais intruções.
@@ -1235,76 +1308,319 @@ pip freeze > requirements.txt
 
 E para instalar as dependências de um projeto com requirements você pode usar o comando `pip install -r requirements.txt`
 
-## Criando um módulo
+## Função Main
 
-Podemos transformar nossos arquivos python em módulos, isso é feito para reaproveitamento de código e para organizar grandes projetos.
+Função `main()` é utilizada na organização do código e embora não seja obrigatória, é comum definir uma função chamada main() para organizar a lógica principal de um programa:
 
-Crie o arquivo chamado `exemplo.py`.
+```py
+def main():
+    print("Executando o programa principal")
+
+if __name__ == "__main__":
+    main()
+```
+
+Em um script Python existe uma variável especial chamada `__name__`, quando o script é executado diretamente, `__name__` é igual a `__main__`.
+
+```py
+# arquivo: saudacoes.py
+def ola():
+    print("Olá, mundo!")
+
+if __name__ == "__main__":
+    ola()
+```
+
+Se você executar python saudacoes.py diretamente, o resultado será `Olá, mundo!` Mas se importar esse arquivo em outro script:
+
+```py
+# arquivo: outro.py
+import saudacoes
+```
+
+Nada será impresso, pois __name__ será "saudacoes", e o bloco if __name__ == "__main__" não será executado pois Quando o script é importado como um módulo em outro script, __name__ passa a ser o nome do módulo.
+
+## Módulos
+
+Um módulo é um arquivo Python (.py) que contém definições de funções, classes, variáveis e até mesmo código executável.
+
+```py
+# arquivo: saudacao.py
+
+def ola(nome):
+  return f"Olá, {nome}!"
+```
+
+Esse arquivo `saudacao.py` é um módulo. Ele pode ser importado e usado assim
+
+```py
+# outro arquivo: main.py
+
+import saudacao
+
+print(saudacao.ola("Prof"))
+
+```
+
+Módulos podem servir várias funções como reutilização, organização do código, separar funcionalidades em arquivos diferentes ajuda a manter o código limpo e modular.
+
+- database.py → funções de acesso ao banco de dados
+- utils.py → funções utilitárias
+- main.py → lógica principal do programa
+
+<div align="center" markdown="1">
+| Tipo                     | Exemplo             | Descrição                                           |
+| ------------------------ | ------------------- | --------------------------------------------------- |
+| **Módulo padrão**        | `math`, `os`, `sys` | Vêm com a instalação do Python                      |
+| **Módulo externo**       | `numpy`, `requests` | Precisam ser instalados via `pip`                   |
+| **Módulo personalizado** | `meumodulo.py`      | Criados por você, geralmente em seu próprio projeto |
+</div>
+
+É comum encontrar erros durante a importação de arquivos ou bibliotecas dentre eles os mais comuns são:
+
+- `ModuleNotFoundError`: quando o arquivo/módulo não é encontrado
+- `ImportError`: quando a função/classe não pode ser importada
+- Arquivo com nome conflitante com módulos padrão (`math.py`, `json.py`)
+
+
+Dos modelos padrões podemos citar  os módulos padrão que fazem parte da biblioteca do python.
 
 ```python
-def saudacao(nome):
-    return f"Olá, {nome}!"
+import math
 
-def soma(a, b):
-    return a + b
+print(math.sqrt(25))  # Saída: 5.0
 ```
 
-Em outro arquivo use o módulo `exemplo.py`
+Também podemos importar uma "parte" da biblioteca como no exemplo abaixo
 
 ```python
-# main.py
+from math import sqrt
 
-import exemplo
-
-print(exemplo.saudacao("Maria"))
-print(exemplo.soma(3, 4))
+print(sqrt(36))  # Saída: 6.0
 ```
 
-Você pode importar apenas algumas partes do módulo
+E também criar "alias" ou apelidos para as importações
 
 ```python
-from exemplo import saudacao
+import numpy as np
 
-print(saudacao("João"))
+array = np.array([1, 2, 3])
+print(array)
 ```
 
-Você pode transformar uma pasta em um pacote, um pacote pode ter vários arquivos que funcionam como módulos.
+## Como o Python encontra os arquivos?
+
+O Python procura os módulos na seguinte ordem:
+
+1. Diretório atual do script
+2. Variáveis de ambiente (`PYTHONPATH`)
+3. Diretórios padrão da instalação do Python
+
+Você pode ver os caminhos onde o Python procura por módulos assim:
+
+```python
+import sys
+print(sys.path)
+```
+
+### Criando um Pacote
+
+Quando você tem muitos módulos relacionados ou faz sentido organizar alguns arquivos pode cirar um pacote.
 
 ```
-projeto/
+meu_projeto/
 ├── main.py
-└── utils/
-    ├── __init__.py
-    └── operacoes.py
+├── utils/
+│   ├── __init__.py
+│   ├── saudacao.py
+│   └── calculadora.py
 ```
 
-Sendo que o arquivo __init__.py pode ser um arquivo vazio indicando que a pasta `utils` é um pacote.
-
-Dentro de `operacoes.py` temos
+Uso:
 
 ```python
-def dobro(x):
-    return x * 2
+from utils.saudacao import ola
 ```
 
-E então usar o `from` e `import`
+O arquivo __init__.py transforma a pasta em um pacote Python, em versões mais antigas do Python, sem o __init__.py, a pasta não era reconhecida como pacote.
+Mesmo que hoje em dia isso não seja mais obrigatório no Python 3.3+, a prática ainda é recomendada.
 
-```python
-from utils.operacoes import dobro
+Ele tende a ser um arquivo vazio, porém pode ser utilizado para inicialização, quando o pacote for importado o arquivo `init` é executado.
 
-print(dobro(6))  # 12
+<div align="center" markdown="1">
+| Função do `__init__.py`     | Descrição                                                |
+| --------------------------- | -------------------------------------------------------- |
+| Declarar pacote             | Torna uma pasta um pacote reconhecido pelo Python        |
+| Código de inicialização     | Pode conter lógica executada na importação do pacote     |
+| Expor API pública do pacote | Permite facilitar a importação direta de funções/classes |
+</div>
+
+## Módulo datetime
+
+O Python fornece módulos poderosos para manipular datas e horas, facilitando a manipulação e operações com esse formato.
+
+- datetime (mais usado)
+- time
+- calendar
+
+
+```py
+import datetime
+
+#ou
+
+from datetime import datetime
+
+agora = datetime.now()
+print(agora)  # Ex: 2025-06-02 16:45:30.123456
+
+print(agora.date())  # Ex: 2025-06-02
+print(agora.time())  # Ex: 16:45:30.123456
+```
+
+Podemos criar uma variável com um datetime especifico
+
+```py
+from datetime import datetime
+
+# Ano: 2000
+# Mês: 1
+# Dia: 1
+# Hora: 12
+# Minuto: 0
+# Segundo: 0
+# datetime(ano, mês, dia, hora, minuto, segundo)
+nascimento = datetime(2000, 1, 1, 12, 0, 0)
+print(nascimento)
+```
+
+Esse tipo de objeto é útil para
+
+- Comparar datas (ex: aniversários, validade)
+- Calcular tempo decorrido
+- Armazenar e manipular registros temporais em sistemas
+
+```py
+from datetime import datetime
+
+agora = datetime.now()
+nascimento = datetime(2000, 1, 1, 12, 0, 0)
+idade = agora - nascimento
+print(f"Você nasceu há {idade.days} dias!")
+```
+
+### Diferença entre datas `timedelta`
+
+A função `timedelta` é útil para encontrar a diferença entre as datas
+
+
+```py
+from datetime import timedelta
+
+# timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+
+amanha = agora + timedelta(days=1)
+ontem = agora - timedelta(days=1)
+
+print("Amanhã:", amanha)
+print("Ontem:", ontem)
+
+diferenca = timedelta(days=7, hours=5)
+
+print("Dias:", diferenca.days)  # 7
+print("Segundos:", diferenca.seconds)  # 18000 (5 horas * 3600)
+print("Total em segundos:", diferenca.total_seconds())  # 630000.0
+```
+
+| Operação               | Resultado                    |
+| ---------------------- | ---------------------------- |
+| `datetime + timedelta` | Nova data/hora no futuro     |
+| `datetime - timedelta` | Nova data/hora no passado    |
+| `datetime - datetime`  | Objeto `timedelta`           |
+| `.days`, `.seconds`    | Acessa partes do `timedelta` |
+| `.total_seconds()`     | Converte tudo para segundos  |
+
+
+### Função `strftime`
+
+E para formatar as datas podemos usar a função `.strftime()`
+
+```py
+print(agora.strftime("%d/%m/%Y"))  # Ex: 02/06/2025
+print(agora.strftime("%H:%M:%S"))  # Ex: 16:45:30
+```
+
+| Código | Significado       | Exemplo |
+| ------ | ----------------- | ------- |
+| `%Y`   | Ano com 4 dígitos | 2025    |
+| `%m`   | Mês (01-12)       | 06      |
+| `%d`   | Dia do mês        | 02      |
+| `%H`   | Hora (00-23)      | 16      |
+| `%M`   | Minuto            | 45      |
+| `%S`   | Segundo           | 30      |
+
+### Conversão de datas `strptime`
+
+Podemos utilizar essa função para converter uma string para uma data
+
+```py
+data_str = "02/06/2025"
+data_obj = datetime.strptime(data_str, "%d/%m/%Y")
+print(data_obj)
+```
+
+### Timezones
+
+```py
+from datetime import datetime, timezone, timedelta
+
+utc = datetime.now(timezone.utc)
+print("UTC:", utc)
+
+brasil = utc.astimezone(timezone(timedelta(hours=-3)))
+print("Horário de Brasília:", brasil)
+```
+
+### Medindo tempo decorrido
+
+Podemos usar o tempo para medir o tempo decorrido de uma execução
+
+```py
+import time
+
+inicio = time.time()
+
+# operação demorada
+time.sleep(2)
+
+fim = time.time()
+print(f"Tempo decorrido: {fim - inicio:.2f} segundos")
 ```
 
 ## Captura e tratamento de exceções
 
 Exceções são eventos que ocorrem durante a execução de um programa e interrompem seu fluxo normal devido a situações inesperadas ou erros. Elas são usadas para lidar com condições anômalas, como entrada inválida do usuário, falhas na rede, falta de memória ou tentativa de acesso a um arquivo inexistente. O desenvolvedor pode criar também exceções customizadas que representam estados inválidos de negócio, como saldo negativo, limite de transferência excedido, entre outras situações.
 
-
 Na maioria das linguagens de programação, as exceções são tratadas por meio de blocos de tratamento que capturam e lidam com os erros de maneira controlada. O fluxo típico envolve:
 
 1.	**Lançamento da Exceção (Throwing an Exception)**: Quando um erro ocorre, a linguagem gera uma exceção automaticamente, ou o programador pode lançá-la explicitamente.
 2.	**Captura da Exceção (Catching an Exception)**: Um bloco de código tenta capturar e tratar a exceção para evitar que o programa falhe inesperadamente (termine abruptamente).
 3.	**Finalização (Finally Block - opcional)**: Algumas linguagens como o Python permitem executar um bloco de código independentemente de ter ocorrido ou não uma exceção.
+
+```py
+try:
+    # bloco com código que pode gerar exceção
+    ...
+except TipoDeErro:
+    # bloco executado se ocorrer esse tipo de erro
+    ...
+else:
+    # bloco executado se não houver erro
+    ...
+finally:
+    # sempre executado (com ou sem erro)
+    ...
+```
 
 O `try`, `except`, `finally` é a estrutura em Python que permite lidar com exceções de forma controlada e garantir que determinadas ações sejam executadas independentemente de ocorrer uma exceção ou não.
 
@@ -1335,5 +1651,40 @@ finally:
 
     === "Bloco `finally`"
         Se declarado, o bloco `finally` será sempre executado, independentemente de ocorrer uma exceção ou não dentro do bloco `try`. É usado para garantir que determinadas ações, como a liberação de recursos, sejam executadas mesmo em caso de exceção.
+
+
+<div align="center" markdown="1">
+| Exceção             | Quando ocorre                             |
+| ------------------- | ----------------------------------------- |
+| `ZeroDivisionError` | Divisão por zero                          |
+| `ValueError`        | Valor inválido para uma operação          |
+| `TypeError`         | Tipo de dado incorreto para a operação    |
+| `IndexError`        | Acesso a índice inválido em listas/tuplas |
+| `KeyError`          | Chave inexistente em dicionários          |
+| `FileNotFoundError` | Arquivo não encontrado                    |
+| `ImportError`       | Erro ao importar módulos                  |
+</div>
+
+
+```py
+from datetime import datetime
+
+entrada = input("Digite uma data no formato DD/MM/AAAA: ")
+
+try:
+    data = datetime.strptime(entrada, "%d/%m/%Y")
+    print("Data válida:", data.strftime("%A, %d de %B de %Y"))
+except ValueError:
+    print("Formato inválido. Use DD/MM/AAAA.")
+```
+
+ou tentando capturar múltiplos tipos de erros
+
+```py
+try:
+    ...
+except (ValueError, TypeError) as e:
+    print(f"Ocorreu um erro: {e}")
+```
 
 A biblioteca padrão do Python oferece diversos tipos de exceção nativas. A lista completa pode ser encontrada na [documentação oficial](https://docs.python.org/3/library/exceptions.html).
