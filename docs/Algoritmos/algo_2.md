@@ -188,6 +188,5 @@ print(fibonacci_recursivo(6))  # Saída: 8
 
 
 
-<a href="https://developerslife.tech/pt/wp-content/uploads/2016/01/tirinha1516.png"><img src="https://developerslife.tech/pt/wp-content/uploads/2016/01/tirinha1516.png" alt="" title="" /></a><small>Fonte: <a href="https://developerslife.tech/pt/">Vida de Programador</a></small>
-
+<a href="https://developerslife.tech/pt/wp-content/uploads/2016/01/tirinha1516.png"><img src="https://developerslife.tech/pt/wp-content/uploads/2016/01/tirinha1516.png" alt="" title="" /></a><small>Fonte: <a href="https://developerslife.tech/pt/">Blog Vida de Programador</a></small>
 
