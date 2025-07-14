@@ -26,5 +26,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
-      - run: pip install asciinema-player
+      - run: pip install mkdocs-asciinema
       - run: mkdocs gh-deploy --force
