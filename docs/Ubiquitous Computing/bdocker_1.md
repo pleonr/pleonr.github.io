@@ -64,11 +64,6 @@ Execute o seguinte comando:
 docker run hello-world
 ```
 
-<figure markdown="span">
-  ![onmymachine](../assets/sd/docker-hellor-world.png)
-</figure>
-
-
 ```asciinema-player
 {
     "file": "assets/sd/docker_hello.cast",
@@ -85,24 +80,7 @@ docker run hello-world
   ![onmymachine](../assets/sd/docker-hub.png)
 </figure>
 
-```sh
-# Buscar uma imagem do Docker Hub
-docker pull nginx
-
-# Executar diretamente a imagem
-docker run -d -p 8080:80 nginx
-
-# Verificar a imagem local
-docker images
-
-# Login (necessário para push)
-docker login
-
-# Enviar imagem para seu repositório
-docker tag minha-imagem usuario/minha-imagem:v1
-docker push usuario/minha-imagem:v1
-```
-
+<div align="center" markdown="1">
 | Funcionalidade            | Descrição                                                                        |
 | ------------------------- | -------------------------------------------------------------------------------- |
 | **Imagens oficiais**      | Repositórios mantidos por empresas ou pela própria Docker (ex: `nginx`, `mysql`) |
@@ -111,24 +89,11 @@ docker push usuario/minha-imagem:v1
 | **Tags e versões**        | Cada imagem pode ter várias versões (`latest`, `v1.0`, etc.)                     |
 | **Automated Builds**      | Integra com GitHub/GitLab para build automático de imagens.                      |
 | **Webhooks**              | Aciona ações externas após o push de uma imagem.                                 |
+</div>
 
-## Dockerfile
+## Programa ASCII text
 
-O `Dockerfile` é o ponto de entrada de um container docker, é onde a imagem e toda a lógica do container são definidos. Neste [arquivo](https://docs.docker.com/reference/dockerfile/) definimos as etapas para criação de um container.
-
-- FROM: define a imagem base do container.
-- WORKDIR: define o diretório de trabalho dentro do container.
-- COPY: copia arquivos do sistema de arquivos host para o sistema de arquivos do container.
-- RUN: executa comandos no container durante o processo de build.
-- EXPOSE: informa qual porta o serviço do container vai escutar
-- CMD: define o comando padrão que será executado quando o contêiner for iniciado. Diferente de RUN, que é executado durante o build, CMD é executado quando o contêiner já está rodando.
-
-Etapas do `container`
-
-- Build da imagem: Ao executar `docker build -t nome-da-imagem .`, o Docker lê o Dockerfile, segue as instruções e cria uma imagem.
-- Run da imagem: Quando você executa `docker run - 3000:3000 nome-da-imagem`, o Docker cria um contêiner a partir da imagem criada, mapeia a porta 3000 do host para a porta 3000 do contêiner, e executa o comando definido em CMD.
-
-Crie um arquivo chamado `speech.sh`
+Para exemplificar vamos criar um programa que converte texto para ASCII text, usando o figlet. Crie um arquivo chamado `ascii.sh`
 
 ```shell
 #!/bin/bash
@@ -139,125 +104,215 @@ Spear shall be shaken, shield be splintered!
 A sword-day, a red day, ere the sun rises!
 Ride now, ride now, ride to Gondor!")
 
-figlet -w 500 -f doh "$TEXTO"
+figlet -w 200 -f big "$TEXTO"
 ```
 
-Após isso vamos criar um `Dockerfile`:
+Esse é nosso programa, um arquivo simples `.sh` que usa o programa `figlet`. Para executar localmente é necessário instalar esse programa manualmente. Pensando no contexto de utilização, um programa pode conter diversas bibliotecas e configurações para seu funcionamento.
+Para isso criamos um `Dockerfile`.
+
+### Dockerfile
+
+O `Dockerfile` é o ponto de entrada de um container docker, é onde a imagem e toda a lógica do container são definidos. Neste [arquivo](https://docs.docker.com/reference/dockerfile/) definimos as etapas para criação de um container.
+
+- FROM: define a imagem base do container.
+- WORKDIR: define o diretório de trabalho dentro do container.
+- COPY: copia arquivos do sistema de arquivos host para o sistema de arquivos do container.
+- RUN: executa comandos no container durante o processo de build.
+- EXPOSE: informa qual porta o serviço do container vai escutar
+- CMD: define o comando padrão que será executado quando o contêiner for iniciado. Diferente de RUN, que é executado durante o build, CMD é executado quando o contêiner já está rodando.
+
 
 ```shell
 FROM ubuntu:latest
-
 RUN apt update && apt install -y figlet wget
-RUN wget -P /usr/share/figlet http://www.jave.de/figlet/fonts/details/doh.flf
-COPY speech.sh /speech.sh
-RUN chmod +x /speech.sh
-
-CMD ["/speech.sh"]
+RUN wget -P /usr/share/figlet http://www.jave.de/figlet/fonts/details/big.flf
+COPY ascii.sh /ascii.sh
+RUN chmod +x /ascii.sh
+CMD ["/ascii.sh"]
 ```
 
-Vamos criar a imagem:
+Com esse arquivo pronto vamos montar essa imagem.
+
+### Build image
+
+O comando `docker build` é usado para criar uma imagem Docker a partir de um Dockerfile. A imagem é uma representação em camadas do sistema de arquivos que será utilizado pelos containers. A nomenclatura do comando `docker build` é a seguinte
+
+```bash
+docker build [opções] <contexto>
+```
+
+O contexto é o diretório no qual o Docker irá buscar o Dockerfile e os arquivos referenciados por ele. Pode ser . (diretório atual) ou um caminho relativo/absoluto.
+
+Em opções temos uma lista de parâmetros que podem ser utilizados
+
+<div align="center" markdown="1">
+| Parâmetro       | Descrição                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| `-t` ou `--tag` | Define uma **tag**(*nome*) para a imagem. Ex: `-t myapp:latest`                                        |
+| -f              |	Especifica o caminho do Dockerfile se ele não estiver no diretório padrão. Ex: -f Dockerfile.dev       |
+| `--no-cache`    | Ignora o cache e força a reconstrução de todas as camadas                                              |
+| `--build-arg`   | Permite passar argumentos de build definidos via `ARG` no Dockerfile                                   |
+| `--target`      | Define o alvo de uma **multi-stage build**                                                             |
+| `--progress`    | Controla a exibição do progresso (`auto`, `plain`, `tty`)                                              |
+| `--platform`    | Define a plataforma (arquitetura) para a imagem: `linux/amd64`, `linux/arm64`, etc.                    |
+</div>
+
+Por exemplo o comando abaixo cria uma imagem com a tag ascii e o arquivo `Dockerfile` e demais arquivos necessários se encontram na pasta atual.
 
 ```shell
 docker build -t "ascii" .
 ```
 
-<!--
-- Usa a versão mais atual do ubuntu
-- instala o wget e o figlet
-- copia o script
-- aplica permissões para o script
-- Seta o default para roda o script
--->
+Ou trabalhar com versões (*melhor prática*)
 
-E usar a imagem:
+```bash
+docker build -t "ascii:v0.0.2" .
+```
+
+### Dockerfile Camadas
+
+O Docker divide o Dockerfile em camadas. Cada instrução (FROM, RUN, COPY, etc.) gera uma nova camada e essas camadas utilizam cache para acelerar builds futuras.
+
+Sempre que uma das camadas é alterada as camadas subsequentes são reconstruídas. Durante o docker build, o Docker:
+
+- Avalia se a instrução já foi executada antes com os mesmos inputs, se sim, ele reutiliza a camada anterior do cache.
+- O Docker detecta mudanças nos arquivos e invalida o cache das camadas afetadas, quando isso ocorre ele executa essa instrução novamente e todas as seguintes.
+
+Uso de `.dockerignore`, melhora performance e impede que arquivos desnecessários entrem no contexto. Devemos organizar comandos que são modificados com pouca frequência no começo do arquivo quando possível.
+
+```bash
+# Ignora a pasta node_modules (dependências locais)
+node_modules/
+venv/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos temporários do sistema
+*.swp
+*.tmp
+
+# Ignora diretórios de testes
+tests/
+__pycache__/
+
+# Ignora arquivos de configuração e IDEs
+.vscode/
+.idea/
+.env
+
+# Ignora o próprio .dockerignore e Dockerfile se necessário (opcional)
+.dockerignore
+Dockerfile.dev
+Dockerfile.prod
+Dockerfile.test
+
+# Ignora arquivos de build locais
+dist/
+build/
+```
+
+### Docker run
+
+O comando docker run é usado para executar um container a partir de uma imagem Docker.
+
+```bash
+docker run [opções] <imagem> [comando]
+```
+
+<div align="center" markdown="1">
+| Opção       | Descrição                                                 |
+| ----------- | --------------------------------------------------------- |
+| `-d`        | Executa o container em **modo background** (detached)     |
+| `-it`       | **Interativo** com terminal (útil para bash, etc.)        |
+| `--rm`      | Remove o container automaticamente ao final               |
+| `--name`    | Define um **nome personalizado** para o container         |
+| `-p`        | Faz o **mapeamento de portas** (ex: `-p 8080:80`)         |
+| `-v`        | Faz o **mapeamento de volumes** (ex: `-v $(pwd):/app`)    |
+| `-e`        | Define **variáveis de ambiente** (ex: `-e NODE_ENV=prod`) |
+| `--network` | Define a rede a ser usada pelo container                  |
+| `--restart` | Política de reinício (`no`, `always`, `on-failure`)       |
+</div>
+
+Não precisamos executar o `run` toda vez... quando temos um container podemos iniciar usando `docker start`:
+
+<div align="center" markdown="1">
+| Comando        | Descrição                                                 |
+| -------------- | --------------------------------------------------------- |
+| `docker run`   | Cria e inicia um **novo container** baseado em uma imagem |
+| `docker start` | Inicia um **container existente parado**                  |
+</div>
+
+
+Vamos usar a imagem que criamos anteriormente
 
 ```shell
 docker run ascii:latest
 ```
 
-<!--
-docker build -t "ascii:v0.0.2" .
--->
+## Postgresql
 
-### API Node
+Imagine poder trabalhar com uma instalação isolada do banco de dados, seja para testes ou desenvolvimento. O PostgreSQL pode ser executado como um docker container, assim como diversos outros serviços existe uma imagem oficial do docker disponível para download no docker hub.
 
-Nesse exemplo vamos criar um container para uma API com javascript
-
-```dockerfile
-FROM node:16
-# Define o diretório de trabalho
-WORKDIR /app
-# Copia o package.json
-COPY package.json ./
-RUN npm install
-# Copia o código da aplicação
-COPY . .
-# Expomos uma porta
-EXPOSE 3001
-
-# Comando para iniciar o serviço
-CMD ["npm", "start"]
+```bash
+docker run -d \
+  --name postgres-container \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=meubanco \
+  -p 5432:5432 \
+  postgres:latest
 ```
 
+<div align="center" markdown="1">
+| Parâmetro        | Função                               |
+| ---------------- | ------------------------------------ |
+| `-d`             | Executa em segundo plano             |
+| `--name`         | Nome do container                    |
+| `-e`             | Define variáveis de ambiente         |
+| `-p`             | Mapeia a porta 5432 para o host      |
+| `postgres:latest`| Imagem oficial com a versão desejada |
+</div>
 
-#### Construir a imagem
+Podemos conectar ao banco de dados utilizando
 
-```shell
-docker build -t api .
+```bash
+docker exec -it postgres-container psql -U postgres -d meubanco
 ```
 
-#### Executar o container
+### Volumes
 
-```shell
-docker run -d -p 3002:3001 api
+O docker permite criar volumes de dados, imagine como se fosse uma unidade de disco para os containers, (*na verdade é só uma pasta*). Essa unidade é persistente e mesmo que o container seja removido ela continua a existir e pode ser mapeada por outros containers.
+
+```bash
+docker volume create pgdata
 ```
 
-!!! info "parâmetros"
-    - `-d`: Executa o contêiner em modo "detached" (em segundo plano).
-    - `-p 3002:3001`: Mapeia a porta do contêiner para a porta 3002 do seu host.
-    - `nome-da-imagem`: Nome da imagem
+Para usar um volume utilizamos
 
-
-#### Listar Containers
-
-```shell
-docker ps
+```bash
+docker run -d \
+  --name postgres-container \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=meubanco \
+  -v pgdata:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:latest
 ```
 
-#### Parar e Remover Containers
+Podemos fazer e restaurar backups diretamente do host
 
-```shell
-docker stop <container-id>
-docker rm <container-id>
+
+```bash
+docker exec -t postgres-container pg_dump -U meuusuario meubanco > backup.sql
 ```
 
-#### Ver logs
-
-```shell
-docker logs <container-id>
+```bash
+cat backup.sql | docker exec -i postgres-container psql -U meuusuario -d meubanco
 ```
 
-#### Acessar terminal
-
-```shell
-docker exec -it <container-id> /bin/bash
-```
-
-
-#### Dockerignore
-
-Mas assim como temos arquivos que queremos ignorar no gitignore também seria necessário ignorar na imagem do container, por exemplo:
-- .env
-- node_modules/
-
-Para isso existe o `.dockerignore` ele segue as mesmas regras do `.gitignore`.
-
-```sh
-node_modules
-.env
-```
-
-## Redes no Docker
+### Redes no Docker
 
 O Docker cria automaticamente algumas redes padrão, mas você também pode criar redes personalizadas para maior controle.
 
@@ -279,14 +334,12 @@ Quando você cria um container, ele é conectado por padrão a uma rede bridge c
 docker run -d --name meu_app -p 8080:80 nginx
 ```
 
-O container meu_app escuta na porta 80 internamente, enquanto o host (máquina) escuta na porta 8080 e redireciona para o container.
-Os containers podem se comunicar pelo nome (DNS interno do Docker resolve container1).
+!!! warning "Importante"
+    O container meu_app escuta na porta 80 internamente, enquanto o host escuta na porta 8080 e redireciona para o container. Os containers podem se comunicar pelo nome (DNS interno do Docker resolve container1).
 
 ## Docker Compose
 
-O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações multi-container no Docker.
-
-Ele permite que você defina todos os serviços, redes e volumes de sua aplicação em um arquivo YAML (docker-compose.yml).
+O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações multi-container no Docker. Ele permite que você defina todos os serviços, redes e volumes de sua aplicação em um arquivo YAML `docker-compose.yml`.
 
 Vamos utilizar nossa api e criar um `docker-compose.yaml` na pasta raiz da api junto ao Dockerfile.
 
@@ -308,7 +361,7 @@ services:
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USER=postgres
-      - DB_PASSWORD=masterkey
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
       - DB_NAME=api
     depends_on:
       - postgres
@@ -320,7 +373,7 @@ services:
     container_name: postgres-db
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: masterkey
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: api
     ports:
       - "5000:5432"
@@ -336,22 +389,104 @@ volumes:
   postgres-data:
 ```
 
+<div align="center" markdown="1">
+| Seção      | Campo            | Valor / Descrição                        | Explicação                                                                                              |
+| ---------- | ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `version`  | `'3.8'`          | Formato da versão do Compose             | Compatível com Docker moderno, usado para definir sintaxe e recursos disponíveis                        |
+| `services` | `api`            | Serviço da aplicação (container da API)  | Define a aplicação principal que será construída localmente                                             |
+|            | `build`          | `.`                                      | Usa o `Dockerfile` no diretório atual para construir a imagem da API                                    |
+|            | `container_name` | `api`                                    | Nome fixo do container da API                                                                           |
+|            | `ports`          | `"3000:3000"`                            | Mapeia a porta 3000 do host para a porta 3000 do container (acesso à API via navegador ou cliente HTTP) |
+|            | `environment`    |                                          | Define variáveis de ambiente consumidas pela API (credenciais de acesso ao banco)                       |
+|            |                  | `DB_HOST=postgres`                       | A API se conecta ao banco com o nome do serviço `postgres`                                              |
+|            |                  | `DB_PORT=5432`                           | Porta padrão do PostgreSQL                                                                              |
+|            |                  | `DB_USER=postgres`                       | Usuário do banco                                                                                        |
+|            |                  | `DB_PASSWORD=${POSTGRES_PASSWORD}`       | Senha vinda do arquivo `.env`                                                                           |
+|            |                  | `DB_NAME=api`                            | Nome do banco                                                                                           |
+|            | `depends_on`     | `postgres`                               | Garante que o container do banco suba antes da API (mas não espera o banco estar pronto)                |
+|            | `networks`       | `api-network`                            | Conecta a API à rede privada do Compose para comunicação entre containers                               |
+| `services` | `postgres`       | Serviço do banco de dados PostgreSQL     |                                                                                                         |
+|            | `image`          | `postgres:16`                            | Usa a imagem oficial do PostgreSQL versão 16                                                            |
+|            | `container_name` | `postgres-db`                            | Nome fixo do container do banco                                                                         |
+|            | `environment`    |                                          | Define variáveis internas do PostgreSQL para criar o usuário, banco e senha                             |
+|            | `ports`          | `"5000:5432"`                            | Mapeia a porta 5432 do banco para a porta 5000 do host                                                  |
+|            | `volumes`        | `postgres-data:/var/lib/postgresql/data` | Volume persistente para armazenar os dados do banco                                                     |
+|            | `networks`       | `api-network`                            | Mesmo que a API: permite comunicação privada entre containers                                           |
+| `networks` | `api-network`    | `driver: bridge`                         | Cria uma rede virtual isolada para os serviços                                                          |
+| `volumes`  | `postgres-data`  | Volume nomeado                           | Armazena os dados do banco de forma persistente no host, mesmo que o container seja recriado            |
+</div>
+
+
+### .env
+
+Não é seguro deixar credenciais expostas em um dockerfile ou docker-compose, para isso podemos utilizar um arquivo `.env` (*na mesma pasta do docker-compose.yml*) que pode ser criado de forma segura utilizando secrets por exemplo.
+
+```bash
+# .env
+POSTGRES_USER=meuusuario
+POSTGRES_PASSWORD=senha123
+POSTGRES_DB=meubanco
+```
+
+<div align="center" markdown="1">
+| Comando                              | Ação                                                  |
+| ------------------------------------ | ----------------------------------------------------- |
+| `docker-compose up`                  | Sobe todos os containers                              |
+| `docker-compose up -d`               | Sobe em background                                    |
+| `docker-compose down`                | Derruba e remove containers, redes e volumes anônimos |
+| `docker-compose logs`                | Mostra os logs dos serviços                           |
+| `docker-compose exec <serviço> bash` | Acessa o terminal de um container                     |
+| `docker-compose ps`                  | Lista containers em execução                          |
+| `docker-compose stop/start`          | Para ou inicia serviços já criados                    |
+</div>
+
+
+
 ## Outros Commandos
 
 Segue uma lista de comandos do docker para referência.
 
-!!! info "Quais são os componentes de uma funcão"
+!!! info "Comandos úteis"
 
     === "**Help**"
         Lista comandos do docker e outras informações
-        ```shell
+        ```bash
         docker --help
         ```
-    === "**Listar**"
+    === "**Logs**"
+        Logs do container
+        ```bash
+        docker logs <container-id>
+        ```
+    === "**Acessar container**"
+        Logs do container
+        ```bash
+        docker exec -it <container-id> /bin/bash
+        ```
+    === "**Docker cp**"
+        Copiar arquivos de dentro do container
+        ```bash
+        docker cp <origem> <destino>
+
+        #Container para Host
+        docker cp postgres-container:/var/log/postgresql/postgresql.log ./meus-logs/
+
+        #Host para container
+        docker cp ./backup.sql postgres-container:/tmp/backup.sql
+        ```
+    === "**Listar Imagens**"
         Listar imagens
         ```shell
         docker images
         ```
+    === "**Listar Containers**"
+        Listar Containers
+        ```shell
+        docker ps
+        ```
+
+!!! info "Comandos úteis pt 2"
+
     === "**docker daemon**"
         Iniciar, reiniciar e Parar o service do Docker
         ```shell
@@ -367,6 +502,9 @@ Segue uma lista de comandos do docker para referência.
     === "**Deletar Containers**"
         Deletar os containers
         ```shell
+        docker stop <container-id>
+        docker rm <container-id>
+
         docker rm -f $(docker ps -a -q)
         ```
     === "**Deletar os volumes:**"
