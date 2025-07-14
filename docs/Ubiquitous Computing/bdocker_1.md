@@ -512,3 +512,14 @@ Segue uma lista de comandos do docker para referência.
         ```shell
         docker volume rm $(docker volume ls -q)
         ```
+
+## Ferramentas Gráficas
+
+O docker fornece uma ferramenta gráfica chamada [Docker Desktop](https://docs.docker.com/desktop/) para facilitar o gerenciamento do docker.
+
+![Docker Desktop](../../assets/sd/docker-desktop.png)
+
+
+Outra ferramenta interessante é o [Lazydocker](https://github.com/jesseduffield/lazydocker), uma TUI(*terminal user interface*) para facilitar o gerenciamento do docker.
+
+![Lazy Docker](../../assets/sd/lazydocker.png)
