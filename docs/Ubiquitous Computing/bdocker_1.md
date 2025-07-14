@@ -12,88 +12,34 @@ Contêineres são ambientes isolados e portáteis que contêm tudo o que uma apl
 
 <br/>
 
+
+## Arquitetura
+
+A arquitetura do docker pode ser dividida em três componentes principais mostrados na imagem  abaixo.
+
+<figure markdown="span">
+  ![Arquitetura Docker](../assets/sd/docker.webp)
+</figure>
+
+!!! info "Arquitetura"
+
+    === "**Cliente**"
+        O cliente é o ponto de interação do usuário com o Docker, geralmente por meio da linha de comando. Esses comandos são enviados ao Docker Daemon via API, os comandos são convertidos para chamadas da api.
+
+        - docker run: Executa um container com base em uma imagem.
+        - docker build: Cria uma nova imagem a partir de um Dockerfile.
+        - docker pull: Baixa uma imagem de um repositório (Registry).
+
+    === "**Host**"
+        O docker host é o ambiente de execução do docker sendo o Daemon um serviço que gerência as `imagens` e `containers`. Quando uma imagem é "executada", o Docker a transforma em um container em uma instância isolada para execução.
+
+    === "**Registry**"
+        O Docker Registry é um repositório de imagens podendo ser público ou privado
+
+
 ## Instalação
 
-O [`Docker`](https://docs.docker.com/) para vários SO's, vamos trabalhar com [Linux](https://docs.docker.com/desktop/install/linux/),
-nas máquinas do laboratório temos o Ubuntu instalado e o Docker está nos principais repositórios.
-
-Instalando pré-requisitos:
-
-```shell
-sudo apt-get update
-sudp apt-get install qemu-system-x86 pass
-sudo apt-get install curl apt-transport-https ca-certificates software-properties-common
-```
-
-Adiciona a chave GPG, inserindo o comando a seguir:
-
-```shell
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-
-Agora, adicione o repositório executando este comando:
-
-```shell
-sudo add-apt-repository
-  "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-```
-
-Depois disso, atualize a informação do repositório
-
-```shell
-sudo apt update
-```
-
-Garanta que você está instalando a partir do repositório do Docker, ao invés do repositório padrão do Ubuntu ao usar este comando:
-
-```shell
-apt-cache policy docker-ce
-```
-
-A saída correta vai ficar como o texto a seguir, com diferentes números de versões:
-
-```shell
-docker-ce:
-   Installed: (none)
-   Candidate: 16.04.1~ce~4-0~ubuntu
-   Version table:
-       16.04.1~ce~4-0~ubuntu 500
-            500 https://download.docker.com/linux/ubuntubionic/stableamd64packages
-```
-
-Após o processo anterior ter sido executado instale utilizando o repositório:
-
-```shell
-sudo apt install docker-ce
-```
-
-No Ubuntu server apenas o comando abaixo é suficiente:
-
-```shell
-sudo apt install docker.io
-```
-
-E para verificar a instalação
-
-```shell
-sudo systemctl status docker
-```
-
-Para instalar Docker Desktop, baixe o arquivo em [Deb package](https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb) Se você estiver em uma distro baseada no Debian.
-
-E em seguida entre na pasta onde o arquivo foi baixado:
-
-```shell
- cd ~/Downloads
- chmod +x docker-desktop-amd64.deb
-```
-
-Atualize os repositórios e depois instale o package .deb
-
-```shell
- sudo dpkg -i ./docker-desktop-amd64.deb
-```
-
+O [`Docker`](https://docs.docker.com/) está disponível para vários SO's, entre os principais sistemas operacionais da atualidade o Docker fornece uma forma de instalação. Para linux as principais distros possuem o repositório oficial disponível para instalação.
 <!--
 $ sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 $ systemctl --user restart docker-desktop
@@ -122,6 +68,14 @@ docker run hello-world
   ![onmymachine](../assets/sd/docker-hellor-world.png)
 </figure>
 
+
+```asciinema-player
+{
+    "file": "assets/sd/docker_hello.cast",
+    "mkap_theme": "none",
+    "auto_play": false
+}
+```
 
 ## Docker Hub
 

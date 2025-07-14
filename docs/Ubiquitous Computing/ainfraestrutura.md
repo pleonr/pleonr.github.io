@@ -16,7 +16,6 @@ Cada VM compartilha os recursos do hardware físico, mas opera de forma isolada 
 </figure>
 
 
-
 Para gerênciar várias máquinas virtuais existe uma camada chamada `hypervisor`, como por exemplo, VirtualBox, VMwere, KVM. O Hipervisor é responsável dimensionar a máquina virtual, fornecer acesso, iniciar e desligar vms... entre outras tarefas.
 
 Existem dois tipos principais de Hypervisors:
@@ -79,6 +78,7 @@ A conteinerização compartilha o kernel do sistema operacional do host com múl
   </div>
 </div>
 
+<div align="center" markdown="1">
 |       **Aspecto**      |               **Virtualização**               |               **Containerização**               |
 |:----------------------:|:---------------------------------------------:|:-----------------------------------------------:|
 | Isolamento             | Completo com SO próprio                       | Compartilhamento do kernel do host              |
@@ -88,12 +88,8 @@ A conteinerização compartilha o kernel do sistema operacional do host com múl
 | Escalabilidade         | Escalável, mas com overhead maior             | Facilmente escalável, ideal para microsserviços |
 | Segurança              | Maior isolamento                              | Isolamento limitado                             |
 | Uso ideal              | Aplicações pesadas, múltiplos SOs             | Microsserviços, aplicações leves e portáveis    |
-
+</div>
 
 ---
 
-https://ubuntu.com/blog/containerization-vs-virtualization
-
-https://stackoverflow.com/questions/75907472/docker-desktop-does-not-launch-on-ubuntu-failed-to-start-docker-desktop-service
-
-https://www.youtube.com/watch?v=Ud7Npgi6x8E
+CANONICAL. Containerization vs. Virtualization. Disponível em: https://ubuntu.com/blog/containerization-vs-virtualization. Acesso em: 1 fev. 2025.
