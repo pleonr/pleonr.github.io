@@ -66,7 +66,7 @@ docker run hello-world
 
 ```asciinema-player
 {
-    "file": "../assets/sd/docker_hello.cast",
+    "file": "../../assets/sd/docker_hello.cast",
     "mkap_theme": "none",
     "auto_play": false
 }
