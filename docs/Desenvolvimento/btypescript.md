@@ -20,7 +20,7 @@ Depois vamos instalar as dependências de desenvolvimento:
 npm install -D typescript ts-node-dev @types/node @types/express
 ```
 
-## 1.3 Configurar TypeScript
+## Configurar TypeScript
 
 ```bash
 npx tsc --init
@@ -41,7 +41,7 @@ Modifique o `tsconfig.json`:
 }
 ```
 
-# Estrutura de Pastas (Padrão MVC)
+## Estrutura de Pastas (Padrão MVC)
 
 ```bash
 src/
