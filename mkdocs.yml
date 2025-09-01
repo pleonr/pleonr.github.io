@@ -22,7 +22,6 @@ theme:
 
 plugins:
   - search
-  - asciinema-player
 
 extra:
   social:
@@ -40,6 +39,8 @@ extra:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
@@ -53,3 +54,8 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - md_in_html
+  - pymdownx.blocks.caption
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

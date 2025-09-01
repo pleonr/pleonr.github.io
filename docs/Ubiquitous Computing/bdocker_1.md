@@ -64,14 +64,6 @@ Execute o seguinte comando:
 docker run hello-world
 ```
 
-```asciinema-player
-{
-    "file": "../../assets/sd/docker_hello.cast",
-    "mkap_theme": "none",
-    "auto_play": false
-}
-```
-
 ## Docker Hub
 
 [Docker Hub](https://hub.docker.com){:target="_blank"} é um registro de containers (container registry) hospedado pela própria Docker Inc. É o ponto de partida padrão quando você executa comandos como `docker pull` ou `docker run`.
