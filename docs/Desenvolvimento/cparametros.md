@@ -11,8 +11,6 @@ Ao consumir ou construir uma API, é normal enviar dados para a api. Ao trabalha
 | Body Params        | Corpo da requisição              | Criação/atualização de recursos     | JSON: `{ "name": "Ana", "email": "a@x.com" }` |
 | Headers            | Cabeçalho HTTP                   | Metadados (auth, mime, cache)       | `Authorization: Bearer <token>`               |
 
----
-
 ## 1) URL Params (Path Params)
 
 **Definição:** Parte **obrigatória** do caminho da rota, usada para identificar um **recurso único**.
@@ -52,8 +50,6 @@ router.get('/playlists/:playlistId/musics/:musicId', (req, res) => {
 });
 ```
 
----
-
 ## 2) Query Params
 
 **Definição:** Parâmetros **opcionais** na URL após `?`, separados por `&`. Usados para **filtrar**, **paginar**, **ordenar** etc.
@@ -82,8 +78,6 @@ GET /musics?genre[]=rock&genre[]=blues
 ```
 
 No Express, acesse como `req.query.genre` (pode ser `string | string[]`).
-
----
 
 ## 3) Body Params
 
@@ -123,7 +117,6 @@ router.post('/musics', (req, res) => {
 - `application/x-www-form-urlencoded` (forms)
 - `text/plain`
 
----
 
 ## 4) Headers
 
@@ -147,11 +140,9 @@ router.get('/secure', (req, res) => {
 });
 ```
 
----
-
 ## 5) Exemplo Unificado (Músicas por Usuário)
 
-```
+```bash
 GET /users/:userId/musics?genre=rock&year=2020
 ```
 
@@ -171,8 +162,6 @@ router.get('/users/:userId/musics', (req, res) => {
 });
 ```
 
----
-
 ## 6) Boas Práticas
 
 - **Consistência** de nomes (`snake_case` ou `camelCase`) e semântica clara.
@@ -182,51 +171,3 @@ router.get('/users/:userId/musics', (req, res) => {
 - **Paginação** previsível (`limit`, `page` ou `cursor`).
 - **Erros** padronizados (status code + payload consistente).
 - **Headers**: sempre envie `Content-Type` correto e valide `Authorization` quando necessário.
-
----
-
-## 7) Exemplos de Requisições
-
-### curl
-```bash
-curl -H "Authorization: Bearer TOKEN"   "http://localhost:3000/api/users/1/musics?genre=rock&year=2020"
-```
-
-### REST Client (VSCode)
-```http
-GET http://localhost:3000/api/users/1/musics?genre=rock&year=2020
-Authorization: Bearer TOKEN
-Accept: application/json
-```
-
-### Postman
-- Sete `{{baseUrl}}` e crie requisições com **Params**, **Headers** e **Body** conforme necessário.
-
----
-
-## 8) Tipagem (TypeScript)
-
-```ts
-// Tipos úteis para req
-import { Request } from 'express';
-
-type UserMusicParams = { userId: string };
-type UserMusicQuery = { genre?: string; year?: string };
-
-type Req = Request<UserMusicParams, any, any, UserMusicQuery>;
-
-router.get('/users/:userId/musics', (req: Req, res) => {
-  // req.params.userId: string
-  // req.query.genre: string | undefined
-  res.json({ ok: true });
-});
-```
-
----
-
-## 9) Segurança e Validação
-
-- **Sanitização** de input (evite injeções).
-- Valide **tipos** e **intervalos** (ex.: `year` como número válido).
-- Use **HTTPS** e tokens **curtos** (JWT com expiração).
-- **Rate limiting** e **CORS** quando expor publicamente.
