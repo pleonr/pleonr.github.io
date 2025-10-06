@@ -20,9 +20,16 @@ Guido van Rossum(<i>Haarlem, 31 de janeiro de 1956</i>) é um matemático e prog
 
 Na comunidade Python, ele é conhecido como Benevolent Dictator for Life (BDFL), o que significa que ele continua a supervisionar o processo de desenvolvimento do Python, tomando decisões quando necessário.
 
-Entretanto, em julho de 2018, ele anunciou que estaria se afastando desta função devido a desentendimentos com a equipe de desenvolvimento da linguagem Python.
+Entretanto, em julho de 2018, ele anunciou que estaria se afastando desta função.
 
   > [Zen of Python](https://peps.python.org/pep-0020/){:target="_blank"}
+
+
+O Documentário *Python: The Documentary | An origin story* pelo canal [CultRepo](http://www.youtube.com/@cultrepo) conta parte da história da criação do Python e de seu desenvolvimento.
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/GfH4QL4VqJ0?si=LNo2ejBVxXEYL6mz" title="Python: The Documentary | An origin story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Na [documentação oficial](https://docs.python.org/3/) do Python você encontra o material abordado em nossas aulas.
 
 <!--
 # Linguagem de Programação Python

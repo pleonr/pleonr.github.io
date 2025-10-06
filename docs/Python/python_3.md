@@ -663,15 +663,6 @@ Cada tipo de coleção possui características específicas que se adaptam a dif
 | **dict**       | Coleção de pares chave-valor, mutável e ordenada                              | - Chaves únicas<br>- Mutável<br>- Permite busca rápida por chave           | `dicionario = {'a': 1, 'b': 2}`                                              |
 
 
-Segue o resumo visual abaixo
-
-| Coleção | Acesso por índice | Mutável | Duplicados        | Ordenado             |
-| ------- | ----------------- | ------- | ----------------- | -------------------- |
-| tuple   | ✅                 | ❌       | ✅                 | ✅                    |
-| list    | ✅                 | ✅       | ✅                 | ✅                    |
-| set     | ❌                 | ✅       | ❌                 | ❌                    |
-| dict    | ✅      | ✅       | ❌ | ✅  |
-
 ### Listas
 
 As listas são uma estrutura de dados versátil que permite armazenar coleções de itens em uma ordem específica.
