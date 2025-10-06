@@ -507,11 +507,12 @@ Segue uma lista de comandos do docker para referência.
 
 ## Ferramentas Gráficas
 
-O docker fornece uma ferramenta gráfica chamada [Docker Desktop](https://docs.docker.com/desktop/) para facilitar o gerenciamento do docker.
+ O docker fornece uma ferramenta gráfica chamada [Docker Desktop](https://docs.docker.com/desktop/) para facilitar o gerenciamento do docker.
 
 ![Docker Desktop](../assets/sd/docker-desktop.png)
-
 
 Outra ferramenta interessante é o [Lazydocker](https://github.com/jesseduffield/lazydocker), uma TUI(*terminal user interface*) para facilitar o gerenciamento do docker.
 
 ![Lazy Docker](../assets/sd/lazydocker.png)
+
+E por último mas não menos importante o [Portainer](https://docs.portainer.io/start/install-ce), é uma ferramenta para gerenciamento de containers e orquestradores, oferecendo uma interface gráfica(*GUI*) para administrar ambientes Docker, Docker Swarm, Kubernetes, e Azure ACI.
