@@ -123,6 +123,99 @@ java Exemplo Olá
 Onde `args[0]` contém o primeiro argumento digitado após o nome da classe.
 
 
+## Variáveis
+
+Em Java, **variáveis** são espaços na memória usados para armazenar valores que podem ser manipulados durante a execução do programa.
+Cada variável possui um **tipo**, um **nome** e um **valor** (que pode mudar ao longo do tempo, dependendo do escopo).
+
+```java
+int idade = 20;
+double salario = 3500.50;
+String nome = "Maria";
+```
+
+### Declaração de Variáveis
+
+A sintaxe básica é:
+
+```java
+tipo nomeDaVariavel = valorInicial;
+```
+
+Exemplo:
+
+```java
+int numero = 10;
+char letra = 'A';
+boolean ativo = true;
+```
+
+Também é possível declarar sem inicializar:
+
+```java
+int contador;
+contador = 1;
+```
+
+### Tipos de Dados em Java
+
+Java é uma **linguagem fortemente tipada**, ou seja, **toda variável deve ter um tipo definido**.
+
+Os tipos de dados se dividem em:
+
+### Tipos Primitivos
+
+| Tipo     | Tamanho (bits) | Valor padrão | Exemplo          |
+|-----------|----------------|---------------|------------------|
+| `byte`    | 8              | 0             | `byte idade = 25;` |
+| `short`   | 16             | 0             | `short ano = 2025;` |
+| `int`     | 32             | 0             | `int numero = 100;` |
+| `long`    | 64             | 0L            | `long populacao = 8000000L;` |
+| `float`   | 32             | 0.0f          | `float peso = 75.5f;` |
+| `double`  | 64             | 0.0d          | `double altura = 1.75;` |
+| `char`    | 16             | '\u0000'     | `char letra = 'A';` |
+| `boolean` | 1 (teórico)    | false         | `boolean ativo = true;` |
+
+> O `float` deve terminar com **`f`** e o `long` com **`L`**.
+
+### Tipos de Referência
+
+Usados para armazenar **objetos** ou **arrays**.
+Exemplos: `String`, `ArrayList`, `Scanner`, `Pessoa` (classe criada pelo usuário).
+
+```java
+String nome = "João";
+Pessoa p = new Pessoa();
+int[] numeros = {1, 2, 3};
+```
+
+### Conversão de Tipos
+
+A Conversão Implícita (Widening Casting), ocorre automaticamente quando um tipo menor é atribuído a um tipo maior.
+
+```java
+int x = 10;
+double y = x; // conversão automática (int → double)
+```
+
+Já a conversão Explícita (Narrowing Casting) necessita de **casting** manual, pois pode haver perda de dados.
+
+```java
+double valor = 9.78;
+int inteiro = (int) valor; // conversão manual
+```
+
+### Constantes
+
+Usam o modificador `final` e **não podem ser alteradas** após a inicialização.
+
+```java
+final double PI = 3.14159;
+```
+
+Por convenção, constantes são escritas em **letras maiúsculas**.
+
+
 ## Entrada e Saída de Dados em Java
 
 A **entrada e saída de dados** (I/O – *Input/Output*) permite **interação entre o programa, o usuário e o sistema**.
@@ -191,7 +284,6 @@ public class Entrada {
 > Digite sua idade: 22
 > Olá, Ana! Você tem 22 anos.
 
-
 | Método | Tipo de dado | Exemplo de uso |
 |---------|---------------|----------------|
 | `nextLine()` | String (linha completa) | `String nome = entrada.nextLine();` |
@@ -202,6 +294,139 @@ public class Entrada {
 
 
 Sempre feche o objeto `Scanner` com `entrada.close()` para liberar o recurso de entrada.
+
+### JOptionPane
+
+O `JOptionPane` é uma **classe** da biblioteca **Swing** do Java, usada para criar **caixas de diálogo (pop-ups)** simples e interativas.
+Ela permite exibir **mensagens**, **pedir entrada de dados** e **obter confirmações** de maneira fácil e rápida.
+
+Está localizada no pacote:
+
+```java
+import javax.swing.JOptionPane;
+```
+
+#### Tipos de Caixas de Diálogo
+
+O `JOptionPane` possui **quatro tipos principais de janelas**:
+
+1. **Mensagens (`showMessageDialog`)**
+2. **Entrada de dados (`showInputDialog`)**
+3. **Confirmação (`showConfirmDialog`)**
+4. **Opções personalizadas (`showOptionDialog`)**
+
+#### `showMessageDialog` — Exibir Mensagens
+
+Usado para mostrar uma **mensagem informativa** ao usuário.
+
+```java
+import javax.swing.JOptionPane;
+
+public class ExemploMensagem {
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "Bem-vindo ao sistema!");
+    }
+}
+```
+
+- O primeiro parâmetro (`null`) indica que a janela não está vinculada a nenhum frame principal.
+- O segundo é a **mensagem** que será exibida.
+
+#### Tipos de ícones disponíveis:
+
+| Tipo | Constante | Exemplo |
+|------|------------|---------|
+| Informação | `JOptionPane.INFORMATION_MESSAGE` | ℹ️ |
+| Aviso | `JOptionPane.WARNING_MESSAGE` | ⚠️ |
+| Erro | `JOptionPane.ERROR_MESSAGE` | ❌ |
+| Pergunta | `JOptionPane.QUESTION_MESSAGE` | ❓ |
+| Sem ícone | `JOptionPane.PLAIN_MESSAGE` | — |
+
+```java
+JOptionPane.showMessageDialog(null, "Operação realizada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+```
+
+#### `showInputDialog` — Entrada de Dados
+
+Permite **coletar uma entrada** do usuário por meio de um campo de texto.
+
+```java
+String nome = JOptionPane.showInputDialog("Digite seu nome:");
+JOptionPane.showMessageDialog(null, "Olá, " + nome + "!");
+```
+
+Você também pode solicitar **números**, convertendo o texto:
+
+```java
+String idadeStr = JOptionPane.showInputDialog("Digite sua idade:");
+int idade = Integer.parseInt(idadeStr);
+JOptionPane.showMessageDialog(null, "Você tem " + idade + " anos.");
+```
+
+#### `showConfirmDialog` — Confirmações
+
+Usado para perguntar ao usuário **sim/não/cancelar** e obter o resultado.
+
+```java
+int resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
+
+if (resposta == JOptionPane.YES_OPTION) {
+    JOptionPane.showMessageDialog(null, "Você escolheu SIM.");
+} else if (resposta == JOptionPane.NO_OPTION) {
+    JOptionPane.showMessageDialog(null, "Você escolheu NÃO.");
+} else {
+    JOptionPane.showMessageDialog(null, "Operação cancelada.");
+}
+```
+
+#### Retornos possíveis
+
+| Constante | Valor | Significado |
+|------------|--------|-------------|
+| `JOptionPane.YES_OPTION` | 0 | Usuário clicou **Sim** |
+| `JOptionPane.NO_OPTION` | 1 | Usuário clicou **Não** |
+| `JOptionPane.CANCEL_OPTION` | 2 | Usuário clicou **Cancelar** |
+| `JOptionPane.CLOSED_OPTION` | -1 | Usuário fechou a janela |
+
+#### `showOptionDialog` — Opções Personalizadas
+
+Permite criar uma janela com **botões personalizados**.
+
+```java
+Object[] opcoes = {"Salvar", "Não salvar", "Cancelar"};
+
+int escolha = JOptionPane.showOptionDialog(
+    null,
+    "Deseja salvar as alterações?",
+    "Confirmação",
+    JOptionPane.YES_NO_CANCEL_OPTION,
+    JOptionPane.QUESTION_MESSAGE,
+    null,
+    opcoes,
+    opcoes[0]
+);
+
+JOptionPane.showMessageDialog(null, "Você escolheu: " + opcoes[escolha]);
+```
+
+#### Exemplo Completo
+
+```java
+import javax.swing.JOptionPane;
+
+public class SistemaLogin {
+    public static void main(String[] args) {
+        String usuario = JOptionPane.showInputDialog("Usuário:");
+        String senha = JOptionPane.showInputDialog("Senha:");
+
+        if (usuario.equals("admin") && senha.equals("1234")) {
+            JOptionPane.showMessageDialog(null, "Acesso permitido!", "Login", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
+```
 
 ## Operadores Lógicos
 
