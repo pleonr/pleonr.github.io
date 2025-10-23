@@ -1,0 +1,1823 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ainfraestrutura/">
+      
+      
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Docker - PLeonR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="PLeonR" class="md-header__button md-logo" aria-label="PLeonR" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PLeonR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Alternar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para o modo escuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PLeonR" class="md-nav__button md-logo" aria-label="PLeonR" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    PLeonR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sobre/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sobre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API's
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            API's
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%27s/anodejs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API com Nodejs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%27s/btypescript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API com TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%27s/cpython/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API's REST com Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%27s/eparametros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parâmetros em APIs (REST)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LaTeX
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LaTeX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LaTeX/alatex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaTeX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programação Orientada a Objetos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Programação Orientada a Objetos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos/a-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução ao Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos/b-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    B java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/python_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linguagem de Programação Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/python_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instrumentalização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/python_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ubiquitous Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Ubiquitous Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ainfraestrutura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infraestrutura em Sistemas Distribuídos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeiro-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primeiro Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programa-ascii-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programa ASCII text
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programa ASCII text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile-camadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile Camadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Postgresql
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Postgresql">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volumes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redes-no-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redes no Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      .env
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outros-commandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outros Commandos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-graficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas Gráficas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="docker">Docker</h1>
+<p><img align="left" alt="docker" src="../../assets/sd/docker.svg" width="200" /></p>
+<p>Docker é uma plataforma open source que automatiza a implantação, escalabilidade e execução de aplicações dentro de contêineres.</p>
+<p>Contêineres são ambientes isolados e portáteis que contêm tudo o que uma aplicação precisa para funcionar, incluindo bibliotecas, dependências e configurações.</p>
+<!-- <figure markdown="span">
+  ![onmymachine](../assets/sd/itworksonmymachine.jpg){ width=300 }
+</figure> -->
+
+<p><br/></p>
+<h2 id="arquitetura">Arquitetura</h2>
+<p>A arquitetura do docker pode ser dividida em três componentes principais mostrados na imagem  abaixo.</p>
+<figure>
+  <img alt="Arquitetura Docker" src="../../assets/sd/docker.webp" />
+</figure>
+<div class="admonition info">
+<p class="admonition-title">Arquitetura</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Cliente</strong></label><label for="__tabbed_1_2"><strong>Host</strong></label><label for="__tabbed_1_3"><strong>Registry</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>O cliente é o ponto de interação do usuário com o Docker, geralmente por meio da linha de comando. Esses comandos são enviados ao Docker Daemon via API, os comandos são convertidos para chamadas da api.</p>
+<ul>
+<li>docker run: Executa um container com base em uma imagem.</li>
+<li>docker build: Cria uma nova imagem a partir de um Dockerfile.</li>
+<li>docker pull: Baixa uma imagem de um repositório (Registry).</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>O docker host é o ambiente de execução do docker sendo o Daemon um serviço que gerência as <code>imagens</code> e <code>containers</code>. Quando uma imagem é "executada", o Docker a transforma em um container em uma instância isolada para execução.</p>
+</div>
+<div class="tabbed-block">
+<p>O Docker Registry é um repositório de imagens podendo ser público ou privado</p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="instalacao">Instalação</h2>
+<p>O <a href="https://docs.docker.com/"><code>Docker</code></a> está disponível para vários SO's, entre os principais sistemas operacionais da atualidade o Docker fornece uma forma de instalação. Para linux as principais distros possuem o repositório oficial disponível para instalação.</p>
+<!--
+$ sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+$ systemctl --user restart docker-desktop
+
+
+sudo usermod -aG docker $USER
+ls -la /var/run/docker.sock
+
+systemctl status docker
+sudo systemctl start docker
+sudo systemctl restart docker
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+-->
+
+<h2 id="primeiro-container">Primeiro Container</h2>
+<p>Execute o seguinte comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<h2 id="docker-hub">Docker Hub</h2>
+<p><a href="https://hub.docker.com" target="_blank">Docker Hub</a> é um registro de containers (container registry) hospedado pela própria Docker Inc. É o ponto de partida padrão quando você executa comandos como <code>docker pull</code> ou <code>docker run</code>.</p>
+<figure>
+  <img alt="onmymachine" src="../../assets/sd/docker-hub.png" />
+</figure>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Imagens oficiais</strong></td>
+<td>Repositórios mantidos por empresas ou pela própria Docker (ex: <code>nginx</code>, <code>mysql</code>)</td>
+</tr>
+<tr>
+<td><strong>Repositórios públicos</strong></td>
+<td>Qualquer usuário pode criar e compartilhar uma imagem abertamente.</td>
+</tr>
+<tr>
+<td><strong>Repositórios privados</strong></td>
+<td>Para projetos privados ou internos. Contas gratuitas têm limite.</td>
+</tr>
+<tr>
+<td><strong>Tags e versões</strong></td>
+<td>Cada imagem pode ter várias versões (<code>latest</code>, <code>v1.0</code>, etc.)</td>
+</tr>
+<tr>
+<td><strong>Automated Builds</strong></td>
+<td>Integra com GitHub/GitLab para build automático de imagens.</td>
+</tr>
+<tr>
+<td><strong>Webhooks</strong></td>
+<td>Aciona ações externas após o push de uma imagem.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="programa-ascii-text">Programa ASCII text</h2>
+<p>Para exemplificar vamos criar um programa que converte texto para ASCII text, usando o figlet. Crie um arquivo chamado <code>ascii.sh</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">TEXTO</span><span class="o">=(</span><span class="s2">&quot;Arise, arise, riders of Rohan!</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s2">Fell deeds awake, fire and slaughter!</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">Spear shall be shaken, shield be splintered!</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">A sword-day, a red day, ere the sun rises!</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s2">Ride now, ride now, ride to Gondor!&quot;</span><span class="o">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>figlet<span class="w"> </span>-w<span class="w"> </span><span class="m">200</span><span class="w"> </span>-f<span class="w"> </span>big<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TEXTO</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Esse é nosso programa, um arquivo simples <code>.sh</code> que usa o programa <code>figlet</code>. Para executar localmente é necessário instalar esse programa manualmente. Pensando no contexto de utilização, um programa pode conter diversas bibliotecas e configurações para seu funcionamento.
+Para isso criamos um <code>Dockerfile</code>.</p>
+<h3 id="dockerfile">Dockerfile</h3>
+<p>O <code>Dockerfile</code> é o ponto de entrada de um container docker, é onde a imagem e toda a lógica do container são definidos. Neste <a href="https://docs.docker.com/reference/dockerfile/">arquivo</a> definimos as etapas para criação de um container.</p>
+<ul>
+<li>FROM: define a imagem base do container.</li>
+<li>WORKDIR: define o diretório de trabalho dentro do container.</li>
+<li>COPY: copia arquivos do sistema de arquivos host para o sistema de arquivos do container.</li>
+<li>RUN: executa comandos no container durante o processo de build.</li>
+<li>EXPOSE: informa qual porta o serviço do container vai escutar</li>
+<li>CMD: define o comando padrão que será executado quando o contêiner for iniciado. Diferente de RUN, que é executado durante o build, CMD é executado quando o contêiner já está rodando.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>FROM<span class="w"> </span>ubuntu:latest
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>RUN<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>figlet<span class="w"> </span>wget
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>RUN<span class="w"> </span>wget<span class="w"> </span>-P<span class="w"> </span>/usr/share/figlet<span class="w"> </span>http://www.jave.de/figlet/fonts/details/big.flf
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>COPY<span class="w"> </span>ascii.sh<span class="w"> </span>/ascii.sh
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>RUN<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/ascii.sh
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>CMD<span class="w"> </span><span class="o">[</span><span class="s2">&quot;/ascii.sh&quot;</span><span class="o">]</span>
+</code></pre></div>
+<p>Com esse arquivo pronto vamos montar essa imagem.</p>
+<h3 id="build-image">Build image</h3>
+<p>O comando <code>docker build</code> é usado para criar uma imagem Docker a partir de um Dockerfile. A imagem é uma representação em camadas do sistema de arquivos que será utilizado pelos containers. A nomenclatura do comando <code>docker build</code> é a seguinte</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>opções<span class="o">]</span><span class="w"> </span>&lt;contexto&gt;
+</code></pre></div>
+<p>O contexto é o diretório no qual o Docker irá buscar o Dockerfile e os arquivos referenciados por ele. Pode ser . (diretório atual) ou um caminho relativo/absoluto.</p>
+<p>Em opções temos uma lista de parâmetros que podem ser utilizados</p>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-t</code> ou <code>--tag</code></td>
+<td>Define uma <strong>tag</strong>(<em>nome</em>) para a imagem. Ex: <code>-t myapp:latest</code></td>
+</tr>
+<tr>
+<td>-f</td>
+<td>Especifica o caminho do Dockerfile se ele não estiver no diretório padrão. Ex: -f Dockerfile.dev</td>
+</tr>
+<tr>
+<td><code>--no-cache</code></td>
+<td>Ignora o cache e força a reconstrução de todas as camadas</td>
+</tr>
+<tr>
+<td><code>--build-arg</code></td>
+<td>Permite passar argumentos de build definidos via <code>ARG</code> no Dockerfile</td>
+</tr>
+<tr>
+<td><code>--target</code></td>
+<td>Define o alvo de uma <strong>multi-stage build</strong></td>
+</tr>
+<tr>
+<td><code>--progress</code></td>
+<td>Controla a exibição do progresso (<code>auto</code>, <code>plain</code>, <code>tty</code>)</td>
+</tr>
+<tr>
+<td><code>--platform</code></td>
+<td>Define a plataforma (arquitetura) para a imagem: <code>linux/amd64</code>, <code>linux/arm64</code>, etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Por exemplo o comando abaixo cria uma imagem com a tag ascii e o arquivo <code>Dockerfile</code> e demais arquivos necessários se encontram na pasta atual.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;ascii&quot;</span><span class="w"> </span>.
+</code></pre></div>
+<p>Ou trabalhar com versões (<em>melhor prática</em>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;ascii:v0.0.2&quot;</span><span class="w"> </span>.
+</code></pre></div>
+<h3 id="dockerfile-camadas">Dockerfile Camadas</h3>
+<p>O Docker divide o Dockerfile em camadas. Cada instrução (FROM, RUN, COPY, etc.) gera uma nova camada e essas camadas utilizam cache para acelerar builds futuras.</p>
+<p>Sempre que uma das camadas é alterada as camadas subsequentes são reconstruídas. Durante o docker build, o Docker:</p>
+<ul>
+<li>Avalia se a instrução já foi executada antes com os mesmos inputs, se sim, ele reutiliza a camada anterior do cache.</li>
+<li>O Docker detecta mudanças nos arquivos e invalida o cache das camadas afetadas, quando isso ocorre ele executa essa instrução novamente e todas as seguintes.</li>
+</ul>
+<p>Uso de <code>.dockerignore</code>, melhora performance e impede que arquivos desnecessários entrem no contexto. Devemos organizar comandos que são modificados com pouca frequência no começo do arquivo quando possível.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Ignora a pasta node_modules (dependências locais)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>node_modules/
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>venv/
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Ignora arquivos de log</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>*.log
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Ignora arquivos temporários do sistema</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>*.swp
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>*.tmp
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># Ignora diretórios de testes</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>tests/
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>__pycache__/
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># Ignora arquivos de configuração e IDEs</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>.vscode/
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>.idea/
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>.env
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="c1"># Ignora o próprio .dockerignore e Dockerfile se necessário (opcional)</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>.dockerignore
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>Dockerfile.dev
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>Dockerfile.prod
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>Dockerfile.test
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="c1"># Ignora arquivos de build locais</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>dist/
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>build/
+</code></pre></div>
+<h3 id="docker-run">Docker run</h3>
+<p>O comando docker run é usado para executar um container a partir de uma imagem Docker.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>opções<span class="o">]</span><span class="w"> </span>&lt;imagem&gt;<span class="w"> </span><span class="o">[</span>comando<span class="o">]</span>
+</code></pre></div>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Opção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code></td>
+<td>Executa o container em <strong>modo background</strong> (detached)</td>
+</tr>
+<tr>
+<td><code>-it</code></td>
+<td><strong>Interativo</strong> com terminal (útil para bash, etc.)</td>
+</tr>
+<tr>
+<td><code>--rm</code></td>
+<td>Remove o container automaticamente ao final</td>
+</tr>
+<tr>
+<td><code>--name</code></td>
+<td>Define um <strong>nome personalizado</strong> para o container</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Faz o <strong>mapeamento de portas</strong> (ex: <code>-p 8080:80</code>)</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Faz o <strong>mapeamento de volumes</strong> (ex: <code>-v $(pwd):/app</code>)</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>Define <strong>variáveis de ambiente</strong> (ex: <code>-e NODE_ENV=prod</code>)</td>
+</tr>
+<tr>
+<td><code>--network</code></td>
+<td>Define a rede a ser usada pelo container</td>
+</tr>
+<tr>
+<td><code>--restart</code></td>
+<td>Política de reinício (<code>no</code>, <code>always</code>, <code>on-failure</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Não precisamos executar o <code>run</code> toda vez... quando temos um container podemos iniciar usando <code>docker start</code>:</p>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker run</code></td>
+<td>Cria e inicia um <strong>novo container</strong> baseado em uma imagem</td>
+</tr>
+<tr>
+<td><code>docker start</code></td>
+<td>Inicia um <strong>container existente parado</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Vamos usar a imagem que criamos anteriormente</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>ascii:latest
+</code></pre></div>
+<h2 id="postgresql">Postgresql</h2>
+<p>Imagine poder trabalhar com uma instalação isolada do banco de dados, seja para testes ou desenvolvimento. O PostgreSQL pode ser executado como um docker container, assim como diversos outros serviços existe uma imagem oficial do docker disponível para download no docker hub.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--name<span class="w"> </span>postgres-container<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>postgres<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>meubanco<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span>postgres:latest
+</code></pre></div>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code></td>
+<td>Executa em segundo plano</td>
+</tr>
+<tr>
+<td><code>--name</code></td>
+<td>Nome do container</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>Define variáveis de ambiente</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Mapeia a porta 5432 para o host</td>
+</tr>
+<tr>
+<td><code>postgres:latest</code></td>
+<td>Imagem oficial com a versão desejada</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Podemos conectar ao banco de dados utilizando</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>postgres-container<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>meubanco
+</code></pre></div>
+<h3 id="volumes">Volumes</h3>
+<p>O docker permite criar volumes de dados, imagine como se fosse uma unidade de disco para os containers, (<em>na verdade é só uma pasta</em>). Essa unidade é persistente e mesmo que o container seja removido ela continua a existir e pode ser mapeada por outros containers.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>pgdata
+</code></pre></div>
+<p>Para usar um volume utilizamos</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>--name<span class="w"> </span>postgres-container<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>postgres<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>meubanco<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span>-v<span class="w"> </span>pgdata:/var/lib/postgresql/data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span>postgres:latest
+</code></pre></div>
+<p>Podemos fazer e restaurar backups diretamente do host</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-t<span class="w"> </span>postgres-container<span class="w"> </span>pg_dump<span class="w"> </span>-U<span class="w"> </span>meuusuario<span class="w"> </span>meubanco<span class="w"> </span>&gt;<span class="w"> </span>backup.sql
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat<span class="w"> </span>backup.sql<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-i<span class="w"> </span>postgres-container<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>meuusuario<span class="w"> </span>-d<span class="w"> </span>meubanco
+</code></pre></div>
+<h3 id="redes-no-docker">Redes no Docker</h3>
+<p>O Docker cria automaticamente algumas redes padrão, mas você também pode criar redes personalizadas para maior controle.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de Rede</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bridge</code></td>
+<td><strong>Padrão para containers standalone</strong>. Cada container recebe um IP interno. Comunicação entre containers na mesma rede é possível.</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>O container compartilha a pilha de rede do host. <strong>Sem isolamento de IP.</strong></td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>O container não tem acesso à rede. Útil para segurança ou teste.</td>
+</tr>
+<tr>
+<td><code>overlay</code></td>
+<td>Permite comunicação entre containers em <strong>hosts diferentes</strong>, geralmente usado com Docker Swarm.</td>
+</tr>
+<tr>
+<td><code>macvlan</code></td>
+<td>Atribui um endereço MAC diretamente ao container. Ele se comporta como um dispositivo físico na rede.</td>
+</tr>
+</tbody>
+</table>
+<p>Quando você cria um container, ele é conectado por padrão a uma rede bridge chamada bridge:
+- Docker cria uma interface de rede virtual (veth) conectando o container ao host.
+- O container recebe um IP interno, roteado por NAT.
+- Você pode expor portas com <code>-p</code> ou <code>--publish</code> para acesso externo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>meu_app<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>O container meu_app escuta na porta 80 internamente, enquanto o host escuta na porta 8080 e redireciona para o container. Os containers podem se comunicar pelo nome (DNS interno do Docker resolve container1).</p>
+</div>
+<h2 id="docker-compose">Docker Compose</h2>
+<p>O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações multi-container no Docker. Ele permite que você defina todos os serviços, redes e volumes de sua aplicação em um arquivo YAML <code>docker-compose.yml</code>.</p>
+<p>Vamos utilizar nossa api e criar um <code>docker-compose.yaml</code> na pasta raiz da api junto ao Dockerfile.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>//<span class="w"> </span>ou<span class="w"> </span>down
+</code></pre></div>
+<p>Exemplo de um <code>docker-compose.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=postgres</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PORT=5432</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_USER=postgres</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD=${POSTGRES_PASSWORD}</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_NAME=api</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-network</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-db</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5000:5432&quot;</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-data:/var/lib/postgresql/data</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">networks</span><span class="p p-Indicator">:</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-network</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">  </span><span class="nt">api-network</span><span class="p">:</span>
+<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">  </span><span class="nt">postgres-data</span><span class="p">:</span>
+</code></pre></div>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Seção</th>
+<th>Campo</th>
+<th>Valor / Descrição</th>
+<th>Explicação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td><code>'3.8'</code></td>
+<td>Formato da versão do Compose</td>
+<td>Compatível com Docker moderno, usado para definir sintaxe e recursos disponíveis</td>
+</tr>
+<tr>
+<td><code>services</code></td>
+<td><code>api</code></td>
+<td>Serviço da aplicação (container da API)</td>
+<td>Define a aplicação principal que será construída localmente</td>
+</tr>
+<tr>
+<td></td>
+<td><code>build</code></td>
+<td><code>.</code></td>
+<td>Usa o <code>Dockerfile</code> no diretório atual para construir a imagem da API</td>
+</tr>
+<tr>
+<td></td>
+<td><code>container_name</code></td>
+<td><code>api</code></td>
+<td>Nome fixo do container da API</td>
+</tr>
+<tr>
+<td></td>
+<td><code>ports</code></td>
+<td><code>"3000:3000"</code></td>
+<td>Mapeia a porta 3000 do host para a porta 3000 do container (acesso à API via navegador ou cliente HTTP)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>environment</code></td>
+<td></td>
+<td>Define variáveis de ambiente consumidas pela API (credenciais de acesso ao banco)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>DB_HOST=postgres</code></td>
+<td>A API se conecta ao banco com o nome do serviço <code>postgres</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>DB_PORT=5432</code></td>
+<td>Porta padrão do PostgreSQL</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>DB_USER=postgres</code></td>
+<td>Usuário do banco</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>DB_PASSWORD=${POSTGRES_PASSWORD}</code></td>
+<td>Senha vinda do arquivo <code>.env</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>DB_NAME=api</code></td>
+<td>Nome do banco</td>
+</tr>
+<tr>
+<td></td>
+<td><code>depends_on</code></td>
+<td><code>postgres</code></td>
+<td>Garante que o container do banco suba antes da API (mas não espera o banco estar pronto)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>networks</code></td>
+<td><code>api-network</code></td>
+<td>Conecta a API à rede privada do Compose para comunicação entre containers</td>
+</tr>
+<tr>
+<td><code>services</code></td>
+<td><code>postgres</code></td>
+<td>Serviço do banco de dados PostgreSQL</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>image</code></td>
+<td><code>postgres:16</code></td>
+<td>Usa a imagem oficial do PostgreSQL versão 16</td>
+</tr>
+<tr>
+<td></td>
+<td><code>container_name</code></td>
+<td><code>postgres-db</code></td>
+<td>Nome fixo do container do banco</td>
+</tr>
+<tr>
+<td></td>
+<td><code>environment</code></td>
+<td></td>
+<td>Define variáveis internas do PostgreSQL para criar o usuário, banco e senha</td>
+</tr>
+<tr>
+<td></td>
+<td><code>ports</code></td>
+<td><code>"5000:5432"</code></td>
+<td>Mapeia a porta 5432 do banco para a porta 5000 do host</td>
+</tr>
+<tr>
+<td></td>
+<td><code>volumes</code></td>
+<td><code>postgres-data:/var/lib/postgresql/data</code></td>
+<td>Volume persistente para armazenar os dados do banco</td>
+</tr>
+<tr>
+<td></td>
+<td><code>networks</code></td>
+<td><code>api-network</code></td>
+<td>Mesmo que a API: permite comunicação privada entre containers</td>
+</tr>
+<tr>
+<td><code>networks</code></td>
+<td><code>api-network</code></td>
+<td><code>driver: bridge</code></td>
+<td>Cria uma rede virtual isolada para os serviços</td>
+</tr>
+<tr>
+<td><code>volumes</code></td>
+<td><code>postgres-data</code></td>
+<td>Volume nomeado</td>
+<td>Armazena os dados do banco de forma persistente no host, mesmo que o container seja recriado</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="env">.env</h3>
+<p>Não é seguro deixar credenciais expostas em um dockerfile ou docker-compose, para isso podemos utilizar um arquivo <code>.env</code> (<em>na mesma pasta do docker-compose.yml</em>) que pode ser criado de forma segura utilizando secrets por exemplo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># .env</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nv">POSTGRES_USER</span><span class="o">=</span>meuusuario
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>senha123
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nv">POSTGRES_DB</span><span class="o">=</span>meubanco
+</code></pre></div>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker-compose up</code></td>
+<td>Sobe todos os containers</td>
+</tr>
+<tr>
+<td><code>docker-compose up -d</code></td>
+<td>Sobe em background</td>
+</tr>
+<tr>
+<td><code>docker-compose down</code></td>
+<td>Derruba e remove containers, redes e volumes anônimos</td>
+</tr>
+<tr>
+<td><code>docker-compose logs</code></td>
+<td>Mostra os logs dos serviços</td>
+</tr>
+<tr>
+<td><code>docker-compose exec &lt;serviço&gt; bash</code></td>
+<td>Acessa o terminal de um container</td>
+</tr>
+<tr>
+<td><code>docker-compose ps</code></td>
+<td>Lista containers em execução</td>
+</tr>
+<tr>
+<td><code>docker-compose stop/start</code></td>
+<td>Para ou inicia serviços já criados</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="outros-commandos">Outros Commandos</h2>
+<p>Segue uma lista de comandos do docker para referência.</p>
+<div class="admonition info">
+<p class="admonition-title">Comandos úteis</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><strong>Help</strong></label><label for="__tabbed_2_2"><strong>Logs</strong></label><label for="__tabbed_2_3"><strong>Acessar container</strong></label><label for="__tabbed_2_4"><strong>Docker cp</strong></label><label for="__tabbed_2_5"><strong>Listar Imagens</strong></label><label for="__tabbed_2_6"><strong>Listar Containers</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Lista comandos do docker e outras informações
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>--help
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Logs do container
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Logs do container
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-id&gt;<span class="w"> </span>/bin/bash
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Copiar arquivos de dentro do container
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>cp<span class="w"> </span>&lt;origem&gt;<span class="w"> </span>&lt;destino&gt;
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1">#Container para Host</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>docker<span class="w"> </span>cp<span class="w"> </span>postgres-container:/var/log/postgresql/postgresql.log<span class="w"> </span>./meus-logs/
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1">#Host para container</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>docker<span class="w"> </span>cp<span class="w"> </span>./backup.sql<span class="w"> </span>postgres-container:/tmp/backup.sql
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Listar imagens
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker<span class="w"> </span>images
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Listar Containers
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>ps
+</code></pre></div></p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Comandos úteis pt 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><strong>docker daemon</strong></label><label for="__tabbed_3_2"><strong>Reiniciar o compose</strong></label><label for="__tabbed_3_3"><strong>Deletar Containers</strong></label><label for="__tabbed_3_4"><strong>Deletar os volumes:</strong></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Iniciar, reiniciar e Parar o service do Docker
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restar<span class="w"> </span>docker
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>docker
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Reinicia todos os containers de um docker-compose
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker-compose<span class="w"> </span>restart
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Deletar os containers
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container-id&gt;
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>docker<span class="w"> </span>rm<span class="w"> </span>&lt;container-id&gt;
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span>-q<span class="k">)</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Deletar todos os volumes:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span>-q<span class="k">)</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="ferramentas-graficas">Ferramentas Gráficas</h2>
+<p>O docker fornece uma ferramenta gráfica chamada <a href="https://docs.docker.com/desktop/">Docker Desktop</a> para facilitar o gerenciamento do docker.</p>
+<p><img alt="Docker Desktop" src="../../assets/sd/docker-desktop.png" /></p>
+<p>Outra ferramenta interessante é o <a href="https://github.com/jesseduffield/lazydocker">Lazydocker</a>, uma TUI(<em>terminal user interface</em>) para facilitar o gerenciamento do docker.</p>
+<p><img alt="Lazy Docker" src="../../assets/sd/lazydocker.png" /></p>
+<p>E por último mas não menos importante o <a href="https://docs.portainer.io/start/install-ce">Portainer</a>, é uma ferramenta para gerenciamento de containers e orquestradores, oferecendo uma interface gráfica(<em>GUI</em>) para administrar ambientes Docker, Docker Swarm, Kubernetes, e Azure ACI.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pleonr" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://steamcommunity.com/id/leonpf" target="_blank" rel="noopener" title="steamcommunity.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M504 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L184.6 279c-15.5-.9-30.7 3.4-43.5 12.1L8 236.1C18.2 108.4 125.1 8 255.6 8 392.8 8 504 119 504 256M163.7 384.3l-30.5-12.6c5.6 11.6 15.3 20.8 27.2 25.8 26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3S214 305.6 201 300.2c-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21m173.8-254.5a62.3 62.3 0 1 1 0 124.6 62.3 62.3 0 1 1 0-124.6m.1 109a46.8 46.8 0 1 0 0-93.6 46.8 46.8 0 1 0 0 93.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/pablo.leonrodrigues" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:pabloleon@upf.br" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C270.5 52.6 106.3 116.6 106.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H260v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.select", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
