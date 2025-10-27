@@ -336,7 +336,7 @@ O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento 
 Vamos utilizar nossa api e criar um `docker-compose.yaml` na pasta raiz da api junto ao Dockerfile.
 
 ```shell
-docker-compose up --build // ou down
+docker compose up --build // ou down
 ```
 
 Exemplo de um `docker-compose.yaml`
@@ -423,13 +423,14 @@ POSTGRES_DB=meubanco
 <div align="center" markdown="1">
 | Comando                              | Ação                                                  |
 | ------------------------------------ | ----------------------------------------------------- |
-| `docker-compose up`                  | Sobe todos os containers                              |
-| `docker-compose up -d`               | Sobe em background                                    |
-| `docker-compose down`                | Derruba e remove containers, redes e volumes anônimos |
-| `docker-compose logs`                | Mostra os logs dos serviços                           |
-| `docker-compose exec <serviço> bash` | Acessa o terminal de um container                     |
-| `docker-compose ps`                  | Lista containers em execução                          |
-| `docker-compose stop/start`          | Para ou inicia serviços já criados                    |
+| `docker compose up`                  | Sobe todos os containers                              |
+| `docker compose up -d`               | Sobe em background                                    |
+| `docker compose down`                | Derruba e remove containers, redes e volumes anônimos |
+| `docker compose down -v`             | Derruba e remove containers                           |
+| `docker compose logs`                | Mostra os logs dos serviços                           |
+| `docker compose exec <serviço> bash` | Acessa o terminal de um container                     |
+| `docker compose ps`                  | Lista containers em execução                          |
+| `docker compose stop/start`          | Para ou inicia serviços já criados                    |
 </div>
 
 
