@@ -1,6 +1,6 @@
 # Swagger
 
-O [Swagger](https://swagger.io/) é um conjunto de ferramentas e especificações abertas voltadas para o desenvolvimento, documentação e consumo de APIs RESTful. Ele faz parte do OpenAPI Initiative( *specificação OpenAPI (OAS)* ), um padrão mantido pela Linux Foundation, que define uma forma padronizada de descrever APIs em um formato legível por humanos e por máquinas.
+O [Swagger](https://swagger.io/) é um conjunto de ferramentas e especificações abertas voltadas para o desenvolvimento, documentação e consumo de APIs RESTful. Ele faz parte do OpenAPI Initiative( *especificação OpenAPI (OAS)* ), um padrão mantido pela Linux Foundation, que define uma forma padronizada de descrever APIs em um formato legível por humanos e por máquinas.
 
 - **Swagger UI** → Interface gráfica para visualizar e testar endpoints.
 - **Swagger Editor** → Editor online/local para escrever a documentação.
@@ -14,6 +14,8 @@ Embora algumas bibliotecas como `fastapi` do python, gera a documentação autom
 - Facilita integração: clientes e desenvolvedores entendem rapidamente como usar a API.
 - Geração de código: cria automaticamente stubs de servidor e SDKs de cliente em diversas linguagens (Node.js, Java, Go, Python, etc.).
 - Padrão amplamente adotado: compatível com ferramentas como Postman, Redoc, FastAPI, Express, NestJS, Spring Boot, etc.
+
+O swagger também pode ser utilizado com tokens para [autenticação](https://swagger.io/docs/specification/v3_0/authentication/bearer-authentication/)
 
 ## Estrutura
 
