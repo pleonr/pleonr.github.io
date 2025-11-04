@@ -23,4 +23,12 @@ Aqui segue uma lista de projetos para download
 
     [:octicons-arrow-right-24: Download](../static/rest-python.zip){:download="rest-python.zip"}
 
+-   :fontawesome-brands-python:{ .lg .middle } __API Gateway__
+
+    ---
+
+    Esse API Gateway desenvolida em python utiliza httpx e variáveis de ambiente para implementar circuit breaker, rate limit e load balance. Orquestrado com Dockerfile e Dockercompose.
+
+    [:octicons-arrow-right-24: Download](../static/gateway-python.zip){:download="gateway-python.zip"}
+
 </div>
