@@ -13,12 +13,24 @@ theme:
     - content.code.copy
   language: pt-BR
   palette:
-    - scheme: slate
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: teal
       accent: lime
       toggle:
-        icon: material/weather-night
-        name: Alternar para o modo escuro
+        icon: material/toggle-switch-off
+        name: Switch to system preference
 
 plugins:
   - search
