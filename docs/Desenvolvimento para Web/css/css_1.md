@@ -471,9 +471,8 @@ Cada canal de cor pode receber valores entre `00` (sem cor) a `ff` (cor cheia). 
 enquanto que `#ffffff` indica a cor preta. Já para as funções rgb e rgba, a quantidade de cor de cada canal é definida
 no intervalo 0 e 255, no caso da rgba, um último valor entre 0.0 e 1.0 indicando a transparência aplicada.
 
-<div align="center" markdown="1">
-![](/hexadecimal.png)
-</div>
+
+![](../../assets/css/hexadecimal.png)
 
 ```css
 body {
@@ -517,9 +516,11 @@ As propriedades de estilo que o CSS3 nos fornece para manipularmos fontes são `
 
 Uma curiosidade é que fontes `sans-serif` são recomendadas para uso em telas.
 
-<div align="center" markdown="1">
-![](/serif.gif)
-</div>
+<figure markdown="span">
+  ![fontes](../../assets/css/serif.gif)
+  <!-- <figcaption>Image caption</figcaption> -->
+</figure>
+
 
 ### Font Family
 
@@ -534,17 +535,11 @@ fonte semelhante disponível.
 
 No CSS existem cinco `font-family`, que o navegador pode utilizar para renderizar o texto.
 
-::right::
-
-<br><br>
-
 - Serif fontes têm um pequeno traço nas bordas de cada letra. Eles criam uma sensação de formalidade e elegância.
 - Sans serif fontes têm linhas limpas (sem pequenos traços anexados). Eles criam um visual moderno e minimalista.
 - Monospace fontes aqui todas as letras têm a mesma largura fixa. Eles criam uma aparência mecânica.
 - Cursive fontes imitam a caligrafia humana.
 - Fantasy fontes são fontes decorativas e divertidas.
-
----
 
 | Serif      | <span style="font-family:'Times New Roman',serif">Times New Roman</span><br><span style="font-family:Georgia,serif">Georgia</span><br><span style="font-family:Garamond,serif">Garamond</span>                 |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -553,13 +548,7 @@ No CSS existem cinco `font-family`, que o navegador pode utilizar para renderiza
 | Cursive    | <span style="font-family:'Brush Script MT',cursive">Brush Script MT</span><br><span style="font-family:'Lucida Handwriting',cursive">Lucida Handwriting</span>                                                 |
 | Fantasy    | <span style="font-family:Copperplate,fantasy">Copperplate</span><br><span style="font-family:Papyrus,fantasy">Papyrus</span>                                                                                   |
 
----
-layout: two-cols
----
-
 ### Font Style
-
-<br>
 
 - normal - Texto normal
 - italic - <span style="font-style: italic;">Texto itálico</span>
@@ -577,8 +566,6 @@ Define o peso (intensidade de negrito) da fonte. Os valores podem ser `normal`, 
 200, 300, 400, 500, 600, 700, 800, 900` e `inherit`. Os valores numéricos indicam uma graduação de negrito.
 O valor 400 equivale a normal enquanto o valor 700 é equivalente a bold.
 
-::right::
-
 Os valores bolder e lighter aplicam-se em relação ao peso herdado do ancestral, enquanto normal e bold aplicam-se
 em absoluto ao texto.
 
@@ -593,10 +580,6 @@ p.thick {
 }
 ```
 
----
-layout: two-cols
----
-
 ### Font Variant
 
 Indica se o texto deve ser exibido ou não considerando apenas caracteres maiúsculos, utilizando a propriedade
@@ -608,12 +591,9 @@ p.small {
 }
 ```
 
-<br>
-
 <span style="font-variant: normal;">Texto escrito normalmente</span><br>
 <span style="font-variant: small-caps;">Texto em small caps</span>
 
-::right::
 
 ### Font Size
 
@@ -626,16 +606,12 @@ h1 {
     font-size: 2rem;
     font-size: 2em;
 }
-
 ```
 
 <span style="font-size: 16px">16px</span><br><br>
 <span style="font-size: 2rem">2rem</span><br><br>
 <span style="font-size: 2em">2em</span><br>
 
----
-layout: two-cols
----
 
 ### Letter Spacing
 
@@ -659,8 +635,6 @@ p {
 
 <p style="word-spacing: 80px;">Espaçamento entre palavras</p>
 
-::right::
-
 ### Text Align
 
 Alinhamento do texto pode ser `left`, `right`, `center`, `justify`.
@@ -679,9 +653,6 @@ bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
 </p>
 
----
-layout: two-cols
----
 
 ### Text Decoration
 
@@ -701,7 +672,6 @@ p {
 <p style="text-decoration: underline dotted;">Underline dotted</p>
 <p style="text-decoration: green wavy underline;">Underline wavy green</p>
 
-::right::
 
 ### Text Transform
 
@@ -710,12 +680,6 @@ Opções `none`, `capitalize`, `uppercase`, `lowercase`
 <p style="text-transform: capitalize;">Texto Texto Texto</p>
 <p style="text-transform: uppercase;">Texto Texto Texto</p>
 <p style="text-transform: lowercase;">Texto Texto Texto</p>
-
-
----
-layout: iframe-right
-url: /google-fonts.html
----
 
 ### Google Fonts
 
@@ -733,13 +697,245 @@ body {
 </style>
 ```
 
-https://fonts.googleapis.com/css?family=Sofia
+### OTF, TTF, WOFF2
 
----
-layout: two-cols
----
+Existem três formatos principais de arquivos de fonte que aparecem quando você baixa uma tipografia para usar em uma página HTML, são eles TTF, OTF e WOFF/WOFF2. Eles representam basicamente a evolução histórica das fontes digitais até chegar ao padrão otimizado para a internet.
+
+#### TTF
+
+O formato TTF, chamado TrueType Font, é o mais antigo dos três e surgiu nos sistemas da Apple e depois foi adotado pela Microsoft. Ele foi pensado originalmente para computadores pessoais e impressão.
+
+Por isso costuma gerar arquivos relativamente grandes. Os navegadores conseguem utilizá-lo sem problemas, o que faz dele uma solução prática para testes locais ou para projetos simples, porém não é adequado para produção na internet porque aumenta o tempo de carregamento da página.
+
+Em CSS ele é declarado informando o tipo “truetype”, apontando para o arquivo .ttf que você colocou dentro do projeto.
+
+#### OTF
+
+O formato OTF, OpenType Font, apareceu depois como uma evolução do TTF criada pela Adobe em parceria com a Microsoft.
+
+A principal diferença não é visual imediata, mas tipográfica: ele permite recursos avançados, como ligaturas automáticas, variações estilísticas e melhor controle de desenho das letras. Por isso designers costumam preferir OTF para material gráfico e layouts mais refinados. Apesar dessa qualidade superior, o arquivo continua pesado para a web, praticamente do mesmo tamanho de um TTF. Ou seja, funciona em HTML, mas também não é indicado quando a preocupação é desempenho.
+
+#### WOFF e WOFF2
+
+O formato WOFF e sua versão mais recente WOFF2 foram criados especificamente para a internet. Na prática, eles são um TTF ou OTF compactado para transmissão pela rede. O navegador descompacta automaticamente e renderiza a tipografia sem perda de qualidade.
+
+O WOFF2 possui compressão ainda melhor que o WOFF tradicional, resultando em arquivos muito menores e carregamento mais rápido, tornando-se o padrão atual da web. Por isso sites profissionais normalmente usam primeiro o WOFF2 e mantêm WOFF ou TTF apenas como compatibilidade para navegadores antigos.
+
+### Exemplo
+
+Faça download do arquivo e salve em uma pasta do projeto. Crie a pasta `fonts` por exemplo.
+
+Em algum lugar do css declare a fonte com `@font-face`, se ela for do tipo ttf utilize o format("truetype") se for do tipo otf utilize format("opentype"), já woff e woff2 tem o formato da extensão do arquivo.
+
+=== "ttf"
+
+    ```css
+    @font-face {
+        font-family: "MinhaFonte";
+        src: url("../fonts/MinhaFonte.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+    ```
+=== "otf"
+
+    ```css
+    @font-face {
+        font-family: "MinhaFonte";
+        src: url("../fonts/MinhaFonte.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        }
+    ```
+=== "woff/woff2 Recomendado"
+
+    ```css
+    @font-face {
+        font-family: "MinhaFonte";
+        src: url("../fonts/MinhaFonte.woff2") format("woff2"),
+            url("../fonts/MinhaFonte.woff") format("woff"),
+            url("../fonts/MinhaFonte.ttf") format("truetype");
+    }
+    ```
+=== "bold"
+
+    ```css
+    @font-face {
+        font-family: "MinhaFonte";
+        src: url("../fonts/MinhaFonte-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+    }
+    ```
+
+
+
+Depois você pode utilizar a fonte
+
+```css
+body {
+  font-family: "MinhaFonte", Arial, sans-serif;
+}
+```
+
+
+| Formato | Tamanho | Qualidade | Web       | Recomendação         |
+| ------- | ------- | --------- | --------- | -------------------- |
+| TTF     | Grande  | Boa       | Funciona  |   evitar em produção |
+| OTF     | Grande  | Excelente | Funciona  |   evitar em produção |
+| WOFF    | Médio   | Igual     | Ótimo     |   fallback           |
+| WOFF2   | Pequeno | Igual     | Excelente |   use sempre         |
+
+
+
 
 ## Tabelas
+
+Uma tabela em HTML serve para apresentar dados organizados em linhas e
+colunas. O HTML define apenas a estrutura, o CSS é responsável pela aparência e legibilidade.
+
+### Estrutura básica em HTML
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Curso</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Ana</td>
+      <td>Computação</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <td>Bruno</td>
+      <td>Sistemas</td>
+      <td>8.7</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Sem CSS a tabela fica com aparência simples e pouco legível.
+
+### Bordas e espaçamento
+
+Por padrão cada célula possui bordas separadas. A propriedade `border-collapse` une essas bordas.
+
+``` css
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 8px;
+}
+```
+
+### Destacando o cabeçalho
+
+Cabeçalhos precisam diferenciar-se do conteúdo.
+
+``` css
+th {
+  background-color: #2c3e50;
+  color: white;
+  text-align: left;
+}
+```
+
+### Linhas alternadas (efeito zebra)
+
+Melhora muito a leitura quando há muitos dados.
+
+``` css
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+```
+
+### Efeito ao passar o mouse (hover)
+
+Ajuda o usuário a localizar a linha que está lendo.
+
+``` css
+tbody tr:hover {
+  background-color: #d6eaf8;
+}
+```
+
+### Alinhamento de conteúdo
+
+Números costumam ser centralizados ou alinhados à direita.
+
+``` css
+td:last-child {
+  text-align: center;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}
+```
+
+### Exemplo completo de tabela estilizada
+
+``` css
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #34495e;
+  color: white;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #e8f4ff;
+}
+
+td:last-child {
+  text-align: center;
+  font-weight: bold;
+}
+```
+
+### Tabelas responsivas
+
+Tabelas são largas e não cabem bem em telas pequenas, uma solução simples é permitir rolagem horizontal.
+
+``` css
+.table-container {
+  overflow-x: auto;
+}
+```
+
+``` html
+<div class="table-container">
+  <table>
+    ...
+  </table>
+</div>
+```
 
 ```html
 <table id="customers">
@@ -760,8 +956,6 @@ layout: two-cols
   </tr>
 </table>
 ```
-
-::right::
 
 ```css
 #customers {
@@ -785,15 +979,6 @@ layout: two-cols
  color: white;}
 ```
 
----
-layout: iframe
-url: /tables.html
----
-
----
-layout: two-cols
----
-
 ## Box model
 
 O modelo de caixa CSS é um conceito fundamental no desenvolvimento web que determina como os elementos HTML são
@@ -803,8 +988,6 @@ com quatro componentes principais:
 - Conteúdo(*content*): Esta é a área central onde reside o conteúdo real do elemento, como texto, imagens ou formulários.
 Você pode estilizar o conteúdo com propriedades como cor de fundo ou estilos de fonte.
 
-::right::
-
 - Preenchimento(*padding*): Esta é uma área transparente que adiciona espaço ao redor do conteúdo. O preenchimento cria
 um buffer entre o conteúdo e a borda.
 - Borda(*border*): Esta é a linha externa decorativa que envolve o conteúdo e o preenchimento. Você pode controlar o
@@ -812,10 +995,6 @@ estilo da borda (sólida, tracejada, pontilhada), espessura e cor.
 - Margem(*margin*): É a área transparente fora da borda que cria um espaçamento entre o elemento e os demais elementos
 da página. As margens permitem melhor organização e capacidade de resposta nos layouts.
 
----
-layout: iframe-right
-url: /box-model.html
----
 
 ```css
 div {
@@ -829,10 +1008,6 @@ div {
 
 O modelo de caixa CSS é essencialmente uma caixa que envolve cada elemento HTML. Consiste em: bordas, preenchimento,
 margens e o conteúdo real.
-
----
-layout: two-cols
----
 
 A largura total de um elemento(tew) usamos
 
@@ -852,7 +1027,6 @@ $$
 + 10px (left border + right border)
 = 350px (total element width)
 ```
-::right::
 
 Para calcular a altura total do elemento(tel) usamos
 
@@ -873,11 +1047,6 @@ $$
 = 80px (total height)
 ```
 
----
-layout: iframe-right
-url: /pos-static.html
----
-
 ## Posicionamento
 
 O posicionamento CSS refere-se a como você controla o posicionamento dos elementos em uma página da web,
@@ -895,11 +1064,6 @@ div.static {
 }
 ```
 
----
-layout: iframe-right
-url: /pos-relative.html
----
-
 ### **Relativo** - *relative*
 
 Elementos com posicionamento relativo permanecem em sua posição normal no fluxo, mas você pode deslocá-los
@@ -913,11 +1077,6 @@ div.relative {
     border: 3px solid #73AD21;
 }
 ```
-
----
-layout: iframe-right
-url: /pos-absolute.html
----
 
 ### **Absoluto** - *absolute*
 
@@ -937,11 +1096,6 @@ div.absolute {
 }
 ```
 
----
-layout: iframe-right
-url: /pos-fixed.html
----
-
 ### **Fixo** - *fixed*
 
 Os elementos posicionados fixos são semelhantes aos elementos posicionados de forma absoluta, mas são
@@ -958,11 +1112,6 @@ div.fixed {
     border: 3px solid #73AD21;
 }
 ```
-
----
-layout: iframe-right
-url: /pos-stick.html
----
 
 ### **Grudento** - *stick*:
 
@@ -982,8 +1131,6 @@ div.sticky {
 }
 ```
 
----
-
 ## Display
 
 A propriedade `display` especifica como o comportamento exibição do elemento. Dentre os possíveis comportamentos estão.
@@ -996,8 +1143,6 @@ A propriedade `display` especifica como o comportamento exibição do elemento. 
 | `flex`:     | Exibe um elemento como um flex container em nível de bloco                                                                |
 | `grid`:     | Exibe um elemento como um bloco- contêiner de grade de nível                                                              |
 | `none`:     | Remove o elemento completamente do DOM                                                                                    |
-
----
 
 ## Flexbox
 
@@ -1017,17 +1162,14 @@ web responsivas.
 verticalmente.
 - Espaçamento: Gerencie a distribuição do espaço entre os elementos, permitindo espaços uniformes ou alocação flexível.
 
----
-layout: two-cols
----
-
 Para pensar no flex-box, podemos imaginar que num contêiner os elementos vão ser posicionados
 em eixos `cross` e `main`.
 
-![](/flex-box.png)
+<figure markdown="span">
+  ![](../../assets/css/flex-box.png)
+  <!-- <figcaption>Image caption</figcaption> -->
+</figure>
 
-
-::right::
 
 Um elemento que recebe a propriedade `display: flex;` é chamado de `flex container`. E pode receber várias outras
 definições.
@@ -1039,10 +1181,6 @@ Dentre elas temos:
 A direção onde os elementos vão ser alinhados é a `row` da esquerda para a direita e de cima
 para baixo, mas podemos alterar o comportamento para `column` utilizando a propriedade <br>
 `flex-direction: column;`
-
----
-layout: two-cols
----
 
 #### `flex-wrap`
 
@@ -1065,7 +1203,6 @@ que os ítens quebrem para uma linha seguinte conforme for necessário.
     <div class="flex-box-item" style="background-color: #EE872A;">9</div>
 </div>
 
-::right::
 
 #### `flex-flow`
 
@@ -1081,10 +1218,6 @@ container. O valor padrão é `row nowrap`.
         | column wrap;
   }
 ```
-
----
-layout: two-cols
----
 
 ### `justify-content`
 
@@ -1111,7 +1244,6 @@ Alinha da direita para a esquerda no main axis.
     <div class="flex-box-item" style="background-color: #EE872A;">3</div>
 </div>
 
-::right::
 
 #### `center`
 
@@ -1135,9 +1267,6 @@ Alinha os elementos deixando espaços iguais entre eles main axis.
     <div class="flex-box-item" style="background-color: #EE872A;">3</div>
 </div>
 
----
-layout: two-cols
----
 
 <style>
     .item {
@@ -1170,16 +1299,12 @@ Alinha os elementos deixando um espaço igual entre todos os elementos
     <div class="flex-box-item" style="background-color: #EE872A;">3</div>
 </div>
 
-::right::
 
 Também existem duas palavras-chave adicionais que você pode usar em conjunto com estes valores: `safe` e `unsafe`.
 Safe garante que, independente da forma que você faça esse tipo de posicionamento, não seja possível "empurrar" um
 elemento e fazer com que ele seja renderizado para fora da tela (por exemplo, acima do topo), de uma forma que faça
 com que o conteúdo seja impossível de movimentar com a rolagem da tela (o CSS chama isso de "perda de dados").
 
----
-layout: two-cols
----
 
 ### `align-items`
 
@@ -1203,7 +1328,6 @@ E também podemos alinhar os elementos dentro do container na direção do `cros
     <div class="flex-box-item" style="background-color: #EE872A;">3</div>
 </div>
 
-::right::
 
 ### `center`
 
@@ -1221,9 +1345,6 @@ E também podemos alinhar os elementos dentro do container na direção do `cros
 - center: ítens são centralizados no eixo transversal.
 - baseline: ítens são alinhados de acordo com suas baselines.
 
----
-layout: two-cols
----
 
 ### `flex-item`
 
@@ -1248,8 +1369,6 @@ Server para sobrescrever o valor de `width` de um elemento.
     <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
     <div class="flex-box-item" style="background-color: #EE872A;">3</div>
 </div>
-
-::right::
 
 #### `flex-shrink`
 
@@ -1284,9 +1403,6 @@ Usado para particionar o container e utilizar o espaço entre os elementos.
     <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
 </div>
 
----
-layout: two-cols
----
 
 #### `align-self`
 
@@ -1298,8 +1414,6 @@ Essa propriedade sobrescreve o valor do align-item do `flex-container` apenas pa
     <div class="flex-box-item" style="flex: 2; background-color: #40B3DF;">2</div>
     <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
 </div>
-
-::right::
 
 #### `order`
 

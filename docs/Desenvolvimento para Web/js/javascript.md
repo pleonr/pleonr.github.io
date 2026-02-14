@@ -229,7 +229,7 @@ console.log("" == 0); // true
 Segundo a lei de [Atwood](https://blog.codinghorror.com/the-principle-of-least-power)
 
 <figure markdown="span">
-  ![Virtualização](../assets/js/atwoodslaw.jpg)
+  ![Virtualização](../../assets/js/atwoodslaw.jpg)
 </figure>
 
 
