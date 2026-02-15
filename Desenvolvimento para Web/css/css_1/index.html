@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../sobre/">
+      
+      
+        <link rel="next" href="../../html/html/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Cascading Style Sheets - PLeonR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cascading-style-sheets" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="PLeonR" class="md-header__button md-logo" aria-label="PLeonR" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PLeonR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cascading Style Sheets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PLeonR" class="md-nav__button md-logo" aria-label="PLeonR" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    PLeonR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sobre/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sobre
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desenvolvimento para Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Desenvolvimento para Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Css
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Css
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cascading Style Sheets
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cascading Style Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sintaxe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incorporar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incorporar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Incorporar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemento-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemento Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivo-externo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquivo Externo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordem-de-relevancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordem de Relevância
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seletores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seletores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seletores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#universal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elemento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descendentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementos-irmaos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elementos irmãos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atributos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atributos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-elementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudo-Elementos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudo-Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seletor-por-negacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seletor por negação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prioridade-por-ordem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prioridade por ordem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidades-de-medida-absolutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidades de medida absolutas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidades-de-medida-relativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidades de medida relativas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fontes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fontes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#font-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Font Family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Font Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Font Weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Font Variant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Font Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#letter-spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Letter Spacing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Word Spacing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-align" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Align
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-decoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Decoration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Transform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otf-ttf-woff2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTF, TTF, WOFF2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTF, TTF, WOFF2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ttf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woff-e-woff2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WOFF e WOFF2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabelas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabelas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-basica-em-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrutura básica em HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bordas-e-espacamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bordas e espaçamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destacando-o-cabecalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destacando o cabeçalho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linhas-alternadas-efeito-zebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linhas alternadas (efeito zebra)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efeito-ao-passar-o-mouse-hover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Efeito ao passar o mouse (hover)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alinhamento-de-conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alinhamento de conteúdo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-completo-de-tabela-estilizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo completo de tabela estilizada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabelas-responsivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabelas responsivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#box-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Box model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posicionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Posicionamento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Posicionamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estatico-static" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estático - static
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relativo-relative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relativo - relative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#absoluto-absolute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Absoluto - absolute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixo-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixo - fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grudento-stick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grudento - stick:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Display
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flexbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flexbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flex-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-direction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="flex-direction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flex-wrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-wrap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#justify-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        justify-content
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="justify-content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flex-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        center
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-between" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        space-between
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        space-around
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-evenly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        space-evenly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#align-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        align-items
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="align-items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flex-start_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-end_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-end
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#center_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        center
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-item
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="flex-item">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flex-grow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-grow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-basis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex-shrink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex-shrink
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#align-self" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        align-self
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Html
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Html
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../html/html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Js
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Js
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LaTeX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LaTeX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LaTeX/alatex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LaTeX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programação Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programação Orientada a Objetos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos/a-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução ao Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos/b-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programação Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cascading-style-sheets">Cascading Style Sheets</h1>
+<p>Cascading Style Sheets (<strong>CSS</strong>) é uma linguagem de estilos, que ao ser incorporada ao HTML permite alterar a aparência
+gráfica dos componentes da página. Atualmente o CSS está na versão 3, porém foi apresentada em 1994.</p>
+<p>Podemos classificar os recursos da linguagem em diferentes módulos, cada qual com finalidade específica.</p>
+<ul>
+<li>Selectors</li>
+<li>Box Model</li>
+<li>Backgrounds</li>
+<li>Image Values and Replaced Content</li>
+<li>Text Effects</li>
+<li>2D Transformations</li>
+<li>3D Transformations</li>
+<li>Animations</li>
+<li>Multiple Column Layout</li>
+<li>User Interface</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:relative;height:220px;margin-top:50px;&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;opacity:0.5;position:absolute;left:50px;top:-30px;width:300px;height:150px;background-color:#40B3DF&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-theme&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;opacity:0.3;position:absolute;left:120px;top:20px;width:100px;height:170px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-top:30px;width:360px;height:130px;padding:20px;border-radius:10px;border:10px solid #EE872A;font-size:120%;&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>CSS = Styles and Colors<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;letter-spacing:12px;font-size:15px;position:relative;left:25px;top:10px;&quot;</span><span class="p">&gt;</span>Manipulate Text<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:#40B3DF;letter-spacing:12px;font-size:15px;position:relative;left:25px;top:20px;&quot;</span><span class="p">&gt;</span>Colors,
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color:#B4009E;color:#ffffff;&quot;</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>Boxes<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<figure>
+    <div style="position:relative;height:220px;margin-top:50px;">
+    <div style="opacity:0.5;position:absolute;left:50px;top:-30px;width:300px;height:150px;background-color:#40B3DF"></div>
+    <div class="w3-theme" style="opacity:0.3;position:absolute;left:120px;top:20px;width:100px;height:170px;"></div>
+    <div style="margin-top:30px;width:360px;height:130px;padding:20px;border-radius:10px;border:10px solid #EE872A;font-size:120%;">
+        <h1>CSS = Styles and Colors</h1>
+        <div style="letter-spacing:12px;font-size:15px;position:relative;left:25px;top:10px;">Manipulate Text</div>
+        <div style="color:#40B3DF;letter-spacing:12px;font-size:15px;position:relative;left:25px;top:20px;">Colors,
+        <span style="background-color:#B4009E;color:#ffffff;">&nbsp;Boxes</span>
+        </div>
+    </div>
+    </div>
+    <br/><br/>
+</figure>
+<h2 id="sintaxe">Sintaxe</h2>
+<p>A linguagem CSS3 fornece, basicamente, um vasto conjunto de propriedades de estilo, funções e outras construções que
+podemos utilizar para modificar algum aspecto da aparência dos elementos HTML5.</p>
+<p>Uma propriedade de estilo é definida por um nome e um valor. Por exemplo, se desejamos justificar determinado texto,
+podemos escrever o seguinte trecho de código:</p>
+<pre class="pre">
+  seletor
+  <span style="color:rgb(0, 76, 178)">┌─┴─┐</span>
+    p {
+        text-align: justify;
+        <span style="color:rgb(178, 111, 0)">└────┬────┘</span> <span style="color:rgb(0, 76, 178)">└──┬──┘</span>
+        <span style="color:rgb(178, 111, 0)">propriedade</span>  <span style="color:rgb(0, 76, 178)">valor</span>
+    }
+</pre>
+
+<p>A propriedade chama-se text-align e seu valor foi configurado para justify, o qual indica que o texto deve ser
+justificado. Ao final, é necessário colocar <code>;</code>. Um mesmo elemento pode receber diversas configurações de estilo
+através do uso de diferentes propriedades.</p>
+<p>O seletor indica em qual ou quais elementos esse estilo deve ser aplicado.</p>
+<h2 id="incorporar">Incorporar</h2>
+<p>A incorporação de código CSS3 a documentos HTML5 pode ser realizada de três formas distintas:
+- arquivo externo
+- elemento<code>&lt;style&gt;</code>
+- atributo style (inline)</p>
+<h3 id="inline">Inline</h3>
+<p>Estilos inline são aqueles que acompanham o elemento, sendo definidos no atributo style. Devem ser utilizados com
+cautela, pois são difíceis de alterar quando aparecem em grande quantidade no documento. É o caso do elemento <code>h1</code>
+do documento apresentado na sequência. Perceba que o estilo se aplica somente ao elemento.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:blue;text-align:center;&quot;</span><span class="p">&gt;</span>Titulo<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="elemento-style">Elemento Style</h3>
+<p>Quando utilizamos o elemento <code>&lt;style&gt;</code> temos maior flexibilidade na aplicação dos estilos, diferentemente do modo
+inline, podemos aplicar o mesmo estilo a vários elementos do documento por meio de regras. O elemento <code>&lt;style&gt;</code> deve
+ser adicionado dentro de <code>&lt;head&gt;</code> e todas as regras de estilo devem ser escritas como conteúdo do elemento.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Minha primeira página Web<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgb</span><span class="p">(</span><span class="mi">159</span><span class="p">,</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w"> </span><span class="mi">170</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">h1</span><span class="o">,</span><span class="w"> </span><span class="nt">h2</span><span class="o">,</span><span class="w"> </span><span class="nt">h3</span><span class="o">,</span><span class="w"> </span><span class="nt">h4</span><span class="o">,</span><span class="w"> </span><span class="nt">h5</span><span class="o">,</span><span class="w"> </span><span class="nt">h6</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">text-transform</span><span class="p">:</span><span class="w"> </span><span class="kc">uppercase</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="arquivo-externo">Arquivo Externo</h3>
+<p>A terceira forma, em que utilizamos a vinculação de um arquivo com regras de estilo ao documento é a mais utilizada.
+Isso porque, quando pensamos em um site, devemos considerar a existência de muitos documentos e, todos eles
+compartilhamento da mesma apresentação. Logo, ao deixarmos as regras de estilo em um único local, podemos facilmente
+compartilhá-las em todos os documentos sem a necessidade de repetir código.</p>
+<p>Para realizar a vinculação de um arquivo CSS ao documento devemos utilizar a tag <code>&lt;link&gt;</code>, que também deve estar
+na <code>&lt;head&gt;</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf8&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Minha primeira página Web<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;estilos.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">/&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="ordem-de-relevancia">Ordem de Relevância</h3>
+<div class="admonition warning">
+<p class="admonition-title">prioridade</p>
+<p>Em caso de mais de uma forma ser utilizada simultaneamente, a prioridade fica com as propriedades inline, seguidas
+daquelas definidas para o documento na tag <code>&lt;style&gt;</code> e, por último, as regras oriundas dos arquivos incorporados via
+<code>&lt;link&gt;</code>.</p>
+<ol>
+<li>Estilos definidos <code>inline</code></li>
+<li>Estilos definidos na página <code>&lt;style&gt;</code></li>
+<li>Estilos definidos em arquivos externos <code>&lt;link&gt;</code></li>
+</ol>
+</div>
+<h2 id="seletores">Seletores</h2>
+<p>Seletores são parte de uma regra de estilo. Sua função é orientar o navegador, por meio de um padrão de pesquisa,
+a encontrar os elementos que devem receber o estilo no documento</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>A regra acima tem como seletor <code>p</code>, indicando que todos os elementos do tipo parágrafo do documento devem receber
+as propriedades de estilo definidas. Cada par de <code>propriedade:valor</code> corresponde a uma declaração. Perceba que toda
+declaração finaliza com um <code>;</code> e que as declarações ficam envolvidas entre chaves <code>{}</code>.</p>
+<h3 id="universal">Universal</h3>
+<p>Todo elemento da página irá receber o estilo. Utilizamos * como seletor.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="elemento">Elemento</h3>
+<p>Especificamos o nome dos elementos HTML que devem receber o estilo no seletor.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="id">Id</h3>
+<p>Todo elemento HTML possui um atributo chamado <code>id</code>. Este atributo é utilizado para identificar de forma única um elemento
+no documento. Isso significa que dois elementos não podem compartilhar o mesmo valor em <code>id</code>. No CSS, podemos especificar
+um seletor para valores de <code>id</code> utilizando o caractere <code>#</code> acompanhado do valor de <code>id</code> correspondente.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">#</span><span class="nn">cabecalho</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="classe">Classe</h3>
+<p>Outro atributo global de elementos do HTML5 chama-se <code>class</code>. Diferentemente de <code>id</code>, diferentes elementos podem
+compartilhar do mesmo valor em class e, além disso, vários valores são aceitos, deixando-se um espaço entre eles.
+Seletores baseados em classe são amplamente utilizados. Sua construção requer o uso do caractere ponto <code>.</code> acompanhado
+do nome da classe.</p>
+<p>Podemos deixar o seletor mais específico, associando com um seletor de elemento, como em <code>p.teste</code>. A interpretação,
+neste caso, é todo parágrafo que contém a classe teste.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="nc">artigo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">justify</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nt">p</span><span class="p">.</span><span class="nc">teste</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">red</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="descendentes">Descendentes</h3>
+<p>Utilizamos este tipo de seletor para aplicar estilos a elementos com base em seus elementos "pai". Podemos selecionar,
+por exemplo, todos os parágrafos (<code>&lt;p&gt;</code>) que são descendentes de artigos (<code>&lt;article&gt;</code>), desconsiderando os demais.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">article</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Observe que este seletor considera descendentes diretos e indiretos. Para ser mais restritivo e considerar somente
+elementos que são "filhos" diretos, devemos utilizar o símbolo <code>&gt;</code>, conforme o exemplo a seguir:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">article</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="elementos-irmaos">Elementos irmãos</h3>
+<p>São seletores que consideram elementos de mesmo nível ("irmãos", pois são filhos do mesmo "pai"). Para aplicar um
+estilo específico para o primeiro parágrafo (<code>&lt;p&gt;</code>) que segue um título de segundo nível (<code>&lt;h2&gt;</code>),
+poderíamos utilizar o operador <code>+</code> que indica adjacência:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">h2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><br></p>
+<p>Se a adjacência não for necessária, apenas a idéia de ser "irmão", utilizamos o operador <code>~</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">h2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="atributos">Atributos</h3>
+<p>São seletores utilizados para selecionar elementos que contenham um atributo específico sua definição.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">}</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="nt">a</span><span class="o">[</span><span class="nt">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Seletor</th>
+<th>Exemplo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[attribute]</code></td>
+<td><code>[target]</code></td>
+<td>Seleciona todos os elementos com um atributo de destino</td>
+</tr>
+<tr>
+<td><code>[attribute=value]</code></td>
+<td><code>[target="_blank"]</code></td>
+<td>Seleciona todos os elementos com destino="_blank"</td>
+</tr>
+<tr>
+<td><code>[attribute~=value]</code></td>
+<td><code>[title~="flower"]</code></td>
+<td>Seleciona todos os elementos com um atributo title que contém uma lista de palavras separadas por espaços, uma das quais é "flor"</td>
+</tr>
+<tr>
+<td><code>[attribute^=value]</code></td>
+<td><code>a[href^="https"]</code></td>
+<td>Seleciona todos os elementos <code>&lt;a&gt;</code> com um valor de atributo href começando com "https"</td>
+</tr>
+<tr>
+<td><code>[attribute$=value]</code></td>
+<td><code>a[href$=".pdf"]</code></td>
+<td>Seleciona todos os elementos <code>&lt;a&gt;</code> com um valor de atributo href terminando com ".pdf"</td>
+</tr>
+<tr>
+<td><code>[attribute*=value]</code></td>
+<td><code>a[href*="w3schools"]</code></td>
+<td>Seleciona todos os elementos <code>&lt;a&gt;</code> com um valor de atributo href contendo a substring "w3schools"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pseudo-elementos">Pseudo-Elementos</h3>
+<p>São seletores que permitem estilizar partes de um elemento e não sua integralidade. Por exemplo, podemos
+estilizar somente a primeira linha de um parágrafo através da regra a seguir.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">p</span><span class="p">::</span><span class="nd">first-line</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>Observe que, para todo e qualquer pseudo-elemento, devemos utilizar a sintaxe a seguir (usar ::):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">selector</span><span class="p">::</span><span class="nd">pseudo-element</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">property</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>Para primeira linha:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">p</span><span class="p">::</span><span class="nd">first-line</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ff0000</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="k">font-variant</span><span class="p">:</span><span class="w"> </span><span class="kc">small-caps</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Para primeira letra</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">p</span><span class="p">::</span><span class="nd">first-letter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ff0000</span><span class="p">;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="kc">xx-large</span><span class="p">;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Seletor</th>
+<th>Exemplo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>::after</code></td>
+<td><code>p::after</code></td>
+<td>Insira algo após o conteúdo de cada elemento <code>&lt;p&gt;</code></td>
+</tr>
+<tr>
+<td><code>::before</code></td>
+<td><code>p::before</code></td>
+<td>Insira algo antes do conteúdo de cada elemento <code>&lt;p&gt;</code></td>
+</tr>
+<tr>
+<td><code>::first-letter</code></td>
+<td><code>p::first-letter</code></td>
+<td>Seleciona a primeira letra de cada elemento <code>&lt;p&gt;</code></td>
+</tr>
+<tr>
+<td><code>::first-line</code></td>
+<td><code>p::first-line</code></td>
+<td>Seleciona a primeira linha de cada elemento <code>&lt;p&gt;</code></td>
+</tr>
+<tr>
+<td><code>::marker</code></td>
+<td><code>::marker</code></td>
+<td>Seleciona os marcadores dos itens da lista</td>
+</tr>
+<tr>
+<td><code>::selection</code></td>
+<td><code>p::selection</code></td>
+<td>Seleciona a parte de um elemento que é selecionado por um usuário</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pseudo-classes">Pseudo-Classes</h3>
+<p>Pseudo-classes são utilizadas para selecionar elementos com base em algum estado específico</p>
+<p>Observe que, para toda e qualquer pseudo-classe, devemos utilizar a sintaxe a seguir (usar <code>:</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">selector</span><span class="p">:</span><span class="nd">pseudo-class</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">property</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>O seletor abaixo modifica a cor de todos os links visitados:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">a</span><span class="p">:</span><span class="nd">visited</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">forestgreen</span><span class="p">;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="k">text-decoration-color</span><span class="p">:</span><span class="w"> </span><span class="kc">hotpink</span><span class="p">;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Seletor</th>
+<th>Exemplo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:active</code></td>
+<td><code>a:active</code></td>
+<td>Selects the active link</td>
+</tr>
+<tr>
+<td><code>:disabled</code></td>
+<td><code>input:disabled</code></td>
+<td>Selects every disabled <code>&lt;input&gt;</code> element</td>
+</tr>
+<tr>
+<td><code>:empty</code></td>
+<td><code>p:empty</code></td>
+<td>Selects every <code>&lt;p&gt;</code> element that has no children</td>
+</tr>
+<tr>
+<td><code>:enabled</code></td>
+<td><code>input:enabled</code></td>
+<td>Selects every enabled <code>&lt;input&gt;</code> element</td>
+</tr>
+<tr>
+<td><code>:hover</code></td>
+<td><code>a:hover</code></td>
+<td>Selects links on mouse over</td>
+</tr>
+<tr>
+<td><code>:link</code></td>
+<td><code>a:link</code></td>
+<td>Selects all unvisited links</td>
+</tr>
+</tbody>
+</table>
+<h3 id="seletor-por-negacao">Seletor por negação</h3>
+<p>Seleciona todos os elementos que não atendem a condição especificada.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">div</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">oculto</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="prioridade-por-ordem">Prioridade por ordem</h3>
+<div class="admonition warning">
+<p class="admonition-title">prioridade</p>
+<p>O estilo definido com <code>id</code> possuí prioridade, seguido pela <code>classe</code> e por último por elemento.</p>
+<ol>
+<li>Estilo definido com <code>id</code> = <code>#page { background-color: grey; }</code></li>
+<li>Estilo definido com <code>class</code> <code>.page { background-color: blue; }</code></li>
+<li>Estilo definido com <code>elemento</code> <code>body { background-color: red; }</code></li>
+</ol>
+</div>
+<h2 id="unidades-de-medida-absolutas">Unidades de medida absolutas</h2>
+<p>As medidas absolutas, como pixels (<code>px</code>), polegadas (<code>in</code>), centímetros (<code>cm</code>), etc., são especificadas com um valor
+fixo que não é afetado pelo ambiente ou contexto da página. Elas fornecem uma precisão absoluta e são consistentes
+independentemente do dispositivo ou configuração de exibição.</p>
+<p>Isso significa que medidas absolutas resultam em elementos com tamanhos fixos e invariáveis, independentemente do
+tamanho da tela ou do navegador em que estão sendo exibidos. De modo geral, tal característica impõe problemas de
+adaptação em dispositivos com tamanhos de tela variados, especialmente em dispositivos móveis ou em layouts
+responsivos.</p>
+<p>No CSS3 temos a disposição diversas medidas absolutas, contudo a que utilizamos com maior frequência é o
+pixel (<code>px</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">font-size</span><span class="o">:</span><span class="w"> </span><span class="nt">16px</span><span class="o">;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">width</span><span class="o">:</span><span class="w"> </span><span class="nt">300px</span><span class="o">;</span>
+</code></pre></div>
+<h2 id="unidades-de-medida-relativas">Unidades de medida relativas</h2>
+<p>Diferentemente das absolutas, as medidas relativas, como <code>%</code> (porcentagem), <code>em</code> (relativo ao elemento pai),
+<code>rem</code> (relativo ao elemento raiz), <code>vw</code> (viewport width), vh (viewport height), etc...
+são dimensionadas com base em algum aspecto do ambiente de layout, como o tamanho da fonte, largura da tela ou
+tamanho do elemento pai.</p>
+<p>São muito utilizadas, pois elas se ajustam dinamicamente conforme o contexto, proporcionando uma melhor adaptação a
+diferentes dispositivos e ambientes de visualização. São fundamentais para criar layouts responsivos, onde os elementos
+se ajustam de acordo com o tamanho da tela, garantindo uma experiência consistente em dispositivos variados.</p>
+<p>Deste modo, ao usar medidas relativas, é possível manter proporções consistentes entre elementos em diferentes partes
+do layout, pois eles são dimensionados proporcionalmente em relação ao ambiente de exibição.</p>
+<p><strong>Porcentagem (%)</strong></p>
+<p>Unidade relativa as proporções do elemento pai.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">width</span><span class="o">:</span><span class="w"> </span><span class="nt">50</span><span class="o">%;</span>
+</code></pre></div>
+<p><strong>Em (em)</strong></p>
+<p>Unidade relativa ao tamanho da fonte do elemento pai.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">font-size</span><span class="o">:</span><span class="w"> </span><span class="nt">1</span><span class="p">.</span><span class="nc">2em</span><span class="o">;</span>
+</code></pre></div>
+<p><strong>Rem (rem)</strong></p>
+<p>REM define o tamanho relativo à fonte do elemento raiz (normalmente o elemento <code>&lt;html&gt;</code>).
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">margin-left</span><span class="o">:</span><span class="w"> </span><span class="nt">2rem</span><span class="o">;</span>
+</code></pre></div></p>
+<p><strong>Viewport Width (vw) e Viewport Height (vh)</strong></p>
+<p>Referem-se à largura e altura da janela de visualização do navegador, respectivamente.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">width</span><span class="o">:</span><span class="w"> </span><span class="nt">50vw</span><span class="o">;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nt">height</span><span class="o">:</span><span class="w"> </span><span class="nt">80vh</span><span class="o">;</span>
+</code></pre></div>
+<p><strong>Viewport Minimum (vmin) e Viewport Maximum (vmax)</strong></p>
+<p>Referem-se à menor ou maior dimensão da janela de visualização do navegador (largura ou altura), respectivamente.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nt">width</span><span class="o">:</span><span class="w"> </span><span class="nt">50vmin</span><span class="o">;</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nt">height</span><span class="o">:</span><span class="w"> </span><span class="nt">80vmax</span><span class="o">;</span>
+</code></pre></div>
+<h2 id="cores">Cores</h2>
+<p>Cores são um dos recursos mais importantes da linguagem CSS. Várias propriedades de estilo as utilizam, como àquelas
+que modificam bordas, preenchimento de fundo, texto e sombras, por exemplo.</p>
+<p>Temos a disposição grande variedade de cores (mais de 16 milhões) e podemos especificá-las de várias formas.
+A mais simples é através do nome da cor, se a mesma constar no rol de cores suportadas pelo navegador e/ou
+predefinidas na especificação do CSS3. Embora simples, esta não costuma ser a forma mais adequada para definir
+valor de cor.</p>
+<p>As outras opções que temos são código hexadecimal e as funções rgb, rgba, hsl e hlsa. Dentre todos, o código
+hexadecimal é a opção mais comum, correspondendo a um conjunto de 6 caracteres iniciado com o símbolo #. Estes
+caracteres representam a quantidade de vermelho, verde e azul que irá compor a cor final.</p>
+<p>Cada canal de cor pode receber valores entre <code>00</code> (sem cor) a <code>ff</code> (cor cheia). Logo, o código <code>#000000</code> é branco,
+enquanto que <code>#ffffff</code> indica a cor preta. Já para as funções rgb e rgba, a quantidade de cor de cada canal é definida
+no intervalo 0 e 255, no caso da rgba, um último valor entre 0.0 e 1.0 indicando a transparência aplicada.</p>
+<p><img alt="" src="../../../assets/css/hexadecimal.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">     </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#000010</span><span class="p">;</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="p">}</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">.</span><span class="nc">artigo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgb</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="p">}</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="p">.</span><span class="nc">secao</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mf">0.5</span><span class="p">);</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>O outro modelo de cores suportado chama-se HSL (Hue-Saturation-Lightness), especificado por meio das funções <code>hsl</code> e
+<code>hlsa</code>. Novamente a função terminada com a permite especificar o canal alpha para transparência.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">.</span><span class="nc">artigo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">hsl</span><span class="p">(</span><span class="mi">167</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Cor</th>
+<th>Nome</th>
+<th>Hex Code</th>
+<th>RGB Code</th>
+<th>Cor</th>
+<th>Nome</th>
+<th>Hex Code</th>
+<th>RGB Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#FFFFFF;"></div></td>
+<td>White</td>
+<td>#FFFFFF</td>
+<td>rgb(255, 255, 255)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#00FF00;"></div></td>
+<td>Lime</td>
+<td>#00FF00</td>
+<td>rgb(0, 255, 0)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#C0C0C0;"></div></td>
+<td>Silver</td>
+<td>#C0C0C0</td>
+<td>rgb(192, 192, 192)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#008000;"></div></td>
+<td>Green</td>
+<td>#008000</td>
+<td>rgb(0, 128, 0)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#808080;"></div></td>
+<td>Gray</td>
+<td>#808080</td>
+<td>rgb(128, 128, 128)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#00FFFF;"></div></td>
+<td>Aqua</td>
+<td>#00FFFF</td>
+<td>rgb(0, 255, 255)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#000000;"></div></td>
+<td>Black</td>
+<td>#000000</td>
+<td>rgb(0, 0, 0)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#008080;"></div></td>
+<td>Teal</td>
+<td>#008080</td>
+<td>rgb(0, 128, 128)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#FF0000;"></div></td>
+<td>Red</td>
+<td>#FF0000</td>
+<td>rgb(255, 0, 0)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#0000FF;"></div></td>
+<td>Blue</td>
+<td>#0000FF</td>
+<td>rgb(0, 0, 255)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#800000;"></div></td>
+<td>Maroon</td>
+<td>#800000</td>
+<td>rgb(128, 0, 0)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#000080;"></div></td>
+<td>Navy</td>
+<td>#000080</td>
+<td>rgb(0, 0, 128)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#FFFF00;"></div></td>
+<td>Yellow</td>
+<td>#FFFF00</td>
+<td>rgb(255, 255, 0)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#FF00FF;"></div></td>
+<td>Fuchsia</td>
+<td>#FF00FF</td>
+<td>rgb(255, 0, 255)</td>
+</tr>
+<tr>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#808000;"></div></td>
+<td>Olive</td>
+<td>#808000</td>
+<td>rgb(128, 128, 0)</td>
+<td><div style="width: 20px; height: 20px; border-radius:10px; background-color:#800080;"></div></td>
+<td>Purple</td>
+<td>#800080</td>
+<td>rgb(128, 0, 128)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fontes">Fontes</h2>
+<p>A escolha de uma fonte é crucial para o sucesso de uma interface web, visto que está diretamente ligada à
+experiência de leitura do usuário.</p>
+<p>As propriedades de estilo que o CSS3 nos fornece para manipularmos fontes são <code>font-family</code>, <code>font-style</code>, <code>font-weight</code>,
+<code>font-size</code>, e <code>font-variant</code>, <code>background-color</code> e <code>color</code>.</p>
+<p>Uma curiosidade é que fontes <code>sans-serif</code> são recomendadas para uso em telas.</p>
+<figure>
+  <img alt="fontes" src="../../../assets/css/serif.gif" />
+<br />
+<!-- <figcaption>Image caption</figcaption> -->
+
+
+</figure>
+<h3 id="font-family">Font Family</h3>
+<p>Especifica a família de fontes que o navegador deve utilizar para renderizar o texto. A propriedade aceita vários
+valores separados por vírgula, indicando opções de fontes quando não for possível utilizar a anterior. Normalmente
+finalizamos especificando uma das cinco famílias genérias de fonte disponíveis: <code>serif</code>, <code>sans-serif</code>, <code>monospace</code>,
+<code>coursive</code> e <code>fantasy</code>.</p>
+<p>A família genérica deve ser utilizada para contornar a possibilidade do usuário não ter disponível em seu navegador
+as outras famílias listadas. Logo, nestes casos, o navegador conseguirá preservar o padrão tipográfico com outra
+fonte semelhante disponível.</p>
+<p>No CSS existem cinco <code>font-family</code>, que o navegador pode utilizar para renderizar o texto.</p>
+<ul>
+<li>Serif fontes têm um pequeno traço nas bordas de cada letra. Eles criam uma sensação de formalidade e elegância.</li>
+<li>Sans serif fontes têm linhas limpas (sem pequenos traços anexados). Eles criam um visual moderno e minimalista.</li>
+<li>Monospace fontes aqui todas as letras têm a mesma largura fixa. Eles criam uma aparência mecânica.</li>
+<li>Cursive fontes imitam a caligrafia humana.</li>
+<li>Fantasy fontes são fontes decorativas e divertidas.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Serif</th>
+<th><span style="font-family:'Times New Roman',serif">Times New Roman</span><br><span style="font-family:Georgia,serif">Georgia</span><br><span style="font-family:Garamond,serif">Garamond</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sans-serif</td>
+<td><span style="font-family:Arial,sans-serif">Arial</span><br><span style="font-family:Verdana,sans-serif">Verdana</span><br><span style="font-family:Helvetica,sans-serif">Helvetica</span></td>
+</tr>
+<tr>
+<td>Monospace</td>
+<td><span style="font-family:'Courier New',monospace">Courier New</span><br><span style="font-family:'Lucida Console',monospace">Lucida Console</span><br><span style="font-family:Monaco,monospace">Monaco</span></td>
+</tr>
+<tr>
+<td>Cursive</td>
+<td><span style="font-family:'Brush Script MT',cursive">Brush Script MT</span><br><span style="font-family:'Lucida Handwriting',cursive">Lucida Handwriting</span></td>
+</tr>
+<tr>
+<td>Fantasy</td>
+<td><span style="font-family:Copperplate,fantasy">Copperplate</span><br><span style="font-family:Papyrus,fantasy">Papyrus</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="font-style">Font Style</h3>
+<ul>
+<li>normal - Texto normal</li>
+<li>italic - <span style="font-style: italic;">Texto itálico</span></li>
+<li>oblique - <span style="font-style: italic;">Texto levemente inclinado</span></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">p</span><span class="p">.</span><span class="nc">italic</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">italic</span><span class="p">;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="font-weight">Font Weight</h3>
+<p>Define o peso (intensidade de negrito) da fonte. Os valores podem ser <code>normal</code>, <code>bold</code>, <code>bolder</code>, <code>lighter</code>, <code>100,
+200, 300, 400, 500, 600, 700, 800, 900</code> e <code>inherit</code>. Os valores numéricos indicam uma graduação de negrito.
+O valor 400 equivale a normal enquanto o valor 700 é equivalente a bold.</p>
+<p>Os valores bolder e lighter aplicam-se em relação ao peso herdado do ancestral, enquanto normal e bold aplicam-se
+em absoluto ao texto.</p>
+<ul>
+<li>normal - Texto normal</li>
+<li>bold - <span style="font-weight: bold;">Texto bold</span></li>
+<li>bolder - <span style="font-weight: bolder;">Texto bolder</span></li>
+<li>lighter - <span style="font-weight: lighter;">Texto lighter</span></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">p</span><span class="p">.</span><span class="nc">thick</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="font-variant">Font Variant</h3>
+<p>Indica se o texto deve ser exibido ou não considerando apenas caracteres maiúsculos, utilizando a propriedade
+<code>small-caps</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">p</span><span class="p">.</span><span class="nc">small</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="k">font-variant</span><span class="p">:</span><span class="w"> </span><span class="kc">small-caps</span><span class="p">;</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><span style="font-variant: normal;">Texto escrito normalmente</span><br>
+<span style="font-variant: small-caps;">Texto em small caps</span></p>
+<h3 id="font-size">Font Size</h3>
+<p>Permite especificar o tamanho da fonte, a partir de medidas relativas, como percentual, em, rem, etc ou medidas
+absolutas como pixels.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nt">h1</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><span style="font-size: 16px">16px</span><br><br>
+<span style="font-size: 2rem">2rem</span><br><br>
+<span style="font-size: 2em">2em</span><br></p>
+<h3 id="letter-spacing">Letter Spacing</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">    </span><span class="k">letter-spacing</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="kt">cm</span><span class="p">;</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="p">}</span>
+</code></pre></div>
+<p style="letter-spacing: 0.4cm;">Espaçamento entre letras</p>
+
+<p><br></p>
+<h3 id="word-spacing">Word Spacing</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="k">word-spacing</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">}</span>
+</code></pre></div>
+<p style="word-spacing: 80px;">Espaçamento entre palavras</p>
+
+<h3 id="text-align">Text Align</h3>
+<p>Alinhamento do texto pode ser <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="p">}</span>
+</code></pre></div>
+<p style="text-align: left;">Alinhamento <code>left</code></p>
+<p style="text-align: center;">Alinhamento <code>center</code></p>
+<p style="text-align: right;">Alinhamento <code>right</code></p>
+<p style="text-align: justify;">Alinhamento <code>justify</code>
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+</p>
+
+<h3 id="text-decoration">Text Decoration</h3>
+<p>Opções <code>none</code>, <code>underline</code>, <code>overline</code>, <code>line-through</code>, <code>blink</code>, <code>underline dotted</code>, <code>underline overline #FF3028</code>,
+<code>green wavy underline</code>...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">underline</span><span class="p">;</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="p">}</span>
+</code></pre></div>
+<p style="text-decoration: none;">Texto underline</p>
+<p style="text-decoration: underline;">Texto underline</p>
+<p style="text-decoration: line-through;">Texto line-through</p>
+<p style="text-decoration: overline;">Texto overline</p>
+<p style="text-decoration: underline dotted;">Underline dotted</p>
+<p style="text-decoration: green wavy underline;">Underline wavy green</p>
+
+<h3 id="text-transform">Text Transform</h3>
+<p>Opções <code>none</code>, <code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code></p>
+<p style="text-transform: capitalize;">Texto Texto Texto</p>
+<p style="text-transform: uppercase;">Texto Texto Texto</p>
+<p style="text-transform: lowercase;">Texto Texto Texto</p>
+
+<h3 id="google-fonts">Google Fonts</h3>
+<p>Se não quiser usar nenhuma das fontes padrão em HTML, você pode usar o Google Fonts. Eles são de uso gratuito e
+têm mais de 1000 fontes para você escolher.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="s">https://fonts.googleapis.com/css?family=Sofia</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="s">&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sofia&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="p">}</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="otf-ttf-woff2">OTF, TTF, WOFF2</h3>
+<p>Existem três formatos principais de arquivos de fonte que aparecem quando você baixa uma tipografia para usar em uma página HTML, são eles TTF, OTF e WOFF/WOFF2. Eles representam basicamente a evolução histórica das fontes digitais até chegar ao padrão otimizado para a internet.</p>
+<h4 id="ttf">TTF</h4>
+<p>O formato TTF, chamado TrueType Font, é o mais antigo dos três e surgiu nos sistemas da Apple e depois foi adotado pela Microsoft. Ele foi pensado originalmente para computadores pessoais e impressão.</p>
+<p>Por isso costuma gerar arquivos relativamente grandes. Os navegadores conseguem utilizá-lo sem problemas, o que faz dele uma solução prática para testes locais ou para projetos simples, porém não é adequado para produção na internet porque aumenta o tempo de carregamento da página.</p>
+<p>Em CSS ele é declarado informando o tipo “truetype”, apontando para o arquivo .ttf que você colocou dentro do projeto.</p>
+<h4 id="otf">OTF</h4>
+<p>O formato OTF, OpenType Font, apareceu depois como uma evolução do TTF criada pela Adobe em parceria com a Microsoft.</p>
+<p>A principal diferença não é visual imediata, mas tipográfica: ele permite recursos avançados, como ligaturas automáticas, variações estilísticas e melhor controle de desenho das letras. Por isso designers costumam preferir OTF para material gráfico e layouts mais refinados. Apesar dessa qualidade superior, o arquivo continua pesado para a web, praticamente do mesmo tamanho de um TTF. Ou seja, funciona em HTML, mas também não é indicado quando a preocupação é desempenho.</p>
+<h4 id="woff-e-woff2">WOFF e WOFF2</h4>
+<p>O formato WOFF e sua versão mais recente WOFF2 foram criados especificamente para a internet. Na prática, eles são um TTF ou OTF compactado para transmissão pela rede. O navegador descompacta automaticamente e renderiza a tipografia sem perda de qualidade.</p>
+<p>O WOFF2 possui compressão ainda melhor que o WOFF tradicional, resultando em arquivos muito menores e carregamento mais rápido, tornando-se o padrão atual da web. Por isso sites profissionais normalmente usam primeiro o WOFF2 e mantêm WOFF ou TTF apenas como compatibilidade para navegadores antigos.</p>
+<h3 id="exemplo">Exemplo</h3>
+<p>Faça download do arquivo e salve em uma pasta do projeto. Crie a pasta <code>fonts</code> por exemplo.</p>
+<p>Em algum lugar do css declare a fonte com <code>@font-face</code>, se ela for do tipo ttf utilize o format("truetype") se for do tipo otf utilize format("opentype"), já woff e woff2 tem o formato da extensão do arquivo.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">ttf</label><label for="__tabbed_1_2">otf</label><label for="__tabbed_1_3">woff/woff2 Recomendado</label><label for="__tabbed_1_4">bold</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MinhaFonte&quot;</span><span class="o">;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte.ttf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">);</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">    </span><span class="nt">font-weight</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">    </span><span class="nt">font-style</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MinhaFonte&quot;</span><span class="o">;</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte.otf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;opentype&quot;</span><span class="o">);</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="nt">font-weight</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">    </span><span class="nt">font-style</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MinhaFonte&quot;</span><span class="o">;</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte.woff2&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff2&quot;</span><span class="o">),</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">        </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte.woff&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;woff&quot;</span><span class="o">),</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">        </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte.ttf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">);</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MinhaFonte&quot;</span><span class="o">;</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../fonts/MinhaFonte-Bold.ttf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">);</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="nt">font-weight</span><span class="o">:</span><span class="w"> </span><span class="nt">700</span><span class="o">;</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">    </span><span class="nt">font-style</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Depois você pode utilizar a fonte</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MinhaFonte&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Tamanho</th>
+<th>Qualidade</th>
+<th>Web</th>
+<th>Recomendação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TTF</td>
+<td>Grande</td>
+<td>Boa</td>
+<td>Funciona</td>
+<td>evitar em produção</td>
+</tr>
+<tr>
+<td>OTF</td>
+<td>Grande</td>
+<td>Excelente</td>
+<td>Funciona</td>
+<td>evitar em produção</td>
+</tr>
+<tr>
+<td>WOFF</td>
+<td>Médio</td>
+<td>Igual</td>
+<td>Ótimo</td>
+<td>fallback</td>
+</tr>
+<tr>
+<td>WOFF2</td>
+<td>Pequeno</td>
+<td>Igual</td>
+<td>Excelente</td>
+<td>use sempre</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabelas">Tabelas</h2>
+<p>Uma tabela em HTML serve para apresentar dados organizados em linhas e
+colunas. O HTML define apenas a estrutura, o CSS é responsável pela aparência e legibilidade.</p>
+<h3 id="estrutura-basica-em-html">Estrutura básica em HTML</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>  <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Nome<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Curso<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Nota<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>  <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>  <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Ana<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Computação<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>9.5<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Bruno<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Sistemas<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a>      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>8.7<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a>  <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Sem CSS a tabela fica com aparência simples e pouco legível.</p>
+<h3 id="bordas-e-espacamento">Bordas e espaçamento</h3>
+<p>Por padrão cada célula possui bordas separadas. A propriedade <code>border-collapse</code> une essas bordas.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nt">table</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">  </span><span class="k">border-collapse</span><span class="p">:</span><span class="w"> </span><span class="kc">collapse</span><span class="p">;</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="p">}</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="nt">th</span><span class="o">,</span><span class="w"> </span><span class="nt">td</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="destacando-o-cabecalho">Destacando o cabeçalho</h3>
+<p>Cabeçalhos precisam diferenciar-se do conteúdo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#2c3e50</span><span class="p">;</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="linhas-alternadas-efeito-zebra">Linhas alternadas (efeito zebra)</h3>
+<p>Melhora muito a leitura quando há muitos dados.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f2f2f2</span><span class="p">;</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="efeito-ao-passar-o-mouse-hover">Efeito ao passar o mouse (hover)</h3>
+<p>Ajuda o usuário a localizar a linha que está lendo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d6eaf8</span><span class="p">;</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="alinhamento-de-conteudo">Alinhamento de conteúdo</h3>
+<p>Números costumam ser centralizados ou alinhados à direita.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nt">td</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">  </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="p">}</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="nt">table</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="exemplo-completo-de-tabela-estilizada">Exemplo completo de tabela estilizada</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nt">table</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="k">border-collapse</span><span class="p">:</span><span class="w"> </span><span class="kc">collapse</span><span class="p">;</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="p">}</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="nt">th</span><span class="o">,</span><span class="w"> </span><span class="nt">td</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="w">  </span><span class="k">border-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+<a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a><span class="p">}</span>
+<a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a>
+<a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#34495e</span><span class="p">;</span>
+<a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a><span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a><span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a><span class="p">}</span>
+<a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a>
+<a id="__codelineno-49-18" name="__codelineno-49-18" href="#__codelineno-49-18"></a><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-19" name="__codelineno-49-19" href="#__codelineno-49-19"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f8f9fa</span><span class="p">;</span>
+<a id="__codelineno-49-20" name="__codelineno-49-20" href="#__codelineno-49-20"></a><span class="p">}</span>
+<a id="__codelineno-49-21" name="__codelineno-49-21" href="#__codelineno-49-21"></a>
+<a id="__codelineno-49-22" name="__codelineno-49-22" href="#__codelineno-49-22"></a><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-23" name="__codelineno-49-23" href="#__codelineno-49-23"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e8f4ff</span><span class="p">;</span>
+<a id="__codelineno-49-24" name="__codelineno-49-24" href="#__codelineno-49-24"></a><span class="p">}</span>
+<a id="__codelineno-49-25" name="__codelineno-49-25" href="#__codelineno-49-25"></a>
+<a id="__codelineno-49-26" name="__codelineno-49-26" href="#__codelineno-49-26"></a><span class="nt">td</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-27" name="__codelineno-49-27" href="#__codelineno-49-27"></a><span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<a id="__codelineno-49-28" name="__codelineno-49-28" href="#__codelineno-49-28"></a><span class="w">  </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<a id="__codelineno-49-29" name="__codelineno-49-29" href="#__codelineno-49-29"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="tabelas-responsivas">Tabelas responsivas</h3>
+<p>Tabelas são largas e não cabem bem em telas pequenas, uma solução simples é permitir rolagem horizontal.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="p">.</span><span class="nc">table-container</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">  </span><span class="k">overflow-x</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table-container&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>  <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>    ...
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;customers&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Company<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Contact<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Country<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Alfreds Futterkiste<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Maria Anders<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Germany<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Berglunds snabbköp<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Christina Berglund<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-15" name="__codelineno-52-15" href="#__codelineno-52-15"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Sweden<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-52-16" name="__codelineno-52-16" href="#__codelineno-52-16"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-52-17" name="__codelineno-52-17" href="#__codelineno-52-17"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w"> </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w"> </span><span class="k">border-collapse</span><span class="p">:</span><span class="w"> </span><span class="kc">collapse</span><span class="p">;</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w"> </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="p">}</span>
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="nt">td</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="w"> </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="w"> </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="p">}</span>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="p">{</span>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f2f2f2</span><span class="p">;}</span>
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;}</span>
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a><span class="p">#</span><span class="nn">customers</span><span class="w"> </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a><span class="w"> </span><span class="k">padding-top</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a><span class="w"> </span><span class="k">padding-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a><span class="w"> </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a><span class="w"> </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#04AA6D</span><span class="p">;</span>
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;}</span>
+</code></pre></div>
+<h2 id="box-model">Box model</h2>
+<p>O modelo de caixa CSS é um conceito fundamental no desenvolvimento web que determina como os elementos HTML são
+exibidos e posicionados em uma página web. Essencialmente, ele divide cada elemento em uma caixa retangular
+com quatro componentes principais:</p>
+<ul>
+<li>
+<p>Conteúdo(<em>content</em>): Esta é a área central onde reside o conteúdo real do elemento, como texto, imagens ou formulários.
+Você pode estilizar o conteúdo com propriedades como cor de fundo ou estilos de fonte.</p>
+</li>
+<li>
+<p>Preenchimento(<em>padding</em>): Esta é uma área transparente que adiciona espaço ao redor do conteúdo. O preenchimento cria
+um buffer entre o conteúdo e a borda.</p>
+</li>
+<li>Borda(<em>border</em>): Esta é a linha externa decorativa que envolve o conteúdo e o preenchimento. Você pode controlar o
+estilo da borda (sólida, tracejada, pontilhada), espessura e cor.</li>
+<li>Margem(<em>margin</em>): É a área transparente fora da borda que cria um espaçamento entre o elemento e os demais elementos
+da página. As margens permitem melhor organização e capacidade de resposta nos layouts.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nt">div</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">320</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">gray</span><span class="p">;</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>O modelo de caixa CSS é essencialmente uma caixa que envolve cada elemento HTML. Consiste em: bordas, preenchimento,
+margens e o conteúdo real.</p>
+<p>A largura total de um elemento(tew) usamos</p>
+<div class="arithmatex">\[
+tew = \begin{cases}
+width \\
++ leftPadding \\
++ rightPadding \\
++ leftBorder \\
++ rightBorder
+\end{cases}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>  320px (width of content area)
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>+ 20px (left padding + right padding)
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>+ 10px (left border + right border)
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>= 350px (total element width)
+</code></pre></div>
+<p>Para calcular a altura total do elemento(tel) usamos</p>
+<div class="arithmatex">\[
+tel = \begin{cases}
+height \\
++ topPadding \\
++ bottomPadding \\
++ topBorder \\
++ bottomBorder
+\end{cases}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>  50px (height of content area)
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>+ 20px (top padding + bottom padding)
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>+ 10px (top border + bottom border)
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>= 80px (total height)
+</code></pre></div>
+<h2 id="posicionamento">Posicionamento</h2>
+<p>O posicionamento CSS refere-se a como você controla o posicionamento dos elementos em uma página da web,
+independentemente do fluxo normal do documento. Por padrão, os elementos aparecem um após o outro na ordem em que
+são escritos no código HTML.</p>
+<h3 id="estatico-static"><strong>Estático</strong> - <em>static</em></h3>
+<p>Este é o posicionamento padrão para todos os elementos. Os elementos são posicionados de acordo com o fluxo normal
+do documento, o que significa que aparecem um após o outro na ordem em que são escritos no código HTML.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="nt">div</span><span class="p">.</span><span class="nc">static</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">static</span><span class="p">;</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#73AD21</span><span class="p">;</span>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="relativo-relative"><strong>Relativo</strong> - <em>relative</em></h3>
+<p>Elementos com posicionamento relativo permanecem em sua posição normal no fluxo, mas você pode deslocá-los
+usando propriedades como <code>top</code>, <code>right</code>, <code>bottom</code>, e <code>left</code>. Estas propriedades movem o elemento em relação à
+sua posição original sem afetar o layout de outros elementos.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nt">div</span><span class="p">.</span><span class="nc">relative</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#73AD21</span><span class="p">;</span>
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="absoluto-absolute"><strong>Absoluto</strong> - <em>absolute</em></h3>
+<p>Os elementos posicionados de forma absoluta são removidos do fluxo normal do documento e posicionados
+em relação ao seu ancestral posicionado mais próximo (geralmente um elemento pai com posicionamento relativo ou
+absoluto, ou a janela de visualização se nenhum ancestral estiver posicionado). Sua posição é determinada usando as
+propriedades <code>top</code>, <code>right</code>, <code>bottom</code>, e <code>left</code> em relação ao bloco que o contém.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="nt">div</span><span class="p">.</span><span class="nc">absolute</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">    </span><span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#73AD21</span><span class="p">;</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="fixo-fixed"><strong>Fixo</strong> - <em>fixed</em></h3>
+<p>Os elementos posicionados fixos são semelhantes aos elementos posicionados de forma absoluta, mas são
+posicionados em relação à janela de visualização e não ao bloco que os contém. Isso significa que eles permanecem
+no lugar mesmo quando a página é rolada. O posicionamento fixo é útil para elementos que você deseja que permaneçam
+visíveis na tela o tempo todo, como barras de navegação ou menus laterais.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nt">div</span><span class="p">.</span><span class="nc">fixed</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="w">    </span><span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#73AD21</span><span class="p">;</span>
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="grudento-stick"><strong>Grudento</strong> - <em>stick</em>:</h3>
+<p>O posicionamento stick combina aspectos de posicionamento relativo e fixo. Os elementos com posicionamento
+stick são inicialmente posicionados em relação à sua posição normal no fluxo, mas aderem à borda do bloco que os contém
+quando rolados além de um determinado ponto. O posicionamento stick é útil para elementos que você deseja que
+permaneçam visíveis até que sejam rolados, como cabeçalhos de coluna em uma tabela.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="nt">div</span><span class="p">.</span><span class="nc">sticky</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="bp">-webkit-</span><span class="kc">sticky</span><span class="p">;</span>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">sticky</span><span class="p">;</span>
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#cae8ca</span><span class="p">;</span>
+<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#4CAF50</span><span class="p">;</span>
+<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="display">Display</h2>
+<p>A propriedade <code>display</code> especifica como o comportamento exibição do elemento. Dentre os possíveis comportamentos estão.</p>
+<table>
+<thead>
+<tr>
+<th><code>display</code></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inline</code>:</td>
+<td>Exibe um elemento como um elemento embutido (como <code>&lt;span&gt;</code>). Quaisquer propriedades de altura e largura não terão efeito.</td>
+</tr>
+<tr>
+<td><code>block</code>:</td>
+<td>Exibe um elemento como um elemento de bloco (como <code>&lt;p&gt;</code>). Ele começa em uma nova linha e ocupa toda a largura</td>
+</tr>
+<tr>
+<td><code>contents</code>:</td>
+<td>Faz o contêiner desaparecer, tornando os elementos filhos filhos do elemento no próximo nível acima no DOM</td>
+</tr>
+<tr>
+<td><code>flex</code>:</td>
+<td>Exibe um elemento como um flex container em nível de bloco</td>
+</tr>
+<tr>
+<td><code>grid</code>:</td>
+<td>Exibe um elemento como um bloco- contêiner de grade de nível</td>
+</tr>
+<tr>
+<td><code>none</code>:</td>
+<td>Remove o elemento completamente do DOM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flexbox">Flexbox</h2>
+<p>Flexbox, também conhecido como CSS Flexible Box Layout, é um modelo amplamente utilizado para criar layouts
+em páginas da web. Oferece uma maneira mais eficiente de organizar e distribuir elementos em um <code>container</code>,
+especialmente quando se trata de design responsivo e elementos com dimensões desconhecidas ou dinâmicas.</p>
+<p>O Flexbox funciona estabelecendo um elemento contêiner utilizando <code>display: flex</code> que abriga elementos filhos (flex items).
+Esses itens flexíveis são dispostos ao longo de um único eixo (uma linha ou coluna), com propriedades
+controlando seu alinhamento, distribuição de espaço e comportamento de redimensionamento.</p>
+<ul>
+<li>Flexibilidade: organize facilmente os elementos horizontal ou verticalmente e ajuste seu tamanho com base no espaço
+disponível.</li>
+<li>Capacidade de resposta: os layouts Flexbox se adaptam bem a diferentes tamanhos de tela, tornando suas páginas da
+web responsivas.</li>
+<li>Alinhamento: controle preciso sobre como os elementos são alinhados dentro do contêiner, tanto horizontal quanto
+verticalmente.</li>
+<li>Espaçamento: Gerencie a distribuição do espaço entre os elementos, permitindo espaços uniformes ou alocação flexível.</li>
+</ul>
+<p>Para pensar no flex-box, podemos imaginar que num contêiner os elementos vão ser posicionados
+em eixos <code>cross</code> e <code>main</code>.</p>
+<figure>
+  <img alt="" src="../../../assets/css/flex-box.png" />
+<br />
+<!-- <figcaption>Image caption</figcaption> -->
+
+
+</figure>
+<p>Um elemento que recebe a propriedade <code>display: flex;</code> é chamado de <code>flex container</code>. E pode receber várias outras
+definições.</p>
+<p>Dentre elas temos:</p>
+<h3 id="flex-direction"><code>flex-direction</code></h3>
+<p>A direção onde os elementos vão ser alinhados é a <code>row</code> da esquerda para a direita e de cima
+para baixo, mas podemos alterar o comportamento para <code>column</code> utilizando a propriedade <br>
+<code>flex-direction: column;</code></p>
+<h4 id="flex-wrap"><code>flex-wrap</code></h4>
+<p>Por padrão, os flex items vão todos tentar se encaixar em uma só linha, usando <code>flex-wrap</code>podemos permitir
+que os ítens quebrem para uma linha seguinte conforme for necessário.</p>
+<ul>
+<li><code>nowrap</code> (padrão): todos os flex items ficarão em uma só linha</li>
+<li><code>wrap</code>: os flex items vão quebrar em múltiplas linhas, de cima para baixo</li>
+<li><code>wrap-reverse</code>: os flex items vão quebrar em múltiplas linhas de baixo para cima</li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #73AD21;">4</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">5</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">6</div>
+    <div class="flex-box-item" style="background-color: #73AD21;">7</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">8</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">9</div>
+</div>
+
+<h4 id="flex-flow"><code>flex-flow</code></h4>
+<p>A propriedade <code>flex-flow</code> é uma propriedade shorthand (uma mesma declaração inclui vários valores relacionados a mais
+de uma propriedade) que inclui flex-direction e flex-wrap. E determina quais serão os eixos pricipal e transversal do
+container. O valor padrão é <code>row nowrap</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="p">.</span><span class="nc">flex-container</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">    </span><span class="k">flex-flow</span><span class="p">:</span><span class="w"> </span><span class="kc">row</span><span class="w"> </span><span class="kc">nowrap</span>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="kc">row</span><span class="w"> </span><span class="kc">wrap</span>
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="kc">column</span><span class="w"> </span><span class="kc">nowrap</span>
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="kc">column</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="justify-content"><code>justify-content</code></h3>
+<p>Podemos alinhar os elementos dentro do container na direção do eixo principal utilizando <code>justify-content</code>;</p>
+<h4 id="flex-start"><code>flex-start</code></h4>
+<p>Alinha da esquerda para a direita no main axis.</p>
+<div style="display: flex; justify-content: flex-start; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p><br></p>
+<h4 id="flex-end"><code>flex-end</code></h4>
+<p>Alinha da direita para a esquerda no main axis.</p>
+<div style="display: flex; justify-content: flex-end; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<h4 id="center"><code>center</code></h4>
+<p>Alinha os elementos no centro do main axis.</p>
+<div style="display: flex; justify-content: center; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p><br></p>
+<h4 id="space-between"><code>space-between</code></h4>
+<p>Alinha os elementos deixando espaços iguais entre eles main axis.</p>
+<div style="display: flex; justify-content: space-between; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<style>
+    .item {
+        margin: 5px;
+        border-radius: 5px;
+        height:50px;
+        width: 50px;
+    }
+</style>
+
+<h4 id="space-around"><code>space-around</code></h4>
+<p>Alinha os elementos deixando um espaço tanto antes quando depois do elemento.</p>
+<div style="display: flex; justify-content: space-around; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p><br></p>
+<h4 id="space-evenly"><code>space-evenly</code></h4>
+<p>Alinha os elementos deixando um espaço igual entre todos os elementos</p>
+<div style="display: flex; justify-content: space-evenly; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p>Também existem duas palavras-chave adicionais que você pode usar em conjunto com estes valores: <code>safe</code> e <code>unsafe</code>.
+Safe garante que, independente da forma que você faça esse tipo de posicionamento, não seja possível "empurrar" um
+elemento e fazer com que ele seja renderizado para fora da tela (por exemplo, acima do topo), de uma forma que faça
+com que o conteúdo seja impossível de movimentar com a rolagem da tela (o CSS chama isso de "perda de dados").</p>
+<h3 id="align-items"><code>align-items</code></h3>
+<p>E também podemos alinhar os elementos dentro do container na direção do <code>cross-axis</code> utilizando <code>align-items</code>.</p>
+<h4 id="flex-start_1"><code>flex-start</code></h4>
+<div style="display: flex; height:100px; align-items: flex-start; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p><br></p>
+<h4 id="flex-end_1"><code>flex-end</code></h4>
+<div style="display: flex; height:100px; align-items: flex-end; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<h3 id="center_1"><code>center</code></h3>
+<div style="display: flex; height:100px; align-items: center; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<p><br></p>
+<ul>
+<li>stretch (padrão): estica os ítens para preencher o container, respeitando o min-width/max-width).</li>
+<li>flex-start/ start / self-start: ítens são posicionados no início do eixo transversal. A diferença entre eles
+é sutil e diz respeito às regras de flex-direction ou writing-mode.</li>
+<li>center: ítens são centralizados no eixo transversal.</li>
+<li>baseline: ítens são alinhados de acordo com suas baselines.</li>
+</ul>
+<h3 id="flex-item"><code>flex-item</code></h3>
+<p>Propriedades que podem ser adicionadas a um item dentro de um <code>flex-container</code>.</p>
+<h4 id="flex-grow"><code>flex-grow</code></h4>
+<p>Utilizado para fazer um <code>flex-item</code> "crescer" se houver espaço disponível.</p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-grow: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<h4 id="flex-basis"><code>flex-basis</code></h4>
+<p>Server para sobrescrever o valor de <code>width</code> de um elemento.</p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-basis: 70px; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+</div>
+
+<h4 id="flex-shrink"><code>flex-shrink</code></h4>
+<p>Determina o quanto um elemento vai "encolher" para comportar mais elementos. Se definido como 0, o elemento não vai ser
+alterado.</p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex-shrink: 5; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="background-color: #EE872A;">3</div>
+    <div class="flex-box-item" style="background-color: #40B3DF;">2</div>
+</div>
+<p><br></p>
+<h4 id="flex"><code>flex</code></h4>
+<p>Usado para particionar o container e utilizar o espaço entre os elementos.</p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+<p><br></p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 2; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+
+<h4 id="align-self"><code>align-self</code></h4>
+<p>Essa propriedade sobrescreve o valor do align-item do <code>flex-container</code> apenas para esse <code>flex-item</code>.</p>
+<div style="display: flex; height: 340px; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="align-self: center; flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 2; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+
+<h4 id="order"><code>order</code></h4>
+<p>Modifica a ordem onde um elemento vai aparecer, recebendo uma unidade como parâmetro. O valor default para cada
+<code>flex-item</code> é 0.</p>
+<div style="display: flex; background-color: lightgrey; border-radius: 5px;">
+    <div class="flex-box-item" style="order: 2; flex: 1; background-color: #73AD21;">1</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #40B3DF;">2</div>
+    <div class="flex-box-item" style="flex: 1; background-color: #EE872A;">3</div>
+</div>
+
+<p>A utilização dessa propriedade não é recomendada, pois altera a ordem de renderização de forma arbitrária</p>
+<hr />
+<p>https://developer.mozilla.org/en-US/docs/Learn/CSS</p>
+<p>https://diegolusa.github.io/web</p>
+<p>https://dev.to/r4h33m/cmyk-and-rgb-hsv-and-hsl-introducing-the-chromatic-compendium-1d7</p>
+<p>https://htmlcolorcodes.com/</p>
+<p>https://www.color-hex.com/</p>
+<p>https://developer.mozilla.org/pt-BR/docs/Web/CSS/font-family</p>
+<p>https://www.w3schools.com/csSref/default.asp</p>
+<p>https://www.tutorialrepublic.com/css-tutorial</p>
+<p>https://www.nngroup.com/articles/serif-vs-sans-serif-fonts-hd-screens/#toc-screen-typography-for-online-reading-1</p>
+<p>https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox</p>
+<p>https://www.w3schools.com/cssref/playdemo.php?filename=playcss_display&amp;preval=inline</p>
+<p>https://css-tricks.com/snippets/css/a-guide-to-flexbox/</p>
+<p>https://www.w3schools.com/css/css_website_layout.asp</p>
+<p>https://www.alura.com.br/artigos/css-guia-do-flexbox</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pleonr" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pablo-leon-rodrigues-9b47a824" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://steamcommunity.com/id/leonpf" target="_blank" rel="noopener" title="steamcommunity.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M504 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L184.6 279c-15.5-.9-30.7 3.4-43.5 12.1L8 236.1C18.2 108.4 125.1 8 255.6 8 392.8 8 504 119 504 256M163.7 384.3l-30.5-12.6c5.6 11.6 15.3 20.8 27.2 25.8 26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3S214 305.6 201 300.2c-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21m173.8-254.5a62.3 62.3 0 1 1 0 124.6 62.3 62.3 0 1 1 0-124.6m.1 109a46.8 46.8 0 1 0 0-93.6 46.8 46.8 0 1 0 0 93.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/pablo.leonrodrigues" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:pabloleon@upf.br" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C270.5 52.6 106.3 116.6 106.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H260v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.select", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
