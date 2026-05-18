@@ -8,6 +8,14 @@ Aqui segue uma lista de projetos para download
 
     ---
 
+    Esse "projeto" utiliza o gateway de pagamentos do mercado pago, utilizando a sdk e a api, gerando uma preference para um produto e retornando uma url de pagamento em sandbox, utilizando node e express.
+
+    [:octicons-arrow-right-24: Download](../static/integracaopagamento.zip){:download="integracaopagamento.zip"}
+
+-   :fontawesome-brands-node-js:{ .lg .middle } __Integração de Pagamentos__
+
+    ---
+
     Esse "projeto" simula um gateway de pagamentos utilizando rest, soap e uma interface com react.
     O `Makefile` pode ser utilizado para subir a estrutura do projeto. Apenas lembre de gerar os certificados antes!
 
