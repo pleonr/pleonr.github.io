@@ -1,0 +1,19 @@
+/* insertAdjacentHTML position diagram */
+.insert-position {
+  font-family: var(--vp-font-family-mono); font-size: .78rem; margin: 1.5rem 0;
+}
+.ip-outer {
+  background: var(--vp-c-bg-soft); border: 1px dashed var(--vp-c-divider); border-radius: 8px;
+  padding: 10px; color: var(--vp-c-text-2); text-align: center;
+}
+.ip-el {
+  background: var(--vp-c-bg-alt); border: 1px solid var(--vp-c-divider); border-radius: 8px;
+  padding: 10px; margin-top: 8px; color: var(--vp-c-text-1); text-align: left;
+}
+.ip-inner {
+  background: rgba(99,102,241,.08); border: 1px dashed var(--vp-c-brand-1); border-radius: 6px;
+  padding: 8px; margin-top: 8px; color: var(--vp-c-text-2);
+}
+.ip-content {
+  background: var(--vp-c-bg); border-radius: 6px; padding: 6px 8px; margin: 8px 0; color: var(--vp-c-text-1);
+}

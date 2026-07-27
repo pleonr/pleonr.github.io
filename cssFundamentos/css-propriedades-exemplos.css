@@ -1,0 +1,52 @@
+/* Checkbox control (inset) — row layout instead of the shared column layout */
+.ctrl-group-checkbox { flex-direction: row; align-items: center; }
+.ctrl-group-checkbox label { display: flex; align-items: center; gap: 6px; }
+
+/* Tipografia */
+.type-preview {
+  background: var(--vp-c-bg-alt); border-radius: 8px; padding: 1.5rem; color: var(--vp-c-text-1);
+  transition: all .1s ease;
+}
+
+/* Sombras */
+.shadow-preview-wrap { display: flex; justify-content: center; padding: 2rem 0; }
+.shadow-preview { width: 160px; height: 100px; background: var(--vp-c-bg); }
+
+/* Transform */
+.transform-preview-wrap { display: flex; justify-content: center; padding: 2rem 0; }
+.transform-preview {
+  width: 100px; height: 100px; background: #4a6cf7; color: #fff; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--vp-font-family-mono);
+}
+.toggle-btn {
+  display: block; margin: 0 auto; background: #e07070; color: #fff; border: none; padding: 10px 20px;
+  border-radius: 8px; cursor: pointer; font-size: .9rem; font-weight: 700; font-family: inherit;
+}
+.toggle-btn:hover { background: #c05050; }
+
+/* nth-child */
+.nth-demo { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1rem; }
+.nth-row { padding: 8px 12px; border-radius: 6px; background: var(--vp-c-bg-alt); font-size: .85rem; font-family: var(--vp-font-family-mono); color: var(--vp-c-text-2); transition: all .15s ease; }
+.nth-row-match { background: #4a6cf7; color: #fff; font-weight: 700; }
+.pseudo-note { font-size: .85rem; color: var(--vp-c-text-2); margin: 1rem 0 .5rem; }
+
+.tooltip-demo {
+  position: relative; display: inline-block; background: var(--vp-c-bg-alt); border: 1px dashed var(--vp-c-divider);
+  padding: 10px 16px; border-radius: 6px; font-size: .85rem; cursor: help;
+}
+.tooltip-demo::after {
+  content: attr(data-tooltip);
+  position: absolute; bottom: 120%; left: 0; background: #1e1e2e; color: #cdd6f4;
+  padding: 6px 10px; border-radius: 6px; font-size: .75rem; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.tooltip-demo:hover::after { opacity: 1; }
+
+/* Variáveis / tema */
+.theme-buttons { display: flex; gap: 8px; }
+.theme-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
+.theme-btn-active { border-color: var(--vp-c-text-1); }
+.theme-preview { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.theme-preview-card { background: var(--demo-brand); color: #fff; padding: 14px 18px; border-radius: 10px; font-size: .85rem; }
+.theme-preview-card code { background: rgba(255,255,255,.2); color: #fff; }
+.theme-preview-btn { background: var(--demo-brand); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: .85rem; cursor: pointer; font-family: inherit; }

@@ -1,0 +1,30 @@
+/* Function anatomy */
+.fn-anatomy {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem 2.5rem;
+  margin: 1.5rem 0; font-family: var(--vp-font-family-mono); font-size: 1rem; position: relative; overflow-x: auto;
+}
+.fn-anatomy-code { white-space: pre; line-height: 1.7; }
+.fa-kw { color: #f38ba8; font-weight: 700; }
+.fa-name { color: #eba40c; font-weight: 700; }
+.fa-param { color: #89dceb; }
+.fa-punc { color: #cdd6f4; }
+.fn-anatomy-labels { display: flex; gap: 1.25rem; margin-top: 1.25rem; font-size: .7rem; font-weight: 700; flex-wrap: wrap; }
+.fa-lbl-kw { color: #f38ba8; }
+.fa-lbl-name { color: #eba40c; }
+.fa-lbl-param { color: #89dceb; }
+
+/* for-loop anatomy */
+.for-anatomy {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem 2.5rem;
+  margin: 1.5rem 0; font-family: var(--vp-font-family-mono); font-size: .95rem; position: relative; overflow-x: auto;
+}
+.for-anatomy-code { white-space: pre; }
+.fr-kw { color: #f38ba8; font-weight: 700; }
+.fr-punc { color: #cdd6f4; }
+.fr-part.init { color: #a6e3a1; }
+.fr-part.cond { color: #89dceb; }
+.fr-part.step { color: #eba40c; }
+.for-anatomy-labels { display: flex; flex-direction: column; gap: 6px; margin-top: 1.25rem; font-size: .75rem; font-weight: 700; }
+.fr-lbl.init { color: #a6e3a1; }
+.fr-lbl.cond { color: #89dceb; }
+.fr-lbl.step { color: #eba40c; }

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.leon.dev.br)",
+      "Bash(curl -s -A \"Mozilla/5.0\" http://www.leon.dev.br/sobre/)",
+      "Bash(npm run *)",
+      "Bash(curl -s \"https://api.github.com/repos/tonimercadante/alucard-theme/contents/\")",
+      "Bash(curl -s \"https://api.github.com/repos/tonimercadante/alucard-theme/contents/themes\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/tonimercadante/alucard-theme/main/themes/alucard-color-theme.json\" -o /tmp/alucard-color-theme.json)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Users API",
+    "version": "1.0.0",
+    "description": "Mock CRUD API for managing users. Run this API locally on your machine before trying the endpoints below."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Local (student machine)"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Create, read, update and delete users"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "operationId": "listUsers",
+        "tags": ["Users"],
+        "summary": "List users",
+        "description": "Returns all users.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number",
+            "schema": { "type": "integer", "default": 1 },
+            "example": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of users per page",
+            "schema": { "type": "integer", "default": 20 },
+            "example": 20
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/User" }
+                },
+                "example": [
+                  { "id": 1, "name": "Ada Lovelace", "email": "ada@example.com" },
+                  { "id": 2, "name": "Alan Turing", "email": "alan@example.com" }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createUser",
+        "tags": ["Users"],
+        "summary": "Create user",
+        "description": "Creates a new user.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserInput" },
+              "example": { "name": "Grace Hopper", "email": "grace@example.com" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/User" },
+                "example": { "id": 3, "name": "Grace Hopper", "email": "grace@example.com" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "email is required" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "getUser",
+        "tags": ["Users"],
+        "summary": "Get user",
+        "description": "Returns a single user by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": { "type": "integer" },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/User" },
+                "example": { "id": 1, "name": "Ada Lovelace", "email": "ada@example.com" }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "user not found" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateUser",
+        "tags": ["Users"],
+        "summary": "Update user",
+        "description": "Updates an existing user.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": { "type": "integer" },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserInput" },
+              "example": { "name": "Ada Lovelace", "email": "ada.lovelace@example.com" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/User" },
+                "example": { "id": 1, "name": "Ada Lovelace", "email": "ada.lovelace@example.com" }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "user not found" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteUser",
+        "tags": ["Users"],
+        "summary": "Delete user",
+        "description": "Deletes a user by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User id",
+            "schema": { "type": "integer" },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User deleted"
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "user not found" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "name": { "type": "string", "example": "Ada Lovelace" },
+          "email": { "type": "string", "format": "email", "example": "ada@example.com" }
+        },
+        "required": ["id", "name", "email"]
+      },
+      "UserInput": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "example": "Ada Lovelace" },
+          "email": { "type": "string", "format": "email", "example": "ada@example.com" }
+        },
+        "required": ["name", "email"]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string" }
+        },
+        "required": ["message"]
+      }
+    }
+  }
+}

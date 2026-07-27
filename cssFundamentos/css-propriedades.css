@@ -1,0 +1,39 @@
+.type-demo { background: var(--vp-c-bg-soft); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0; }
+.type-h { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 .5rem; }
+.type-p { font-size: 1.05rem; line-height: 1.7; max-width: 65ch; color: var(--vp-c-text-1); margin: 0; }
+
+.bg-demo-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.bg-demo { flex: 1 1 160px; height: 90px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .85rem; text-align: center; }
+.bg-solid { background-color: #4a6cf7; }
+.bg-gradient { background-image: linear-gradient(135deg, #4a6cf7, #89dceb); }
+.bg-radial { background-image: radial-gradient(circle, #e07070, #7a2020); }
+
+.shadow-demo-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.shadow-card {
+  flex: 1 1 160px; background: var(--vp-c-bg); padding: 20px; text-align: center;
+  font-size: .82rem; font-weight: 600; color: var(--vp-c-text-1);
+}
+.shadow-sm { border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+.shadow-lg { border-radius: 16px; box-shadow: 0 12px 32px rgba(74,108,247,.35); }
+.shadow-pill { border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+
+.hover-demo-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.hover-btn {
+  background: #4a6cf7; color: #fff; border: none; padding: 12px 20px; border-radius: 8px;
+  font-weight: 700; font-size: .85rem; cursor: pointer; font-family: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.hover-btn-scale:hover { transform: scale(1.08); }
+.hover-btn-lift:hover { transform: translateY(-6px); box-shadow: 0 8px 16px rgba(0,0,0,.2); }
+.hover-btn-rotate:hover { transform: rotate(-4deg); }
+
+.zebra-demo { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .9rem; }
+.zebra-demo td { padding: 10px 14px; border-bottom: 1px solid var(--vp-c-divider); }
+.zebra-demo tr:nth-child(even) td { background: var(--vp-c-bg-soft); }
+
+.theme-demo { margin: 1rem 0 1.5rem; }
+.theme-demo-card {
+  background: var(--demo-brand); color: #fff; padding: 16px 20px; border-radius: 10px;
+  font-weight: 700; font-size: .9rem; display: inline-block;
+}
+.theme-demo-card code { background: rgba(255,255,255,.2); color: #fff; }

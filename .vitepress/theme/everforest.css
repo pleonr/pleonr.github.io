@@ -1,0 +1,281 @@
+/* https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
+/* https://github.com/sainnhe/everforest (medium contrast palette) */
+
+:root {
+  /* Accent Color */
+  --vp-c-brand-1: #8da101;
+  --vp-c-brand-2: #7a8b01;
+  --vp-c-brand-3: #8da101;
+
+  /* Solid Colors and Sponsor Color */
+  --vp-c-white: #fdf6e3;
+  --vp-c-black: #5c6a72;
+  --vp-c-sponsor: #f85552;
+
+  /* Background Colors */
+  --vp-c-bg: #fdf6e3;
+  --vp-c-bg-alt: #efebd4;
+  --vp-c-bg-elv: #f4f0d9;
+  --vp-c-bg-soft: #efebd4;
+
+  /* Border Colors */
+  --vp-c-border: #e0dcc7;
+  --vp-c-divider: #e6e2cc;
+  --vp-c-gutter: #bdc3af;
+
+  /* Text Colors */
+  --vp-c-text-1: #5c6a72;
+  --vp-c-text-2: #829181;
+  --vp-c-text-3: #939f91;
+
+  /* Code block background — Alucard (draculatheme.com) expects a solid
+     light surface, not Everforest's cream --vp-c-bg-alt. Overriding it
+     here keeps Alucard's token colors legible instead of muddy. */
+  --vp-code-block-bg: #f1f1f1;
+
+  /* Callout Colors */
+  --vp-c-tip-soft: hsla(83, 98%, 33%, 0.20);
+  --vp-c-warning-soft: hsla(43, 100%, 44%, 0.20);
+  --vp-c-danger-soft: hsla(2, 91%, 65%, 0.20);
+  --vp-c-caution-soft: hsla(2, 91%, 65%, 0.20);
+  --vp-c-important-soft: hsla(311, 55%, 61%, 0.20);
+
+  --vp-custom-block-info-bg: hsla(200, 60%, 51%, 0.20);
+  --vp-custom-block-note-bg: hsla(200, 60%, 51%, 0.20);
+  --vp-custom-block-details-bg: #e6e2cc;
+
+  /* Everforest Accents (Light) */
+  --ef-light-bg-dim: #efebd4;
+  --ef-light-bg0: #fdf6e3;
+  --ef-light-bg1: #f4f0d9;
+  --ef-light-bg2: #efebd4;
+  --ef-light-bg3: #e6e2cc;
+  --ef-light-bg4: #e0dcc7;
+  --ef-light-bg5: #bdc3af;
+  --ef-light-fg: #5c6a72;
+  --ef-light-red: #f85552;
+  --ef-light-orange: #f57d26;
+  --ef-light-yellow: #dfa000;
+  --ef-light-green: #8da101;
+  --ef-light-aqua: #35a77c;
+  --ef-light-blue: #3a94c5;
+  --ef-light-purple: #df69ba;
+  --ef-light-grey0: #a6b0a0;
+  --ef-light-grey1: #939f91;
+  --ef-light-grey2: #829181;
+
+  /* Color Palette */
+  --vp-c-gray-1: rgb(189, 195, 175);
+  --vp-c-gray-2: rgb(224, 220, 199);
+  --vp-c-gray-3: rgb(244, 240, 217);
+  --vp-c-gray-soft: hsla(75, 20%, 65%, 0.14);
+
+  --vp-c-default-soft: #e0dcc7;
+
+  --vp-c-indigo-1: rgb(58, 148, 197);
+  --vp-c-indigo-2: rgb(53, 138, 184);
+  --vp-c-indigo-3: rgb(96, 133, 148);
+  --vp-c-indigo-soft: hsla(200, 60%, 41%, 0.14);
+
+  --vp-c-purple-1: rgb(223, 105, 186);
+  --vp-c-purple-2: rgb(210, 82, 171);
+  --vp-c-purple-3: rgb(150, 96, 132);
+  --vp-c-purple-soft: hsla(311, 55%, 51%, 0.14);
+
+  --vp-c-green-1: rgb(141, 161, 1);
+  --vp-c-green-2: rgb(127, 145, 1);
+  --vp-c-green-3: rgb(100, 108, 51);
+  --vp-c-green-soft: hsla(83, 98%, 23%, 0.14);
+
+  --vp-c-yellow-1: rgb(223, 160, 0);
+  --vp-c-yellow-2: rgb(196, 141, 0);
+  --vp-c-yellow-3: rgb(130, 105, 44);
+  --vp-c-yellow-soft: hsla(43, 100%, 34%, 0.14);
+
+  --vp-c-red-1: rgb(248, 85, 82);
+  --vp-c-red-2: rgb(240, 68, 65);
+  --vp-c-red-3: rgb(140, 71, 69);
+  --vp-c-red-soft: hsla(2, 91%, 45%, 0.14);
+
+  /* Code Highlighting */
+  --vp-code-line-highlight-color: hsla(75, 10%, 53%, 0.20);
+}
+
+.dark {
+  /* Fix button text color */
+  --vp-button-brand-text: var(--ef-dark-bg0) !important;
+  --vp-button-brand-hover-text: var(--ef-dark-bg0) !important;
+  --vp-button-brand-active-text: var(--ef-dark-bg0) !important;
+
+  /* Accent Color */
+  --vp-c-brand-1: #a7c080;
+  --vp-c-brand-2: #93b259;
+  --vp-c-brand-3: #a7c080;
+
+  /* Solid Colors and Sponsor Color */
+  --vp-c-white: #d3c6aa;
+  --vp-c-black: #2d353b;
+  --vp-c-sponsor: #e67e80;
+
+  /* Background Colors */
+  --vp-c-bg: #2d353b;
+  --vp-c-bg-alt: #232a2e;
+  --vp-c-bg-elv: #343f44;
+  --vp-c-bg-soft: #343f44;
+
+  /* Restore Everforest's dark code block — the :root override above is
+     for the Alucard light theme only. */
+  --vp-code-block-bg: var(--vp-c-bg-alt);
+
+  /* Border Colors */
+  --vp-c-border: #475258;
+  --vp-c-divider: #3d484d;
+  --vp-c-gutter: #232a2e;
+
+  /* Text Colors */
+  --vp-c-text-1: #d3c6aa;
+  --vp-c-text-2: #9da9a0;
+  --vp-c-text-3: #859289;
+
+  /* Callout Colors */
+  --vp-c-tip-soft: hsla(83, 41%, 63%, 0.20);
+  --vp-c-warning-soft: hsla(39, 68%, 68%, 0.20);
+  --vp-c-danger-soft: hsla(2, 71%, 76%, 0.20);
+  --vp-c-caution-soft: hsla(2, 71%, 76%, 0.20);
+  --vp-c-important-soft: hsla(331, 46%, 79%, 0.20);
+
+  --vp-custom-block-info-bg: hsla(177, 20%, 55%, 0.20);
+  --vp-custom-block-note-bg: hsla(177, 20%, 55%, 0.20);
+  --vp-custom-block-details-bg: #3d484d;
+
+  /* Everforest Accents (Dark) */
+  --ef-dark-bg-dim: #232a2e;
+  --ef-dark-bg0: #2d353b;
+  --ef-dark-bg1: #343f44;
+  --ef-dark-bg2: #3d484d;
+  --ef-dark-bg3: #475258;
+  --ef-dark-bg4: #4f585e;
+  --ef-dark-bg5: #56635f;
+  --ef-dark-fg: #d3c6aa;
+  --ef-dark-red: #e67e80;
+  --ef-dark-orange: #e69875;
+  --ef-dark-yellow: #dbbc7f;
+  --ef-dark-green: #a7c080;
+  --ef-dark-aqua: #83c092;
+  --ef-dark-blue: #7fbbb3;
+  --ef-dark-purple: #d699b6;
+  --ef-dark-grey0: #7a8478;
+  --ef-dark-grey1: #859289;
+  --ef-dark-grey2: #9da9a0;
+
+  /* Color Palette */
+  --vp-c-gray-1: rgb(79, 88, 94);
+  --vp-c-gray-2: rgb(61, 72, 77);
+  --vp-c-gray-3: rgb(45, 53, 59);
+  --vp-c-gray-soft: hsla(200, 12%, 49%, 0.14);
+
+  --vp-c-default-soft: #3d484d;
+
+  --vp-c-indigo-1: rgb(127, 187, 179);
+  --vp-c-indigo-2: rgb(120, 181, 173);
+  --vp-c-indigo-3: rgb(87, 122, 118);
+  --vp-c-indigo-soft: hsla(174, 27%, 60%, 0.14);
+
+  --vp-c-purple-1: rgb(214, 153, 182);
+  --vp-c-purple-2: rgb(208, 138, 173);
+  --vp-c-purple-3: rgb(129, 92, 112);
+  --vp-c-purple-soft: hsla(331, 46%, 68%, 0.14);
+
+  --vp-c-green-1: rgb(167, 192, 128);
+  --vp-c-green-2: rgb(157, 187, 111);
+  --vp-c-green-3: rgb(107, 122, 82);
+  --vp-c-green-soft: hsla(83, 41%, 63%, 0.14);
+
+  --vp-c-yellow-1: rgb(219, 188, 127);
+  --vp-c-yellow-2: rgb(216, 180, 106);
+  --vp-c-yellow-3: rgb(136, 120, 83);
+  --vp-c-yellow-soft: hsla(39, 68%, 68%, 0.14);
+
+  --vp-c-red-1: rgb(230, 126, 128);
+  --vp-c-red-2: rgb(228, 105, 108);
+  --vp-c-red-3: rgb(138, 78, 79);
+  --vp-c-red-soft: hsla(2, 71%, 76%, 0.14);
+}
+
+/* Single flex-wrap layout: the two columns share a row and shrink
+   together, wrapping to a stack once they no longer fit side by
+   side. No breakpoints needed — the browser handles it. */
+.VPHero .container {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px;
+}
+
+.VPHero .main {
+  order: 1;
+  width: auto;
+  flex: 1 1 400px;
+  max-width: 560px;
+}
+
+.VPHero .image {
+  order: 2;
+  margin: 0;
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.VPHero .image-container {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.VPHero .image-bg {
+  width: 80%;
+  height: 80%;
+  box-shadow: 0 24px 48px #0003;
+}
+
+.VPHero .image-src {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home-hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  max-width: 576px;
+}
+
+.home-hero-link {
+  display: block;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-border);
+  background-color: var(--vp-c-bg-soft);
+  text-align: left;
+  text-decoration: none;
+  transition: border-color 0.25s;
+}
+
+.home-hero-link:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.home-hero-link strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 4px;
+}
+
+.home-hero-link span {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}

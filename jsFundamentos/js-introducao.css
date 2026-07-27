@@ -1,0 +1,23 @@
+/* Variable declaration anatomy */
+.var-anatomy {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem 2.5rem;
+  margin: 1.5rem 0; font-family: var(--vp-font-family-mono); font-size: 1.05rem; position: relative; overflow-x: auto;
+}
+.var-anatomy-code { white-space: pre; }
+.va-kw { color: #f38ba8; font-weight: 700; }
+.va-id { color: #89dceb; }
+.va-op { color: #cdd6f4; }
+.va-val { color: #a6e3a1; }
+.va-punc { color: #cdd6f4; }
+.var-anatomy-labels { display: flex; gap: 1.25rem; margin-top: 1.25rem; font-size: .7rem; font-weight: 700; flex-wrap: wrap; }
+.va-lbl-kw { color: #f38ba8; }
+.va-lbl-id { color: #89dceb; }
+.va-lbl-op { color: #cdd6f4; }
+.va-lbl-val { color: #a6e3a1; }
+
+/* let / const / var comparison */
+.var-compare { display: flex; gap: 1.25rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.var-card { flex: 1 1 220px; background: var(--vp-c-bg-alt); border-radius: 10px; padding: 1rem 1.25rem; }
+.var-card h5 { margin: 0 0 .5rem; font-size: 1rem; }
+.var-card p { font-size: .85rem; margin: 0 0 .6rem; }
+.var-card code { display: block; font-size: .78rem; line-height: 1.6; background: #1e1e2e; color: #cdd6f4; padding: .5rem .6rem; border-radius: 6px; }

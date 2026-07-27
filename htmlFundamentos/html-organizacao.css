@@ -1,0 +1,13 @@
+/* Mistake comparison cards */
+.mistake-compare { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.mistake-card { flex: 1 1 260px; border-radius: 10px; padding: 1rem 1.25rem; }
+.mistake-card.bad { background: rgba(224, 112, 112, .12); border: 1px solid rgba(224, 112, 112, .4); }
+.mistake-card.good { background: rgba(106, 191, 106, .12); border: 1px solid rgba(106, 191, 106, .4); }
+.mistake-card h5 { margin: 0 0 .5rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+.mistake-card.bad h5 { color: #c0504d; }
+.mistake-card.good h5 { color: #3a8a3a; }
+.mistake-card pre { margin: 0; background: #1e1e2e; border-radius: 8px; padding: .75rem 1rem; overflow-x: auto; font-size: .8rem; }
+.mistake-card pre code { color: #cdd6f4; }
+
+/* Outline / heading tree */
+.outline-demo { background: var(--vp-c-bg-soft); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0; }

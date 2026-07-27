@@ -1,0 +1,15 @@
+.anatomy-interactive {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 1rem;
+  font-family: var(--vp-font-family-mono); font-size: 1.1rem; overflow-x: auto; white-space: pre;
+}
+.anatomy-interactive .va-punc { color: #cdd6f4; }
+.anatomy-part { cursor: pointer; border-radius: 4px; padding: 1px 2px; transition: background .15s ease; }
+.anatomy-part.kw { color: #f38ba8; font-weight: 700; }
+.anatomy-part.id { color: #89dceb; }
+.anatomy-part.op { color: #cdd6f4; }
+.anatomy-part.val { color: #a6e3a1; }
+.anatomy-part.active { background: rgba(255,255,255,.15); outline: 1px solid rgba(255,255,255,.3); }
+.anatomy-explain { background: var(--vp-c-bg-alt); border-radius: 8px; padding: 1rem 1.25rem; font-size: .9rem; min-height: 3rem; }
+
+.link-note { font-size: .78rem; color: var(--vp-c-text-2); text-align: center; margin-top: .75rem; }
+.link-note code { font-size: .78rem; }

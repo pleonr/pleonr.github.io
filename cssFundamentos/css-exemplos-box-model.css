@@ -1,0 +1,51 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+.demo-anatomia {
+  background: #fde68a;
+  padding: 30px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.demo-anatomia .borda { border: 8px solid #f59e0b; background: transparent; padding: 20px; }
+.demo-anatomia .padding-area { background: #bbf7d0; padding: 20px; }
+.demo-anatomia .conteudo { background: #93c5fd; padding: 16px 24px; font-weight: 700; color: #1e3a5f; font-size: .9rem; text-align: center; }
+
+.legenda { font-size: .75rem; display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.leg-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.leg-color { width: 18px; height: 18px; border-radius: 3px; }
+
+.comparacao { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.cb-box, .bb-box { width: 200px; padding: 20px; font-size: .85rem; line-height: 1.5; border-radius: 6px; }
+.cb-box { box-sizing: content-box; border: 6px solid #e07070; background: #fff0f0; color: #1a1a2e; }
+.bb-box { box-sizing: border-box; border: 6px solid #6abf6a; background: #f0fff4; color: #1a1a2e; }
+.cb-box strong { color: #e07070; }
+.bb-box strong { color: #3a8a3a; }
+
+.collapse-demo { background: var(--vp-c-bg-soft); padding: 8px; border: 2px dashed var(--vp-c-divider); margin-bottom: 1.5rem; border-radius: 6px; }
+.bloco-a { background: #93c5fd; color: #1e3a5f; padding: 12px; margin-bottom: 30px; font-size: .85rem; font-weight: 700; text-align: center; }
+.bloco-b { background: #fde68a; color: #5a3a00; padding: 12px; margin-top: 20px; font-size: .85rem; font-weight: 700; text-align: center; }
+
+.shorthand-grid { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.shorthand-grid code { display: block; margin-bottom: 6px; }
+.sh-box {
+  background: #e0e7ff; color: #1a1a2e; border: 2px solid #4a6cf7; border-radius: 6px;
+  font-size: .78rem; font-family: var(--vp-font-family-mono);
+}
+.sh-box.p1 { padding: 32px; }
+.sh-box.p2 { padding: 32px 8px; }
+.sh-box.p3 { padding: 32px 8px 4px; }
+.sh-box.p4 { padding: 32px 8px 4px 24px; }
+
+.inspector-wrap {
+  background: #1e1e2e; border-radius: 10px; padding: 24px; color: #cdd6f4;
+  font-family: var(--vp-font-family-mono); font-size: .85rem; margin-bottom: 1.5rem;
+}
+.inspector-wrap .ex-box {
+  background: #313244; width: 280px; height: 120px; margin: 0 auto;
+  border: 4px solid #a6e3a1; position: relative; box-sizing: border-box;
+}
+.ex-box-fill { background: #a6e3a1; width: 100%; height: 100%; }
+.inspector-wrap label { display: block; margin-top: 12px; color: #a6adc8; font-size: .8rem; }
+.inspector-wrap input[type=range] { width: 100%; accent-color: #a6e3a1; }
+.size-readout { text-align: center; color: #a6e3a1; font-size: .9rem; margin-top: 10px; line-height: 1.6; }

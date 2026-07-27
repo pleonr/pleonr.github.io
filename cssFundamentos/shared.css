@@ -1,0 +1,50 @@
+/* ============================================================
+   Estilos compartilhados entre as páginas de CSS Fundamentos.
+   Importado via <style scoped src="./shared.css"> em cada .md —
+   cada página recebe seu próprio hash de escopo (data-v-xxxx),
+   então não há vazamento entre páginas mesmo com uma fonte única.
+   ============================================================ */
+
+/* ---------- Cabeçalho de aula ---------- */
+.lesson-subtitle {
+  color: var(--vp-c-text-2);
+  font-size: 1.1rem;
+  margin-top: -0.5rem;
+}
+.lesson-subtitle strong { color: var(--vp-c-brand-1); }
+
+/* ---------- Prop card (usado nas páginas de teoria) ---------- */
+.prop-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.prop-card h4 { margin: 0 0 .5rem; font-size: 1rem; }
+.highlight-card { border-left: 4px solid var(--vp-c-brand-1); }
+
+/* ---------- Playground (usado nas páginas de exemplos interativos) ---------- */
+.playground {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.controls { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.25rem; }
+.ctrl-group { display: flex; flex-direction: column; gap: 4px; flex: 1 1; }
+.ctrl-group label { font-size: .78rem; font-weight: 700; color: var(--vp-c-text-2); font-family: var(--vp-font-family-mono); }
+.ctrl-group select, .ctrl-group input[type=range], .ctrl-group input[type=number] {
+  padding: 6px 10px; border: 1px solid var(--vp-c-divider); border-radius: 6px; font-size: .85rem;
+  font-family: inherit; background: var(--vp-c-bg); color: var(--vp-c-text-1); min-width: 140px;
+}
+.ctrl-group input[type=range] { padding: 0; accent-color: var(--vp-c-brand-1); }
+
+.code-output {
+  margin-top: 1rem; background: #1e1e2e; border-radius: 8px; padding: 1rem 1.25rem;
+  font-family: var(--vp-font-family-mono); font-size: .82rem; line-height: 1.7; color: #cdd6f4; overflow-x: auto;
+}
+.code-output .prop { color: #89dceb; }
+.code-output .val { color: #a6e3a1; }
+.code-output .punc { color: #585b70; }

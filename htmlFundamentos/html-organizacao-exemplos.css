@@ -1,0 +1,37 @@
+/* SEO preview */
+.serp-preview { background: var(--vp-c-bg); border: 1px solid var(--vp-c-divider); border-radius: 10px; padding: 1rem 1.25rem; max-width: 560px; margin: 0 auto; }
+.serp-url { font-size: .8rem; color: #3c7a3c; margin-bottom: 2px; }
+.serp-title { font-size: 1.15rem; color: #4a6cf7; margin-bottom: 4px; line-height: 1.3; }
+.serp-desc { font-size: .85rem; color: var(--vp-c-text-2); line-height: 1.5; }
+.char-count { font-size: .78rem; font-family: var(--vp-font-family-mono); margin-top: 4px; }
+.char-count.ok { color: #3a8a3a; }
+.char-count.warn { color: #c0504d; }
+
+/* Outline checker */
+.outline-rows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+.outline-row { display: flex; align-items: center; gap: 10px; }
+.outline-row select { width: 70px; }
+.outline-bar {
+  flex: 1; background: var(--vp-c-bg-alt); border-radius: 6px; padding: 8px 12px; font-size: .85rem;
+  border-left: 4px solid var(--vp-c-brand-1);
+}
+.outline-row.warn .outline-bar { border-left-color: #e07070; background: rgba(224,112,112,.12); color: #c0504d; }
+.outline-summary { font-size: .85rem; }
+.outline-summary.ok { color: #3a8a3a; }
+.outline-summary.warn { color: #c0504d; }
+
+/* Acessibilidade */
+.a11y-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.a11y-card { flex: 1 1 240px; background: var(--vp-c-bg-alt); border-radius: 8px; padding: 1rem 1.25rem; }
+.a11y-card h5 { margin: 0 0 .75rem; font-size: .85rem; }
+.a11y-card form { display: flex; flex-direction: column; gap: 6px; }
+.a11y-card input { padding: 6px 10px; border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg); color: var(--vp-c-text-1); }
+.a11y-feedback { font-size: .8rem; margin-top: 8px; min-height: 1.2em; }
+.a11y-feedback.ok { color: #3a8a3a; }
+
+.alt-demo-img {
+  width: 100%; max-width: 220px; height: 100px; border-radius: 8px; margin: .5rem 0;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px;
+  background: repeating-linear-gradient(45deg, #ffe0e0, #ffe0e0 10px, #ffd0d0 10px, #ffd0d0 20px);
+  color: #a04040; font-size: .78rem; border: 1px dashed #d08080;
+}

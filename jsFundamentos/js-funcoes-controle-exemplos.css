@@ -1,0 +1,9 @@
+.branch-line { display: inline-block; border-radius: 4px; padding: 0 2px; transition: background .15s ease; }
+.branch-line.active { background: rgba(166,227,161,.25); color: #a6e3a1; font-weight: 700; }
+
+.iteration-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+.chip {
+  background: var(--vp-c-brand-1); color: #fff; font-family: var(--vp-font-family-mono);
+  font-size: .8rem; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+}
+.chip-empty { background: var(--vp-c-bg-alt); color: var(--vp-c-text-2); font-weight: 400; }

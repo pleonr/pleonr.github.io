@@ -1,0 +1,42 @@
+/* Before/after */
+.before-after { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0; }
+.ba-card { flex: 1 1 260px; }
+.ba-label { font-size: .8rem; font-weight: 700; color: var(--vp-c-text-2); margin-bottom: 6px; font-family: var(--vp-font-family-mono); }
+.ba-preview { border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--vp-c-divider); }
+.ba-plain { background: var(--vp-c-bg); font-family: Georgia, serif; }
+.ba-plain .ba-h { font-size: 1rem; font-weight: 400; }
+.ba-plain .ba-p { font-size: 1rem; color: var(--vp-c-text-1); }
+.ba-plain .ba-btn { color: #0000ee; text-decoration: underline; font-size: 1rem; }
+.ba-styled { background: linear-gradient(135deg, #1e1e2e, #313244); }
+.ba-styled .ba-h { font-size: 1.3rem; font-weight: 700; color: #fff; font-family: var(--vp-font-family-base); }
+.ba-styled .ba-p { font-size: .85rem; color: #a6adc8; line-height: 1.6; }
+.ba-styled .ba-btn {
+  align-self: flex-start; background: #4a6cf7; color: #fff; padding: 8px 16px;
+  border-radius: 6px; font-size: .82rem; font-weight: 700;
+}
+
+/* Syntax diagram */
+.syntax-diagram {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem 2.5rem;
+  margin: 1.5rem 0; font-family: var(--vp-font-family-mono); font-size: 1.1rem; position: relative;
+}
+.syntax-row { display: flex; gap: 4px; }
+.syntax-indent { padding-left: 1.5rem; }
+.syn-selector { color: #f38ba8; font-weight: 700; }
+.syn-brace { color: #cdd6f4; }
+.syn-prop { color: #89dceb; }
+.syn-colon { color: #cdd6f4; }
+.syn-val { color: #a6e3a1; }
+.syn-semi { color: #cdd6f4; }
+.syntax-labels { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: .7rem; font-weight: 700; flex-wrap: wrap; }
+.syn-lbl-selector { color: #f38ba8; }
+.syn-lbl-prop { color: #89dceb; }
+.syn-lbl-val { color: #a6e3a1; }
+
+/* Color swatches */
+.color-swatches { display: flex; gap: 12px; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+.swatch {
+  flex: 1 1 140px; height: 70px; border-radius: 8px; display: flex; align-items: flex-end;
+  padding: 8px 10px; color: #fff; font-family: var(--vp-font-family-mono); font-size: .78rem;
+  font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,.4);
+}

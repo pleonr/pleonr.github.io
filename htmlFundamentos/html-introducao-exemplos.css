@@ -1,0 +1,33 @@
+.ctrl-group-checkbox { flex-direction: row; align-items: center; }
+.ctrl-group-checkbox label { display: flex; align-items: center; gap: 6px; }
+
+/* Anatomia interativa */
+.anatomy-interactive {
+  background: #1e1e2e; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 1rem;
+  font-family: var(--vp-font-family-mono); font-size: 1.1rem; overflow-x: auto; white-space: pre;
+}
+.anatomy-interactive .ta-bracket { color: #cdd6f4; }
+.anatomy-part { cursor: pointer; border-radius: 4px; padding: 1px 2px; transition: background .15s ease; }
+.anatomy-part.tag { color: #f38ba8; font-weight: 700; }
+.anatomy-part.attr { color: #89dceb; }
+.anatomy-part.val { color: #a6e3a1; }
+.anatomy-part.content { color: #eba40c; }
+.anatomy-part.active { background: rgba(255,255,255,.15); outline: 1px solid rgba(255,255,255,.3); }
+.anatomy-explain { background: var(--vp-c-bg-alt); border-radius: 8px; padding: 1rem 1.25rem; font-size: .9rem; min-height: 3rem; }
+
+/* Atributos ao vivo (link playground) */
+.link-preview-wrap { display: flex; justify-content: center; padding: 1.5rem 0; }
+.link-preview {
+  padding: 12px 20px; border-radius: 8px; background: var(--vp-c-bg-alt); border: 1px solid var(--vp-c-divider);
+  font-size: .95rem;
+}
+.link-note { font-size: .78rem; color: var(--vp-c-text-2); text-align: center; margin-top: -.5rem; }
+
+/* Árvore explorável */
+.tree-explorer { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.tree-rows { flex: 1 1 280px; background: var(--vp-c-bg-alt); border-radius: 8px; padding: 12px; font-family: var(--vp-font-family-mono); font-size: .85rem; }
+.tree-row { padding: 4px 8px; border-radius: 6px; cursor: pointer; transition: background .15s ease; color: var(--vp-c-text-1); }
+.tree-row:hover { background: var(--vp-c-bg-soft); }
+.tree-row.active { background: var(--vp-c-brand-1); color: #fff; font-weight: 700; }
+.tree-info { flex: 1 1 220px; background: var(--vp-c-bg-alt); border-radius: 8px; padding: 1rem 1.25rem; font-size: .88rem; line-height: 1.8; }
+.tree-info strong { color: var(--vp-c-brand-1); }

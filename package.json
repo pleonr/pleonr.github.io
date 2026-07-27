@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "vitepress": "^2.0.0-alpha.18"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@catppuccin/vitepress": "^0.1.2",
+    "markdown-it-mathjax3": "^4.3.2",
+    "mermaid": "^11.16.0",
+    "vitepress-openapi": "^0.2.1",
+    "vitepress-plugin-mermaid": "^2.0.17"
+  }
+}

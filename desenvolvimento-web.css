@@ -1,0 +1,45 @@
+.lesson-subtitle {
+  color: var(--vp-c-text-2);
+  font-size: 1.1rem;
+  margin-top: -0.5rem;
+}
+.lesson-subtitle strong { color: var(--vp-c-brand-1); }
+
+.prop-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.prop-card h4 { margin: 0 0 .5rem; font-size: 1rem; }
+.highlight-card { border-left: 4px solid var(--vp-c-brand-1); }
+
+figure.doc-figure { text-align: center; margin: 1.5rem 0; }
+figure.doc-figure img { max-width: 100%; border-radius: 8px; }
+figure.doc-figure figcaption { font-size: .82rem; color: var(--vp-c-text-2); margin-top: .5rem; }
+
+.img-center {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.media-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+.media-row figure.doc-figure {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 220px;
+  max-width: 100%;
+}
+.media-row-text {
+  flex: 1 1 320px;
+}

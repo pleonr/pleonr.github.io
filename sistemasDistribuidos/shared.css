@@ -1,0 +1,75 @@
+/* ============================================================
+   Estilos compartilhados entre as páginas de Sistemas Distribuídos.
+   Importado via <style scoped src="./shared.css"> em cada .md —
+   cada página recebe seu próprio hash de escopo (data-v-xxxx),
+   então não há vazamento entre páginas mesmo com uma fonte única.
+   ============================================================ */
+
+.lesson-subtitle {
+  color: var(--vp-c-text-2);
+  font-size: 1.1rem;
+  margin-top: -0.5rem;
+}
+.lesson-subtitle strong { color: var(--vp-c-brand-1); }
+
+.prop-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.prop-card h4 { margin: 0 0 .5rem; font-size: 1rem; }
+.highlight-card { border-left: 4px solid var(--vp-c-brand-1); }
+
+/* Duas colunas lado a lado (equivalente ao layout two-cols dos slides originais) */
+.cols2 {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+  align-items: flex-start;
+}
+.cols2 > div { flex: 1 1 300px; min-width: 0; }
+
+/* Vantagens x Desvantagens, lado a lado */
+.adv-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+.adv-grid > div {
+  flex: 1 1 260px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.adv-grid h4, .adv-grid h5 { margin: 0 0 .6rem; font-size: .95rem; }
+.adv-grid ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; }
+.adv-grid li { margin: 4px 0; }
+
+/* Figuras com legenda */
+figure.doc-figure { text-align: center; margin: 1.5rem 0; }
+figure.doc-figure img { max-width: 100%; border-radius: 8px; }
+figure.doc-figure figcaption { font-size: .82rem; color: var(--vp-c-text-2); margin-top: .5rem; }
+
+/* Imagens ilustrativas centralizadas (equivalente às imagens m-auto dos slides) */
+.img-center {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Citações em destaque */
+.pull-quote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  padding: .75rem 1.25rem;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: var(--vp-c-text-2);
+}
