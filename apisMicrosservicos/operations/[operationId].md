@@ -1,12 +1,12 @@
 ---
 aside: false
 outline: false
-title: API de Tarefas
+title: API de Usuários
 ---
 
 <script setup>
 import { useRoute } from 'vitepress'
-import spec from '../../public/openapi-tarefas.json'
+import spec from '../../public/openapi-usuarios.json'
 
 const route = useRoute()
 

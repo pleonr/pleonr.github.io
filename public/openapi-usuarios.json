@@ -1,0 +1,396 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API de Cadastro de Usuários",
+    "version": "1.0.0",
+    "description": "A mesma API construída nas Aulas 05 a 08 de APIs e Microsserviços: Node.js/Express, Python/FastAPI, Go/Gin e Elixir/Phoenix. Rode uma das quatro implementações localmente antes de testar os endpoints abaixo. Chame primeiro POST /auth/login, copie o `token` da resposta e clique em \"Authorize\" para colá-lo (sem o prefixo `Bearer `) antes de testar os endpoints protegidos."
+  },
+  "servers": [
+    { "url": "http://localhost:3000", "description": "Node.js + Express (Aula 05)" },
+    { "url": "http://localhost:8000", "description": "Python + FastAPI (Aula 06)" },
+    { "url": "http://localhost:8080", "description": "Go + Gin (Aula 07)" },
+    { "url": "http://localhost:4000", "description": "Elixir + Phoenix (Aula 08)" }
+  ],
+  "tags": [
+    { "name": "Auth", "description": "Registro e login" },
+    { "name": "Usuários", "description": "CRUD de usuários, protegido por JWT" }
+  ],
+  "paths": {
+    "/auth/registrar": {
+      "post": {
+        "operationId": "registrarUsuario",
+        "tags": ["Auth"],
+        "summary": "Registrar novo usuário",
+        "description": "Cria um novo usuário com senha criptografada. Endpoint público.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoUsuario" },
+              "example": { "nome": "Ana Silva", "email": "ana@exemplo.com", "senha": "senhaForte123" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Usuario" },
+                "example": { "id": 1, "nome": "Ana Silva", "email": "ana@exemplo.com", "criado_em": "2026-07-28T12:00:00Z" }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de validação",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "VALIDATION_ERROR", "message": "O campo 'email' é obrigatório." } }
+              }
+            }
+          },
+          "409": {
+            "description": "E-mail já cadastrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "EMAIL_IN_USE", "message": "Este e-mail já está cadastrado." } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "login",
+        "tags": ["Auth"],
+        "summary": "Login",
+        "description": "Valida as credenciais e retorna um token JWT. Endpoint público.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Credenciais" },
+              "example": { "email": "ana@exemplo.com", "senha": "senhaForte123" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login bem-sucedido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TokenResponse" },
+                "example": { "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." }
+              }
+            }
+          },
+          "401": {
+            "description": "Credenciais inválidas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "INVALID_CREDENTIALS", "message": "E-mail ou senha inválidos." } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "operationId": "listUsuarios",
+        "tags": ["Usuários"],
+        "summary": "Listar usuários",
+        "description": "Retorna todos os usuários cadastrados. Requer autenticação.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Usuario" } },
+                "example": [
+                  { "id": 1, "nome": "Ana Silva", "email": "ana@exemplo.com", "criado_em": "2026-07-28T12:00:00Z" }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token ausente ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "UNAUTHORIZED", "message": "Token ausente ou inválido." } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/{id}": {
+      "get": {
+        "operationId": "getUsuario",
+        "tags": ["Usuários"],
+        "summary": "Buscar usuário",
+        "description": "Retorna um único usuário pelo id. Requer autenticação.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "description": "Id do usuário", "schema": { "type": "integer" }, "example": 1 }
+        ],
+        "responses": {
+          "200": {
+            "description": "O usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Usuario" },
+                "example": { "id": 1, "nome": "Ana Silva", "email": "ana@exemplo.com", "criado_em": "2026-07-28T12:00:00Z" }
+              }
+            }
+          },
+          "401": {
+            "description": "Token ausente ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "UNAUTHORIZED", "message": "Token ausente ou inválido." } }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "NOT_FOUND", "message": "Usuário não encontrado." } }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "replaceUsuario",
+        "tags": ["Usuários"],
+        "summary": "Substituir usuário",
+        "description": "Substitui nome, e-mail e senha do usuário inteiro. Requer autenticação.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "description": "Id do usuário", "schema": { "type": "integer" }, "example": 1 }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NovoUsuario" },
+              "example": { "nome": "Ana Silva Souza", "email": "ana@exemplo.com", "senha": "outraSenhaForte" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Usuario" },
+                "example": { "id": 1, "nome": "Ana Silva Souza", "email": "ana@exemplo.com", "criado_em": "2026-07-28T12:00:00Z" }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de validação",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "VALIDATION_ERROR", "message": "O campo 'senha' é obrigatório." } }
+              }
+            }
+          },
+          "401": {
+            "description": "Token ausente ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "UNAUTHORIZED", "message": "Token ausente ou inválido." } }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "NOT_FOUND", "message": "Usuário não encontrado." } }
+              }
+            }
+          },
+          "409": {
+            "description": "E-mail já usado por outro usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "EMAIL_IN_USE", "message": "Este e-mail já está cadastrado." } }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateUsuario",
+        "tags": ["Usuários"],
+        "summary": "Atualizar parcialmente",
+        "description": "Atualiza apenas os campos enviados. Requer autenticação.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "description": "Id do usuário", "schema": { "type": "integer" }, "example": 1 }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AtualizarUsuario" },
+              "example": { "nome": "Ana S. Souza" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Usuario" },
+                "example": { "id": 1, "nome": "Ana S. Souza", "email": "ana@exemplo.com", "criado_em": "2026-07-28T12:00:00Z" }
+              }
+            }
+          },
+          "401": {
+            "description": "Token ausente ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "UNAUTHORIZED", "message": "Token ausente ou inválido." } }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "NOT_FOUND", "message": "Usuário não encontrado." } }
+              }
+            }
+          },
+          "409": {
+            "description": "E-mail já usado por outro usuário",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "EMAIL_IN_USE", "message": "Este e-mail já está cadastrado." } }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteUsuario",
+        "tags": ["Usuários"],
+        "summary": "Remover usuário",
+        "description": "Remove um usuário pelo id. Requer autenticação.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "description": "Id do usuário", "schema": { "type": "integer" }, "example": 1 }
+        ],
+        "responses": {
+          "204": { "description": "Usuário removido" },
+          "401": {
+            "description": "Token ausente ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "UNAUTHORIZED", "message": "Token ausente ou inválido." } }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "error": { "code": "NOT_FOUND", "message": "Usuário não encontrado." } }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "nome": { "type": "string", "example": "Ana Silva" },
+          "email": { "type": "string", "format": "email", "example": "ana@exemplo.com" },
+          "criado_em": { "type": "string", "format": "date-time", "example": "2026-07-28T12:00:00Z" }
+        },
+        "required": ["id", "nome", "email", "criado_em"]
+      },
+      "NovoUsuario": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "example": "Ana Silva" },
+          "email": { "type": "string", "format": "email", "example": "ana@exemplo.com" },
+          "senha": { "type": "string", "format": "password", "example": "senhaForte123" }
+        },
+        "required": ["nome", "email", "senha"]
+      },
+      "AtualizarUsuario": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string", "example": "Ana Silva" },
+          "email": { "type": "string", "format": "email", "example": "ana@exemplo.com" },
+          "senha": { "type": "string", "format": "password", "example": "senhaForte123" }
+        }
+      },
+      "Credenciais": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "format": "email", "example": "ana@exemplo.com" },
+          "senha": { "type": "string", "format": "password", "example": "senhaForte123" }
+        },
+        "required": ["email", "senha"]
+      },
+      "TokenResponse": {
+        "type": "object",
+        "properties": {
+          "token": { "type": "string", "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." }
+        },
+        "required": ["token"]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": { "type": "string", "example": "NOT_FOUND" },
+              "message": { "type": "string", "example": "Usuário não encontrado." }
+            },
+            "required": ["code", "message"]
+          }
+        },
+        "required": ["error"]
+      }
+    }
+  }
+}

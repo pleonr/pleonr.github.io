@@ -1,3 +1,10 @@
 node_modules
 .vitepress/dist
 .vitepress/cache
+
+# exemplos/
+exemplos/**/venv/
+exemplos/**/__pycache__/
+exemplos/**/*.db
+exemplos/**/.env
+exemplos/**/node_modules

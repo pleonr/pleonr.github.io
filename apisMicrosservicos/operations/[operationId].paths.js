@@ -1,5 +1,5 @@
 import { usePaths } from 'vitepress-openapi'
-import spec from '../../public/openapi-tarefas.json' with { type: 'json' }
+import spec from '../../public/openapi-usuarios.json' with { type: 'json' }
 
 export default {
   paths() {
@@ -9,7 +9,7 @@ export default {
         return {
           params: {
             operationId,
-            pageTitle: `${summary} - API de Tarefas`
+            pageTitle: `${summary} - API de Usuários`
           }
         }
       })

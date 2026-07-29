@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { useSidebar } from 'vitepress-openapi'
 import spec from '../public/openapi.json' with { type: 'json' }
-import tarefasSpec from '../public/openapi-tarefas.json' with { type: 'json' }
+import usuariosSpec from '../public/openapi-usuarios.json' with { type: 'json' }
 import alucard from './shiki-themes/alucard.json' with { type: 'json' }
 
 const openapiSidebar = useSidebar({
@@ -10,8 +10,8 @@ const openapiSidebar = useSidebar({
   linkPrefix: '/operations/'
 })
 
-const tarefasSidebar = useSidebar({
-  spec: tarefasSpec,
+const usuariosSidebar = useSidebar({
+  spec: usuariosSpec,
   linkPrefix: '/apisMicrosservicos/operations/'
 })
 
@@ -20,6 +20,7 @@ export default withMermaid(defineConfig({
   title: "Prof. Leon Blog",
   description: "Place to share content.",
   appearance: true,
+  srcExclude: ['exemplos/**'],
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]
   ],
@@ -195,12 +196,14 @@ export default withMermaid(defineConfig({
           { text: 'Aula 04: Documentação', link: '/apisMicrosservicos/documentacao' },
           { text: 'Aula 05: Node.js + Express', link: '/apisMicrosservicos/exemplo-node-express' },
           { text: 'Aula 06: Python + FastAPI', link: '/apisMicrosservicos/exemplo-python-fastapi' },
+          { text: 'Aula 07: Go + Gin', link: '/apisMicrosservicos/exemplo-golang-gin' },
+          { text: 'Aula 08: Elixir + Phoenix', link: '/apisMicrosservicos/exemplo-elixir-phoenix' },
           {
-            text: 'API de Tarefas (ao vivo)',
+            text: 'API de Usuários (ao vivo)',
             link: '/apisMicrosservicos/exemplos-api',
             collapsed: true,
             items: [
-              ...tarefasSidebar.generateSidebarGroups()
+              ...usuariosSidebar.generateSidebarGroups()
             ]
           }
         ]

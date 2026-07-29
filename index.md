@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Prof. Leon Blog"
   # text: "Place to share content."
-  tagline: Aqui você enccontra material auxiliar para nossas aulas.
+  tagline: Aqui você encontra material auxiliar para nossas aulas.
   image:
     src: /reading.png
     alt: Prof. Leon
