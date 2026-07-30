@@ -465,7 +465,7 @@ app.listen(PORT, () => {
 
 ## CORS: liberando o acesso do navegador
 
-Por padrão, o navegador **bloqueia** chamadas `fetch`/`XMLHttpRequest` feitas por JavaScript de uma origem (domínio + porta) diferente da origem do próprio servidor da API — é a política de **CORS** (*Cross-Origin Resource Sharing*). Sem o middleware acima, uma SPA rodando em `http://localhost:5173` que tenta chamar `http://localhost:3000/auth/registrar` recebe um erro no console como:
+Por padrão, o navegador **bloqueia** chamadas `fetch`/`XMLHttpRequest` feitas por JavaScript de uma origem (domínio + porta) diferente da origem do próprio servidor da API: é a política de **CORS** (*Cross-Origin Resource Sharing*). Sem o middleware acima, uma SPA rodando em `http://localhost:5173` que tenta chamar `http://localhost:3000/auth/registrar` recebe um erro no console como:
 
 ```
 Access to fetch at 'http://localhost:3000/auth/registrar' from origin 'http://localhost:5173'
@@ -473,10 +473,10 @@ has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is pres
 on the requested resource.
 ```
 
-O middleware `cors` resolve isso adicionando o header `Access-Control-Allow-Origin` (e respondendo automaticamente ao *preflight* `OPTIONS` que o navegador dispara antes de requisições com método/headers não triviais). A função `origin` acima consulta uma lista branca (`ALLOWED_ORIGINS`) em vez de liberar `*` para qualquer origem — importante porque `credentials: true` (necessário para enviar o header `Authorization`) não é compatível com um `Access-Control-Allow-Origin: *` genérico.
+O middleware `cors` resolve isso adicionando o header `Access-Control-Allow-Origin` (e respondendo automaticamente ao *preflight* `OPTIONS` que o navegador dispara antes de requisições com método/headers não triviais). A função `origin` acima consulta uma lista branca (`ALLOWED_ORIGINS`) em vez de liberar `*` para qualquer origem, importante porque `credentials: true` (necessário para enviar o header `Authorization`) não é compatível com um `Access-Control-Allow-Origin: *` genérico.
 
 ::: tip Requisições sem `Origin`
-`!origin` cobre chamadas que não têm o header `Origin`, como requisições feitas por `curl`, Postman ou por outro servidor — o navegador é o único que envia `Origin` e aplica CORS; ferramentas server-to-server nunca são bloqueadas por essa política.
+`!origin` cobre chamadas que não têm o header `Origin`, como requisições feitas por `curl`, Postman ou por outro servidor: o navegador é o único que envia `Origin` e aplica CORS; ferramentas server-to-server nunca são bloqueadas por essa política.
 :::
 
 ## Rodando e testando com `curl`

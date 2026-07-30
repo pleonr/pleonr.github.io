@@ -465,7 +465,7 @@ O mesmo problema da Aula 05 se aplica aqui: sem liberar CORS, uma SPA rodando em
 O `CORSMiddleware` do FastAPI é o equivalente direto do pacote `cors` do Express: `allow_origins` funciona como a lista branca (`ALLOWED_ORIGINS`) do exemplo em Node, `allow_credentials=True` libera o envio do header `Authorization` entre origens diferentes, e `allow_methods`/`allow_headers` abertos (`["*"]`) evitam ter que listar manualmente cada verbo HTTP e header customizado usado pela API.
 
 ::: tip `allow_origins` não aceita `"*"` com `allow_credentials=True`
-Assim como no Express, o navegador rejeita a combinação de um `Access-Control-Allow-Origin: *` genérico com `credentials: true`. Por isso `allow_origins` precisa ser uma lista explícita de origens quando `allow_credentials=True` está ativo — nunca um curinga.
+Assim como no Express, o navegador rejeita a combinação de um `Access-Control-Allow-Origin: *` genérico com `credentials: true`. Por isso `allow_origins` precisa ser uma lista explícita de origens quando `allow_credentials=True` está ativo, nunca um curinga.
 :::
 
 ## Rodando o servidor

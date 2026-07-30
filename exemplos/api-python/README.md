@@ -1,4 +1,4 @@
-# API de Usuários — Python + FastAPI
+# API de Usuários (Python + FastAPI)
 
 Implementação da API de cadastro de usuários com Python, FastAPI, SQLite (via `sqlite3` da biblioteca padrão) e autenticação JWT. Código completo e explicado passo a passo em [Aula 06](https://pleonr.github.io/apisMicrosservicos/exemplo-python-fastapi).
 
@@ -23,8 +23,8 @@ O servidor sobe em `http://localhost:8000`. Na primeira execução, um arquivo `
 
 Com o servidor rodando, o FastAPI gera documentação interativa (com botão "Authorize" para colar o token JWT):
 
-- `http://localhost:8000/docs` — Swagger UI
-- `http://localhost:8000/redoc` — Redoc
+- `http://localhost:8000/docs`: Swagger UI
+- `http://localhost:8000/redoc`: Redoc
 
 ## Variáveis de ambiente (opcionais)
 

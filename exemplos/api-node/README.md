@@ -1,4 +1,4 @@
-# API de Usuários — Node.js + Express
+# API de Usuários (Node.js + Express)
 
 Implementação da API de cadastro de usuários com Node.js, Express, SQLite (`better-sqlite3`) e autenticação JWT. Código completo e explicado passo a passo em [Aula 05](https://pleonr.github.io/apisMicrosservicos/exemplo-node-express).
 

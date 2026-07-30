@@ -1,6 +1,6 @@
 # Exemplos: API de Cadastro de Usuários
 
-Implementações **funcionais** da API de cadastro de usuários ensinada em [APIs e Microsserviços](https://pleonr.github.io/apisMicrosservicos/) (Aulas 05 e 06). As duas pastas implementam exatamente a mesma API — mesmas rotas, mesmos códigos de erro, mesmo banco SQLite em arquivo, mesma autenticação por JWT — em linguagens/frameworks diferentes, para comparação.
+Implementações **funcionais** da API de cadastro de usuários ensinada em [APIs e Microsserviços](https://pleonr.github.io/apisMicrosservicos/) (Aulas 05 e 06). As duas pastas implementam exatamente a mesma API (mesmas rotas, mesmos códigos de erro, mesmo banco SQLite em arquivo, mesma autenticação por JWT) em linguagens/frameworks diferentes, para comparação.
 
 - [`api-node/`](./api-node): Node.js + Express
 - [`api-python/`](./api-python): Python + FastAPI

@@ -482,7 +482,7 @@ func Login(c *gin.Context) {
 }
 ```
 
-Note o padrão repetido: em caso de erro, chamamos `c.Error(err)` e damos `return` — nunca escrevemos a resposta diretamente. Quem decide o status code e o corpo é sempre o `ErrorHandler`.
+Note o padrão repetido: em caso de erro, chamamos `c.Error(err)` e damos `return`, nunca escrevemos a resposta diretamente. Quem decide o status code e o corpo é sempre o `ErrorHandler`.
 
 ## Controller de usuários: CRUD
 

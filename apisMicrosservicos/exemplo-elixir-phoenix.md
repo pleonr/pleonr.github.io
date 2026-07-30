@@ -223,7 +223,7 @@ end
 
 `Bcrypt.no_user_verify()` executa um hash "de mentira" quando o e-mail não existe, gastando um tempo parecido com uma verificação real. Sem isso, um servidor responderia mais rápido para "e-mail não existe" do que para "senha errada", vazando (por *timing*) se um e-mail está cadastrado ou não.
 
-Todas as funções que podem falhar devolvem `{:ok, valor}` ou `{:error, motivo}` — essa convenção é o que permite ao `with` nos controllers (a seguir) e ao `action_fallback` tratarem qualquer erro de forma genérica.
+Todas as funções que podem falhar devolvem `{:ok, valor}` ou `{:error, motivo}`: essa convenção é o que permite ao `with` nos controllers (a seguir) e ao `action_fallback` tratarem qualquer erro de forma genérica.
 
 ## Middleware de autenticação: um `Plug`
 
@@ -325,7 +325,7 @@ action_fallback CadastroWeb.FallbackController
 ```
 
 ::: tip Por que o Plug de autenticação não usa o `action_fallback`?
-`action_fallback` só entra em ação depois que uma *action* do controller roda. O `Plug` de autenticação roda **antes** disso, então uma falha ali precisa responder e encerrar a conexão (`halt/1`) por conta própria — por isso ele chama `ErrorHelpers.send_error/4` diretamente, em vez de devolver `{:error, ...}` para um controller que nunca vai rodar. É a mesma tensão entre "middleware de rota" e "handler de erro central" que apareceu no Gin: o middleware de autenticação registra o problema, mas quem devolve a resposta final por regra é uma única função.
+`action_fallback` só entra em ação depois que uma *action* do controller roda. O `Plug` de autenticação roda **antes** disso, então uma falha ali precisa responder e encerrar a conexão (`halt/1`) por conta própria; por isso ele chama `ErrorHelpers.send_error/4` diretamente, em vez de devolver `{:error, ...}` para um controller que nunca vai rodar. É a mesma tensão entre "middleware de rota" e "handler de erro central" que apareceu no Gin: o middleware de autenticação registra o problema, mas quem devolve a resposta final por regra é uma única função.
 :::
 
 ```elixir
@@ -483,7 +483,7 @@ defmodule CadastroWeb.Router do
 end
 ```
 
-Uma `pipeline` é uma lista nomeada de plugs. `pipe_through [:api, :auth]` aplica as duas, na ordem, a todas as rotas do escopo `/usuarios` — o equivalente Phoenix do `router.use(auth)` do Express ou do `usuarios.Use(middlewares.Auth())` do Gin.
+Uma `pipeline` é uma lista nomeada de plugs. `pipe_through [:api, :auth]` aplica as duas, na ordem, a todas as rotas do escopo `/usuarios`: o equivalente Phoenix do `router.use(auth)` do Express ou do `usuarios.Use(middlewares.Auth())` do Gin.
 
 ## Rodando e testando com `curl`
 
@@ -518,7 +518,7 @@ curl -X DELETE http://localhost:4000/usuarios/1 \
 ```
 
 ::: tip Comparando as quatro implementações
-Em todas as quatro linguagens, a mesma ideia se repete sob nomes diferentes: uma camada de acesso a dados isolada (model / model + Pydantic / model / context+schema), uma etapa transversal que valida o token antes da rota (middleware / dependência / middleware / plug), e um único lugar que decide o formato de qualquer resposta de erro (middleware de 4 argumentos / exception handlers / middleware que lê `c.Errors` / `action_fallback`). Nenhuma arquitetura é "mais MVC" que a outra — cada framework só escolheu um nome e uma sintaxe diferentes para o mesmo conjunto de responsabilidades.
+Em todas as quatro linguagens, a mesma ideia se repete sob nomes diferentes: uma camada de acesso a dados isolada (model / model + Pydantic / model / context+schema), uma etapa transversal que valida o token antes da rota (middleware / dependência / middleware / plug), e um único lugar que decide o formato de qualquer resposta de erro (middleware de 4 argumentos / exception handlers / middleware que lê `c.Errors` / `action_fallback`). Nenhuma arquitetura é "mais MVC" que a outra; cada framework só escolheu um nome e uma sintaxe diferentes para o mesmo conjunto de responsabilidades.
 :::
 
 ::: warning Isso é um exemplo didático

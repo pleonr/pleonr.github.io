@@ -1,6 +1,6 @@
 ---
 name: site-maintainer
-description: Use this agent for VitePress site upkeep in this blog repo — adding new pages to the nav/sidebar in .vitepress/config.mjs, checking internal links resolve, and verifying the site builds after content or config changes. Invoke proactively after any new .md page is added or config.mjs is touched.
+description: Use this agent for VitePress site upkeep in this blog repo (adding new pages to the nav/sidebar in .vitepress/config.mjs, checking internal links resolve, and verifying the site builds after content or config changes). Invoke proactively after any new .md page is added or config.mjs is touched.
 tools: Read, Edit, Grep, Glob, Bash
 model: sonnet
 ---
