@@ -30,9 +30,9 @@ title: "Sistemas Distribuídos: 02"
 </div>
 
 ::: details O ENIAC
-Criado pelos engenheiros John Eckert e John Mauchly na Universidade da Pensilvânia durante os anos de 1937-1943, o ENIAC tinha como objetivo principal computar dados balísticos de artilharia em altas velocidades para ajudar as tropas aliadas na Segunda Guerra Mundial. No entanto, o ENIAC só foi concluído após o fim da guerra, sendo então utilizado nos primeiros anos da Guerra Fria, tendo contribuído para o projeto da bomba de hidrogênio.
+Criado pelos engenheiros John Eckert e John Mauchly na Universidade da Pensilvânia começou a ser construído em 1943 e iniciou suas atividades em 1946, o ENIAC tinha como objetivo principal computar dados balísticos de artilharia em altas velocidades para ajudar as tropas aliadas na Segunda Guerra Mundial. No entanto, o ENIAC só foi concluído após o fim da guerra, sendo então utilizado nos primeiros anos da Guerra Fria, tendo contribuído para o projeto da bomba de hidrogênio.
 
-O ENIAC pesava cerca de 30 toneladas e ocupava cerca de 180m², era tão grande que tinha de ser disposto em U com três painéis sobre rodas, para que os operadores pudessem se mover em torno dele. Foram gastos cerca de US$ 500.000,00 em sua construção.
+O ENIAC pesava cerca de 30 toneladas e ocupava cerca de 140m²/170m², era tão grande que tinha de ser disposto em U com três painéis sobre rodas, para que os operadores pudessem se mover em torno dele. Foram gastos cerca de US$ 500.000,00 em sua construção.
 :::
 
 ## Evolução

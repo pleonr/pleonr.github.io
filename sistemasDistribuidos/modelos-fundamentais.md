@@ -42,7 +42,7 @@ Nos sistemas distribuídos, cada computador possui seu próprio relógio interno
 - Esse desvio ao longo do tempo é chamado de ***drift***, a taxa na qual um relógio local se desvia de um relógio ideal e preciso.
 
 ::: details Um incidente real de sincronização
-Na noite de 30 de junho para 1º de julho de 2012, na Inglaterra, muitos serviços online e sistemas ao redor do mundo falharam simultaneamente. Servidores travaram e pararam de responder; algumas linhas aéreas não conseguiam processar reservas ou entradas e saídas por várias horas, e voos ficaram parados. O incidente ficou associado à introdução de um *leap second* naquele dia, que expôs bugs de sincronização em diversos sistemas.
+Na noite de 30 de junho para 1º de julho de 2012, muitos serviços online e sistemas ao redor do mundo falharam simultaneamente. Servidores travaram e pararam de responder; algumas linhas aéreas não conseguiam processar reservas ou entradas e saídas por várias horas, e voos ficaram parados. O incidente ficou associado à introdução de um *leap second* naquele dia, que expôs bugs de sincronização em diversos sistemas.
 :::
 
 Relógios são utilizados para medir tempo em sistemas distribuídos: agendamentos, *timeouts*, detecção de falhas, *retry*, performance e estatística, logs (gravar quando um evento ocorreu), validação de datas e tempo (cache).
