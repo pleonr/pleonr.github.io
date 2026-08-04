@@ -529,6 +529,6 @@ O segredo do JWT está fixo no código só para facilitar o teste local; em prod
 
 ---
 
-Isso conclui a série de **APIs e Microsserviços**. Para aprofundar em comunicação entre serviços, consistência de dados e tolerância a falhas, veja a seção [Sistemas Distribuídos](/sistemasDistribuidos/).
+**Próxima página:** [Aula 09: SOLID Aplicado a APIs →](/apisMicrosservicos/solid-apis)
 
 <style scoped src="./shared.css"></style>

@@ -44,7 +44,7 @@ Esta seção reúne o material sobre APIs e microsserviços: o que são, os dife
 <h4>Aula 05: Exemplo Prático: Node.js + Express</h4>
 <p>Construindo uma API de cadastro de usuários com Node.js e Express: arquitetura em camadas, SQLite, autenticação JWT e middleware de tratamento de erros.</p>
 
-[Ver conteúdo →](/apisMicrosservicos/exemplo-node-express)
+[Ver conteúdo →](/apisMicrosservicos/exemplo-node-express) · [Baixar projeto (.zip) ↓](/apisMicrosservicos/api-node.zip)
 
 </div>
 
@@ -52,7 +52,7 @@ Esta seção reúne o material sobre APIs e microsserviços: o que são, os dife
 <h4>Aula 06: Exemplo Prático: Python + FastAPI</h4>
 <p>A mesma API de usuários, agora em Python com FastAPI: validação automática com Pydantic, autenticação via dependências e handlers de exceção globais.</p>
 
-[Ver conteúdo →](/apisMicrosservicos/exemplo-python-fastapi)
+[Ver conteúdo →](/apisMicrosservicos/exemplo-python-fastapi) · [Baixar projeto (.zip) ↓](/apisMicrosservicos/api-python.zip)
 
 </div>
 
@@ -69,6 +69,22 @@ Esta seção reúne o material sobre APIs e microsserviços: o que são, os dife
 <p>A mesma API de usuários, agora em Elixir com Phoenix: contexts e Ecto como "M", um Plug de autenticação e action_fallback como middleware de erros.</p>
 
 [Ver conteúdo →](/apisMicrosservicos/exemplo-elixir-phoenix)
+
+</div>
+
+<div class="prop-card highlight-card">
+<h4>Aula 09: SOLID Aplicado a APIs</h4>
+<p>Os cinco princípios SOLID traduzidos para as camadas de uma API: rotas, controllers, services e acesso a dados, com exemplos tirados da própria API construída na Aula 05.</p>
+
+[Ver conteúdo →](/apisMicrosservicos/solid-apis)
+
+</div>
+
+<div class="prop-card highlight-card">
+<h4>Aula 10: Refatorando a API Node.js para SOLID</h4>
+<p>Tutorial prático: pegamos a API Node.js/Express da Aula 05 e refatoramos, arquivo por arquivo, aplicando cada princípio SOLID — o que muda, e por quê.</p>
+
+[Ver conteúdo →](/apisMicrosservicos/solid-refatoracao-node)
 
 </div>
 
