@@ -14,7 +14,10 @@
       "Bash(curl -s -o /tmp/reg.json -w '%{http_code}\\\\n' -X POST http://localhost:8000/auth/registrar -H 'Content-Type: application/json' -d '{\"nome\": \"Ana Silva\", \"email\": \"ana@exemplo.com\", \"senha\": \"senhaForte123\"}')",
       "Bash(curl -s -o /tmp/login.json -w '%{http_code}\\\\n' -X POST http://localhost:8000/auth/login -H 'Content-Type: application/json' -d '{\"email\": \"ana@exemplo.com\", \"senha\": \"senhaForte123\"}')",
       "Bash(python3 -c \"import json;print\\(json.load\\(open\\('/tmp/login.json'\\)\\)['token']\\)\")",
-      "Bash(curl -s -o /tmp/list.json -w '%{http_code}\\\\n' http://localhost:8000/usuarios -H 'Authorization: Bearer __TRACKED_VAR__')"
+      "Bash(curl -s -o /tmp/list.json -w '%{http_code}\\\\n' http://localhost:8000/usuarios -H 'Authorization: Bearer __TRACKED_VAR__')",
+      "Bash(pkill -f \"vitepress preview\")",
+      "Bash(pkill -f \"docs:preview\")",
+      "Bash(jobs -l)"
     ]
   }
 }
