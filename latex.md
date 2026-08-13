@@ -237,6 +237,113 @@ Etiam lobortis facilisis sem...
 \end{document}
 ```
 
+### Tabelas
+
+Tabelas são criadas com o ambiente `tabular`, dentro de um ambiente `table` que permite adicionar legenda e posicionamento automático. O argumento `{|c|c|c|}` define o número de colunas, o alinhamento (`l`, `c`, `r`, para esquerda, centro e direita) e as bordas verticais (`|`):
+
+```latex
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|c|r|}
+    \hline
+    Nome & Idade & Cidade \\
+    \hline
+    Ana & 23 & São Paulo \\
+    Bruno & 31 & Recife \\
+    \hline
+  \end{tabular}
+  \caption{Exemplo de tabela simples.}
+  \label{tab:exemplo}
+\end{table}
+```
+
+O comando `\hline` desenha uma linha horizontal, e `&` separa as colunas dentro de uma linha. Para tabelas mais elaboradas (linhas mescladas, larguras fixas, cores), pacotes como `booktabs`, `multirow` e `colortbl` são os mais utilizados.
+
+### Imagens e figuras
+
+Para incluir imagens é necessário o pacote `graphicx`, apresentado anteriormente. O comando `\includegraphics` insere a imagem, e o ambiente `figure` permite adicionar legenda, rótulo e controlar o posicionamento:
+
+```latex
+\usepackage{graphicx}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{exemplo.png}
+  \caption{Legenda da figura.}
+  \label{fig:exemplo}
+\end{figure}
+```
+
+O parâmetro `[h]` (*here*) sugere ao LaTeX que a figura seja posicionada aproximadamente onde aparece no código-fonte. Outras opções comuns são `t` (topo da página), `b` (fim da página) e `p` (página própria para flutuantes).
+
+### Referências cruzadas
+
+O LaTeX numera automaticamente seções, figuras, tabelas e equações, e permite referenciá-las no texto sem precisar atualizar os números manualmente. Isso é feito com o par `\label{...}` / `\ref{...}`:
+
+```latex
+\section{Introdução}
+\label{sec:intro}
+
+Como discutido na Seção~\ref{sec:intro}, o LaTeX simplifica...
+
+Veja a Tabela~\ref{tab:exemplo} e a Figura~\ref{fig:exemplo} para mais detalhes.
+```
+
+O `\label` deve ser colocado logo após o comando que numera o elemento (`\section`, `\caption`, etc.), e o `\ref` é substituído pelo número correspondente na compilação. É comum ser necessário compilar o documento duas vezes para que as referências sejam atualizadas corretamente.
+
+### Bibliografia
+
+Para citar fontes e gerar uma lista de referências, o mais usado atualmente é o pacote `biblatex` junto ao backend `biber`. Primeiro, cria-se um arquivo `.bib` com as entradas, por exemplo `referencias.bib`:
+
+```bibtex
+@book{lamport1994latex,
+  author    = {Lamport, Leslie},
+  title     = {LaTeX: A Document Preparation System},
+  year      = {1994},
+  publisher = {Addison-Wesley},
+}
+```
+
+No preâmbulo do documento, carrega-se o pacote apontando para esse arquivo, e o comando `\cite` é usado para citar uma entrada pela sua chave:
+
+```latex
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{referencias.bib}
+
+\begin{document}
+O LaTeX foi documentado por Lamport \cite{lamport1994latex}.
+
+\printbibliography
+\end{document}
+```
+
+O comando `\printbibliography` insere a lista de referências formatada de acordo com o `style` escolhido (`numeric`, `authoryear`, `abnt`, entre outros). Diferente do `\ref`, que exige recompilação, a bibliografia normalmente exige rodar o `biber` (ou `bibtex`) entre as compilações do `.tex`, algo que editores como o Overleaf e o TeXstudio fazem automaticamente.
+
+### Comandos personalizados
+
+Quando um trecho de código se repete com frequência, é comum criar um comando próprio com `\newcommand`, o que evita repetição e facilita alterações futuras:
+
+```latex
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+\begin{document}
+Seja $x \in \R$ e $\vect{v}$ um vetor qualquer.
+\end{document}
+```
+
+O primeiro argumento de `\newcommand` é o nome do novo comando, e o segundo (opcional, entre colchetes) indica quantos parâmetros ele recebe, referenciados como `#1`, `#2` etc. dentro da definição.
+
+### Erros comuns
+
+Alguns problemas aparecem com frequência para quem está começando com LaTeX:
+
+- **Ambiente não fechado**: todo `\begin{ambiente}` precisa de um `\end{ambiente}` correspondente. O erro `\begin{document} ended by \end{...}` geralmente indica um ambiente aberto e não fechado antes dele.
+- **Caractere especial não escapado**: símbolos como `%`, `&`, `#`, `_` e `$` têm significado especial no LaTeX. Para usá-los como texto literal, é preciso escapá-los com uma barra invertida, por exemplo `\%`, `\&`, `\_`.
+- **Pacote ausente**: ao usar um comando de um pacote que não foi carregado com `\usepackage`, o compilador gera um erro de comando indefinido (`Undefined control sequence`).
+- **Referências desatualizadas**: números de seções, figuras e citações só são atualizados após uma nova compilação (às vezes duas ou três, quando há bibliografia envolvida).
+- **Imagem não encontrada**: o caminho passado a `\includegraphics` é relativo ao arquivo `.tex` principal; um erro comum é referenciar o caminho a partir da raiz do projeto.
+
 ### Templates
 
 Seguem alguns templates de documento para apresentações, conferências ou publicação.
