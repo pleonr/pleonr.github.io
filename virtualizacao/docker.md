@@ -115,7 +115,18 @@ O `Dockerfile` é o ponto de entrada de um container Docker: é onde a imagem e 
 - `COPY`: copia arquivos do sistema de arquivos host para o sistema de arquivos do container.
 - `RUN`: executa comandos no container durante o processo de build.
 - `EXPOSE`: informa qual porta o serviço do container vai escutar.
-- `CMD`: define o comando padrão que será executado quando o contêiner for iniciado. Diferente de `RUN`, que é executado durante o build, `CMD` é executado quando o contêiner já está rodando.
+- `USER`: define qual usuário executa os comandos seguintes e o processo final do container.
+- `CMD`: define o comando padrão (ou os argumentos padrão) que será executado quando o contêiner for iniciado. Diferente de `RUN`, que é executado durante o build, `CMD` é executado quando o contêiner já está rodando.
+- `ENTRYPOINT`: define o processo principal do container, que não é sobrescrito ao passar argumentos no `docker run`. Quando usado junto com `CMD`, os valores de `CMD` são passados como argumentos padrão do `ENTRYPOINT` (mas podem ser substituídos na linha de comando).
+
+::: warning Rodando como root
+Por padrão, se `USER` não for definido, o processo do container roda como **root**. Isso é um risco de segurança: se um invasor conseguir executar código dentro do container, ele terá privilégios de root ali (e, em cenários de má configuração, pode até escalar para o host). Sempre que possível, crie um usuário sem privilégios e use `USER` antes do `CMD`/`ENTRYPOINT`:
+
+```dockerfile
+RUN useradd -m appuser
+USER appuser
+```
+:::
 
 ```dockerfile
 FROM ubuntu:latest
@@ -205,6 +216,26 @@ dist/
 build/
 ```
 
+### Multi-stage build
+
+Um Dockerfile pode ter várias instruções `FROM`, cada uma iniciando um **estágio**. Isso permite compilar a aplicação em um estágio com todas as ferramentas de build, e copiar apenas o resultado final para uma imagem final enxuta — sem compiladores, código-fonte ou dependências de build.
+
+```dockerfile
+# Estágio 1: build
+FROM node:20 AS build
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
+
+# Estágio 2: imagem final
+FROM node:20-slim
+WORKDIR /app
+COPY --from=build /app/dist ./dist
+CMD ["node", "dist/index.js"]
+```
+
+A instrução `COPY --from=build` copia arquivos do estágio nomeado `build` para o estágio atual. O resultado é uma imagem final muito menor, já que ferramentas de build (compiladores, `node_modules` de desenvolvimento, etc.) não fazem parte dela. É possível também parar em um estágio específico com `docker build --target build .`.
+
 ### Docker run
 
 O comando `docker run` é usado para executar um container a partir de uma imagem Docker.
@@ -290,11 +321,11 @@ docker run -d \
 Podemos fazer e restaurar backups diretamente do host:
 
 ```bash
-docker exec -t postgres-container pg_dump -U meuusuario meubanco > backup.sql
+docker exec -t postgres-container pg_dump -U postgres -d meubanco > backup.sql
 ```
 
 ```bash
-cat backup.sql | docker exec -i postgres-container psql -U meuusuario -d meubanco
+cat backup.sql | docker exec -i postgres-container psql -U postgres -d meubanco
 ```
 
 ### Redes no Docker
@@ -323,6 +354,13 @@ docker run -d --name meu_app -p 8080:80 nginx
 O container `meu_app` escuta na porta 80 internamente, enquanto o host escuta na porta 8080 e redireciona para o container. Os containers podem se comunicar pelo nome: o DNS interno do Docker resolve `container1`.
 :::
 
+Para criar uma rede personalizada (por exemplo, para isolar um grupo de containers e permitir que eles se resolvam pelo nome):
+
+```bash
+docker network create minha-rede
+docker run -d --name api --network minha-rede minha-imagem
+```
+
 ## Docker Compose
 
 O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações multi-container no Docker. Ele permite que você defina todos os serviços, redes e volumes de sua aplicação em um arquivo YAML `docker-compose.yml`.
@@ -337,7 +375,6 @@ docker compose up --build
 Exemplo de um `docker-compose.yaml`:
 
 ```yaml
-version: '3.8'
 services:
   api:
     build: .
@@ -351,7 +388,8 @@ services:
       - DB_PASSWORD=${POSTGRES_PASSWORD}
       - DB_NAME=api
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - api-network
 
@@ -362,8 +400,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: api
-    ports:
-      - "5000:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -375,6 +416,14 @@ networks:
 volumes:
   postgres-data:
 ```
+
+::: tip `version` não é mais necessário
+No Compose v2, a chave `version` no topo do arquivo é obsoleta (gera um aviso e é ignorada) — a versão do schema é detectada automaticamente. Pode ser omitida.
+:::
+
+::: tip Por que não publicar a porta do Postgres no host?
+O serviço `postgres` não precisa de `ports` no host: como `api` e `postgres` estão na mesma rede `api-network`, a API já acessa o banco pelo nome do serviço (`DB_HOST=postgres`) sem precisar publicar `5432` para fora do container. Expor a porta do banco no host é uma superfície de ataque desnecessária — só faça isso se precisar acessar o banco diretamente da máquina host (ex: com um cliente SQL local).
+:::
 
 | Seção | Campo | Valor / Descrição | Explicação |
 | --- | --- | --- | --- |
@@ -388,13 +437,13 @@ volumes:
 | | | `DB_USER=postgres` | Usuário do banco |
 | | | `DB_PASSWORD=${POSTGRES_PASSWORD}` | Senha vinda do arquivo `.env` |
 | | | `DB_NAME=api` | Nome do banco |
-| | `depends_on` | `postgres` | Garante que o container do banco suba antes da API (mas não espera o banco estar pronto) |
+| | `depends_on` | `postgres: condition: service_healthy` | Só sobe a API depois que o `healthcheck` do banco reportar sucesso (e não apenas que o container iniciou) |
 | | `networks` | `api-network` | Conecta a API à rede privada do Compose para comunicação entre containers |
 | `services` | `postgres` | Serviço do banco de dados PostgreSQL | |
 | | `image` | `postgres:16` | Usa a imagem oficial do PostgreSQL versão 16 |
 | | `container_name` | `postgres-db` | Nome fixo do container do banco |
 | | `environment` | - | Define variáveis internas do PostgreSQL para criar o usuário, banco e senha |
-| | `ports` | `"5000:5432"` | Mapeia a porta 5432 do banco para a porta 5000 do host |
+| | `healthcheck` | `pg_isready -U postgres` | Verifica periodicamente se o banco já está pronto para aceitar conexões |
 | | `volumes` | `postgres-data:/var/lib/postgresql/data` | Volume persistente para armazenar os dados do banco |
 | | `networks` | `api-network` | Mesmo que a API: permite comunicação privada entre containers |
 | `networks` | `api-network` | `driver: bridge` | Cria uma rede virtual isolada para os serviços |
@@ -497,7 +546,7 @@ sudo systemctl stop docker
 Reinicia todos os containers de um docker-compose:
 
 ```shell
-docker-compose restart
+docker compose restart
 ```
 
 #### Deletar containers
@@ -505,15 +554,25 @@ docker-compose restart
 ```shell
 docker stop <container-id>
 docker rm <container-id>
-
-docker rm -f $(docker ps -a -q)
 ```
 
+::: warning Cuidado: comando destrutivo
+O comando abaixo remove **à força todos os containers** da máquina, parados ou em execução, sem pedir confirmação individual:
+
+```shell
+docker rm -f $(docker ps -a -q)
+```
+:::
+
 #### Deletar os volumes
+
+::: warning Cuidado: comando destrutivo e irreversível
+O comando abaixo remove **todos os volumes** não utilizados por nenhum container em execução — isso inclui dados persistentes como bancos de dados. Não há como desfazer.
 
 ```shell
 docker volume rm $(docker volume ls -q)
 ```
+:::
 
 :::
 
