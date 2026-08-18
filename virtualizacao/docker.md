@@ -218,7 +218,7 @@ build/
 
 ### Multi-stage build
 
-Um Dockerfile pode ter várias instruções `FROM`, cada uma iniciando um **estágio**. Isso permite compilar a aplicação em um estágio com todas as ferramentas de build, e copiar apenas o resultado final para uma imagem final enxuta — sem compiladores, código-fonte ou dependências de build.
+Um Dockerfile pode ter várias instruções `FROM`, cada uma iniciando um **estágio**. Isso permite compilar a aplicação em um estágio com todas as ferramentas de build, e copiar apenas o resultado final para uma imagem final enxuta, sem compiladores, código-fonte ou dependências de build.
 
 ```dockerfile
 # Estágio 1: build
