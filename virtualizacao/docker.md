@@ -361,6 +361,61 @@ docker network create minha-rede
 docker run -d --name api --network minha-rede minha-imagem
 ```
 
+## Dockerfile: exemplo de API
+
+Antes de orquestrar a API junto com o PostgreSQL via Docker Compose, precisamos do `Dockerfile` da própria API. Abaixo estão dois exemplos equivalentes, um em Node.js e outro em Python. Aplicando as boas práticas vistas até aqui: multi-stage build, imagem `slim` e execução com um usuário sem privilégios.
+
+### Node.js
+
+```dockerfile
+# Estágio 1: instala dependências
+FROM node:20-slim AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+
+# Estágio 2: imagem final, enxuta
+FROM node:20-slim
+WORKDIR /app
+ENV NODE_ENV=production
+
+RUN useradd -m appuser
+COPY --from=build /app/package*.json ./
+RUN npm ci --omit=dev
+COPY --from=build /app .
+
+USER appuser
+EXPOSE 3000
+CMD ["node", "index.js"]
+```
+
+### Python
+
+```dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+
+RUN useradd -m appuser
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+
+USER appuser
+EXPOSE 3000
+CMD ["python", "app.py"]
+```
+
+::: tip Frameworks Python
+Se a API usa um framework como Flask ou FastAPI, prefira rodar com um servidor WSGI/ASGI de produção em vez de `python app.py` diretamente. Por exemplo, com Gunicorn:
+
+```dockerfile
+CMD ["gunicorn", "-b", "0.0.0.0:3000", "app:app"]
+```
+:::
+
+Com o `Dockerfile` pronto na pasta da API, podemos seguir para o `docker-compose.yaml`.
+
 ## Docker Compose
 
 O Docker Compose é uma ferramenta que facilita a definição e o gerenciamento de aplicações multi-container no Docker. Ele permite que você defina todos os serviços, redes e volumes de sua aplicação em um arquivo YAML `docker-compose.yml`.
@@ -372,7 +427,29 @@ docker compose up --build
 # ou: docker compose down
 ```
 
-Exemplo de um `docker-compose.yaml`:
+Vamos começar com um exemplo simples, usando SQLite, um banco de dados em arquivo, sem necessidade de um serviço separado:
+
+```yaml
+services:
+  api:
+    build: .
+    container_name: api
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_PATH=/app/data/api.sqlite3
+    volumes:
+      - sqlite-data:/app/data
+
+volumes:
+  sqlite-data:
+```
+
+::: tip SQLite não precisa de um serviço próprio
+Diferente do Postgres, o SQLite não roda como um processo separado: o banco é apenas um arquivo dentro do container. Por isso, basta montar um volume para persistir esse arquivo — sem `depends_on`, `healthcheck` ou rede dedicada.
+:::
+
+Para um cenário mais robusto, com um banco de dados dedicado rodando em seu próprio container, podemos usar o PostgreSQL:
 
 ```yaml
 services:
