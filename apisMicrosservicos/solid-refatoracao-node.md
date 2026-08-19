@@ -510,6 +510,6 @@ O que mudou é só a organização interna. Isso, por si só, já é uma verific
 
 ---
 
-Isso conclui a série de **APIs e Microsserviços**. Para aprofundar em comunicação entre serviços, consistência de dados e tolerância a falhas, veja a seção [Sistemas Distribuídos](/sistemasDistribuidos/).
+**Próxima página:** [Aula 11: Testes Automatizados na API Node.js →](/apisMicrosservicos/testes-node)
 
 <style scoped src="./shared.css"></style>

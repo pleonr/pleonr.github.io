@@ -200,6 +200,7 @@ export default withMermaid(defineConfig({
           { text: 'Aula 08: Elixir + Phoenix', link: '/apisMicrosservicos/exemplo-elixir-phoenix' },
           { text: 'Aula 09: SOLID Aplicado a APIs', link: '/apisMicrosservicos/solid-apis' },
           { text: 'Aula 10: Refatorando para SOLID', link: '/apisMicrosservicos/solid-refatoracao-node' },
+          { text: 'Aula 11: Testes Automatizados', link: '/apisMicrosservicos/testes-node' },
           {
             text: 'API de Usuários (ao vivo)',
             link: '/apisMicrosservicos/exemplos-api',

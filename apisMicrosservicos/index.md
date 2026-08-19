@@ -89,6 +89,14 @@ Esta seção reúne o material sobre APIs e microsserviços: o que são, os dife
 </div>
 
 <div class="prop-card highlight-card">
+<h4>Aula 11: Testes Automatizados na API Node.js</h4>
+<p>Testes unitários dos services com fakes (o retorno do investimento da Aula 10) e testes de integração HTTP com Vitest + Supertest sobre a API completa.</p>
+
+[Ver conteúdo →](/apisMicrosservicos/testes-node)
+
+</div>
+
+<div class="prop-card highlight-card">
 <h4>API de Usuários (ao vivo)</h4>
 <p>Documentação OpenAPI interativa da API de cadastro de usuários. Rode a implementação de qualquer uma das quatro aulas localmente e teste cada endpoint (incluindo os protegidos por JWT) direto pelo navegador, com um painel "Try it out".</p>
 
